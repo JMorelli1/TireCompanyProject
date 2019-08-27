@@ -16,39 +16,39 @@ This will clone the repository over to NetBeans as a web app and it should just 
 
 Git Controls -> you can get to this list by typing "git" into the cmd once Git is installed
 
-start a working area (see also: git help tutorial)
-   clone     Clone a repository into a new directory
-   init      Create an empty Git repository or reinitialize an existing one
+start a working area<br />
+   clone: Clone a repository into a new directory<br />
+   init:      Create an empty Git repository or reinitialize an existing one<br />
 
-work on the current change (see also: git help everyday)
-   add       Add file contents to the index
-   mv        Move or rename a file, a directory, or a symlink
-   restore   Restore working tree files
-   rm        Remove files from the working tree and from the index
+work on the current change (see also: git help everyday)<br />
+   add :      Add file contents to the index<br />
+   mv    :    Move or rename a file, a directory, or a symlink<br />
+   restore:   Restore working tree files<br />
+   rm      :  Remove files from the working tree and from the index<br />
 
-examine the history and state (see also: git help revisions)
-   bisect    Use binary search to find the commit that introduced a bug
-   diff      Show changes between commits, commit and working tree, etc
-   grep      Print lines matching a pattern
-   log       Show commit logs
-   show      Show various types of objects
-   status    Show the working tree status
+examine the history and state (see also: git help revisions)<br />
+   bisect   : Use binary search to find the commit that introduced a bug<br />
+   diff     : Show changes between commits, commit and working tree, etc<br />
+   grep     : Print lines matching a pattern<br />
+   log      : Show commit logs<br />
+   show     : Show various types of objects<br />
+   status   : Show the working tree status<br />
 
-grow, mark and tweak your common history
-   branch    List, create, or delete branches
-   commit    Record changes to the repository
-   merge     Join two or more development histories together
-   rebase    Reapply commits on top of another base tip
-   reset     Reset current HEAD to the specified state
-   switch    Switch branches
-   tag       Create, list, delete or verify a tag object signed with GPG
+grow, mark and tweak your common history<br />
+   branch   : List, create, or delete branches<br />
+   commit   : Record changes to the repository<br />
+   merge    : Join two or more development histories together<br />
+   rebase   : Reapply commits on top of another base tip<br />
+   reset    : Reset current HEAD to the specified state<br />
+   switch   : Switch branches<br />
+   tag      : Create, list, delete or verify a tag object signed with GPG<br />
 
-collaborate (see also: git help workflows)
-   fetch     Download objects and refs from another repository
-   pull      Fetch from and integrate with another repository or a local branch
-   push      Update remote refs along with associated objects
+collaborate (see also: git help workflows)<br />
+   fetch    : Download objects and refs from another repository<br />
+   pull     : Fetch from and integrate with another repository or a local branch<br />
+   push     : Update remote refs along with associated objects<br />
    
-   **All commands are used with "git" before such as : git commit -m or git fetch etc.
+   **All commands are used with "git" before such as : git commit -m or git fetch etc.<br />
    
 When making changes you should first create a new branch of master and then work on the file (this can be done in Github or in the cmd)
 Use the fetch command to update the local git list then use the checkout command to move and access the new branch
