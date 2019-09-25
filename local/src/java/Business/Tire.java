@@ -5,11 +5,8 @@
  ***********************************************************************************/
 package Business;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /************************************************************************************
  * Tire Class. Requires 0 or 7 parameters. Purpose: Complete database tasks
@@ -25,7 +22,7 @@ public class Tire {
     private String stockID;
     private String vehicleType;
     private String sql;
-    private DBAccess db = new DBAccess();
+    private final DBAccess db = new DBAccess();
     
 
  /************************************************************************************
@@ -135,7 +132,7 @@ public class Tire {
  * @param tireID
  ***********************************************************************************/
     
-    public void selectDB(String tireID){
+    public void selectTire(String tireID){
         
         sql = "SELECT * FROM Tire WHERE TireID = " + tireID;
         ResultSet resultSet = db.SelectDB(sql);
@@ -162,7 +159,7 @@ public class Tire {
  * Inserts the given parameters into the Tire table of the 
  * database. 
  ***********************************************************************************/ 
-    public void insertDB() {
+    public void insertTire() {
         
         sql = "Insert into Tire (TireID, TireType, TireSize, Brand, Stock, Price, VehicleType) VALUES ('"+getStockID()+"', '" +getType()+ "', '" +getSize()+ "', '" +getBrand()+ "', '" +getStock()+ "', '" +getPrice()+ "', '" +getVehicleType()+ "')";
         db.InsertDB(sql);
@@ -174,9 +171,9 @@ public class Tire {
  * Tire table in  based on the current values of class 
  * properties.
  ***********************************************************************************/ 
-    public void updateDB() {        
+    public void updateTire() {        
         
-        sql = "UPDATE Dentists set " + "TireType='"+getType()+"'," + " TireSize='"+getSize()+"'," + " Brand='"+getBrand()+"'," + " Stock='"+getStock()+"'," + " Price='"+getPrice()+"'," + " VehicleType='"+getVehicleType()+"'" + " WHERE TireID= '" + getStockID()+"'";
+        sql = "UPDATE Tire set " + "TireType='"+getType()+"'," + " TireSize='"+getSize()+"'," + " Brand='"+getBrand()+"'," + " Stock='"+getStock()+"'," + " Price='"+getPrice()+"'," + " VehicleType='"+getVehicleType()+"'" + " WHERE TireID= '" + getStockID()+"'";
         db.updateDB(sql);
     }
 /************************************************************************************
@@ -184,7 +181,7 @@ public class Tire {
  * an row from the Tire Table based on current class
  * property values.
  ***********************************************************************************/ 
-    public void deleteDB() {
+    public void deleteTire() {
         
             sql = "Delete from Tire where TireID = '" + getStockID() + "'";
             db.deleteDB(sql);
@@ -194,7 +191,7 @@ public class Tire {
         String test_va = "412";
         Tire test = new Tire();
         //Tire test = new Tire("412", "Passenger", "123/60-R15", "Kumho", "12", "71.00", "Jeep");
-        test.selectDB(test_va);
+        test.selectTire(test_va);
         //test.insertDB();
 
         test.display();
@@ -202,5 +199,6 @@ public class Tire {
         //test.setPrice("3001");
         //test.updateDB();
         //test.deleteDB();
+        
     }
 }
