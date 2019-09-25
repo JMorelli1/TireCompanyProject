@@ -176,7 +176,7 @@ public class Tire {
  ***********************************************************************************/ 
     public void updateDB() {        
         
-        sql = "UPDATE Dentists set " + "TireType='"+getType()+"'," + " TireSize='"+getSize()+"'," + " Brand='"+getBrand()+"'," + " Stock='"+getStock()+"'," + " Price='"+getPrice()+"'," + " VehicleType='"+getVehicleType()+"'" + " WHERE TireID= '" + getStockID()+"'";
+        sql = "UPDATE Tire set " + "TireType='"+getType()+"'," + " TireSize='"+getSize()+"'," + " Brand='"+getBrand()+"'," + " Stock='"+getStock()+"'," + " Price='"+getPrice()+"'," + " VehicleType='"+getVehicleType()+"'" + " WHERE TireID= '" + getStockID()+"'";
         db.updateDB(sql);
     }
 /************************************************************************************
