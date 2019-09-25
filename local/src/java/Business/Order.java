@@ -1,7 +1,7 @@
 /***********************************************************************************
   @author Elijah T. Badger                                                         *
   Order.java (Project)                                                             *
-  Editor: N/A Edit Date: N/A                                                       * 
+  Editor: 9/25/19 Edit Date: 9/25/19                                                       * 
  ***********************************************************************************/
 package Business;
 
@@ -124,6 +124,7 @@ public class Order {
         db.updateDB(sql);
         
     }
+    
 /************************************************************************************
  * deleteDB, uses DELETE SQL to delete from database. Requires 0 parameters. Deletes
  * an entry from the Order Table based on current class
@@ -135,7 +136,7 @@ public class Order {
         db.deleteDB(sql);
         
     }
-    
+       
 /************************************************************************************
  * display, shows all property values. Requires 0 parameters. Prints the value of all
  * properties to the server log.

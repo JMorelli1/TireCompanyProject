@@ -27,6 +27,7 @@ public class Customer {
     private String orderID;
     private String sql;
     private final DBAccess db = new DBAccess();
+    private OrderList orderList = new OrderList();
     
     //public String listOfOrders;
 
@@ -169,6 +170,7 @@ public class Customer {
  ***********************************************************************************/  
     public void display() {
         System.out.println("Displaying Customer properties:\n Name: " + getFN() + " " + getLN() + "\n Username: " + getUsername() + "\n Password: " + getPassword() + "\n ID:" + getID() + "\n Address: " + getAddress() + "\n Phone number: " + getPhone() + "\n Card number: " + getCreditCardInfo() + "\n Expiration: " + getExpireDate() + "\n Security Code: " + getSecurityCode() + "\n Order ID: " + getOID());
+        orderList.display();
     }
  
 /************************************************************************************
@@ -197,6 +199,7 @@ public class Customer {
             setSecurityCode(resultSet.getString("SecurityCode"));
             setOID(resultSet.getString("OrderID"));
 
+            findOrders();
         } catch (SQLException e) {
             System.out.println("Crash at selectDB method (for Admin). " + e);
             System.out.println(" ");
@@ -234,6 +237,28 @@ public class Customer {
     public void deleteCustomer() {
         sql = "Delete from Customer where CustomerID = " + getCID();
         db.deleteDB(sql);
+        
+    }
+    
+    public void findOrders(){
+        
+        try{
+            sql = "Select * From Order Where CustomerID = " + getCID();
+            ResultSet resultSet = db.SelectDB(sql);
+            
+            Order order;
+            while(resultSet.next()){
+                order = new Order();
+                order.setOrderID(resultSet.getString("OrderID"));
+                order.setTireID(resultSet.getString("TireID"));
+                order.setQuantity(resultSet.getString("Quantity"));
+                order.setStatus(resultSet.getString("Status"));
+                orderList.addItem(order);
+            }
+        }
+        catch(SQLException e){
+            System.out.println("Error generating list of Orders: " + e);
+        }
         
     }
 
