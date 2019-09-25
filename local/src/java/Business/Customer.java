@@ -50,7 +50,7 @@ public class Customer {
 /************************************************************************************
  * Dentist constructor, Initializes properties to given values.
  ***********************************************************************************/ 
-    public Customer(String fname, String lname, String username, String password, String ID, String address, String phone, String creditCardInfo, String expireDate, String securityCode, String orderID) {
+    public Customer(String ID, String username, String password, String fname, String lname, String address, String phone, String creditCardInfo, String expireDate, String securityCode, String orderID) {
         this.fname = fname;
         this.lname = lname;
         this.username = username;
@@ -60,6 +60,7 @@ public class Customer {
         this.phone = phone;
         this.creditCardInfo = creditCardInfo;
         this.expireDate = expireDate;
+        this.securityCode = securityCode;
         this.orderID = orderID;
     }
     
@@ -167,7 +168,7 @@ public class Customer {
  * properties to the server log.
  ***********************************************************************************/  
     public void display() {
-        System.out.println("Displaying Customer properties:\n Name: " + getFN() + " " + getLN() + "\n Username: " + getUsername() + "\n Password: " + getPassword() + "\n ID:" + getID() + "\n Address: " + getAddress() + "\n Phone number: " + getPhone() + "\n Card number: " + getCreditCardInfo() + "\n Expiration: " + getExpireDate() + "\n Security Code: " + getSecurityCode());
+        System.out.println("Displaying Customer properties:\n Name: " + getFN() + " " + getLN() + "\n Username: " + getUsername() + "\n Password: " + getPassword() + "\n ID:" + getID() + "\n Address: " + getAddress() + "\n Phone number: " + getPhone() + "\n Card number: " + getCreditCardInfo() + "\n Expiration: " + getExpireDate() + "\n Security Code: " + getSecurityCode() + "\n Order ID: " + getOID());
     }
  
 /************************************************************************************
@@ -179,7 +180,7 @@ public class Customer {
     public void selectCustomer(String custID) {
         try {
             
-            sql = "Select * from Customer where CustomerID = '" + ID + "'";
+            sql = "Select * from Customer where CustomerID = '" + custID + "'";
             ResultSet resultSet = db.SelectDB(sql);
             
             resultSet.next();
@@ -207,7 +208,7 @@ public class Customer {
  * Inserts the given parameters into the Customer table of the 
  * database. 
  ***********************************************************************************/  
-    public void insertDB() {
+    public void insertCustomer() {
         
         sql = "Insert into Customer (CustomerID, Username, Password, FirstName, LastName, Address, PhoneNumber, CreditCardNumber, ExpirationDate, SecurityCode, OrderID) VALUES ('" +getID()+ "', '" +getUsername()+ "', '" +getPassword()+ "', '"+getFN()+ "', '" +getLN()+ "', '" +getAddress()+ "', '" +getPhone()+ "', '" +getCreditCardInfo()+ "', '" +getExpireDate()+ "', '" +getSecurityCode()+ "', '" +getOID()+ "')";
         db.InsertDB(sql);
@@ -218,9 +219,9 @@ public class Customer {
  * Customer table in  based on the current values of class 
  * properties.
  ***********************************************************************************/ 
-    public void updateDB() {
+    public void updateCustomer() {
         
-        sql = "UPDATE Customer set " + "Username='"+getUsername()+"'," + " Password='"+getPassword()+"'," + " FirstName='"+getFN()+"'," + " LastName='"+getLN()+"'," + " Address='"+getAddress()+"'," + " PhoneNumber='"+getPhone()+"'," + " CreditCardNumber='"+getCreditCardInfo()+"'," + " ExpirationDate='"+getExpireDate()+"'," + " SecurityCode='"+getSecurityCode()+"'," + " OrderID='"+getOID()+"'," + " WHERE CustomerID= '" + getCID()+"'";
+        sql = "UPDATE Customer set " + "Username='"+getUsername()+"'," + " Password='"+getPassword()+"'," + " FirstName='"+getFN()+"'," + " LastName='"+getLN()+"'," + " Address='"+getAddress()+"'," + " PhoneNumber='"+getPhone()+"'," + " CreditCardNumber='"+getCreditCardInfo()+"'," + " ExpirationDate='"+getExpireDate()+"'," + " SecurityCode='"+getSecurityCode()+"'," + " OrderID='"+getOID()+"'" + " WHERE CustomerID= '" + getCID()+"'";
         db.updateDB(sql);
         
     }
@@ -230,21 +231,22 @@ public class Customer {
  * an entry from the Customer Table based on current class
  * property values.
  ***********************************************************************************/ 
-    public void deleteDB() {
+    public void deleteCustomer() {
         sql = "Delete from Customer where CustomerID = " + getCID();
         db.deleteDB(sql);
         
     }
 
     public static void main(String[] args) {
-        String test_va = "1";
+        String test_va = "60029";
         Customer test = new Customer();
-        //test.selectDB(test_va);
+        //Customer test = new Customer("60041", "LDennis", "test", "Lauren", "Dennis", "123 Test rd", "770-111-1111", "4700111144445523","12/12", "232", "7" );
+        test.selectCustomer(test_va);
 
-        //test.display();
-        //test.insertDB("9", "385", "4", "Processing");
-        //test.setPrice("3001");
-        //test.updateDB();
+        test.display();
+        //test.insertCustomer();
+        //test.setPassword("GreatPassword");
+        //test.updateCustomer();
         //test.deleteDB();
     }
 

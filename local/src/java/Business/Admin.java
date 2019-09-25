@@ -138,13 +138,14 @@ public class Admin {
 
     public static void main(String[] args) {
         String test_va = "5001";
-        Admin test = new Admin("5009", "Christian", "jumping");
-        //test.selectAdmin(test_va);
+        Admin test = new Admin();
+        //Admin test = new Admin("5009", "Christian", "jumping");
+        test.selectAdmin(test_va);
 
         test.display();
-        test.insertDB();
-        //test.setPrice("3001");
-        //test.updateDB();
+        //test.insertDB();
+//        test.setPassword("CrapPassword");
+//        test.updateDB();
         //test.deleteDB();
     }
 

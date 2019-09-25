@@ -107,7 +107,8 @@ public class Order {
  ***********************************************************************************/ 
     public void insertDB() {
         
-        sql = "Insert into Order (orderID, tireID, quantity, status) VALUES ('" +getOrderID()+ "', '" +getTireID()+ "', '" +getQuantity()+ "', '" +getStatus()+ "')";
+        sql = "Insert into Order (OrderID, TireID, Quantity, Status) VALUES ('"+getOrderID()+"', '"+getTireID()+"', '"+getQuantity()+"', '"+getStatus()+"')";
+        System.out.println(sql);
         db.InsertDB(sql);
             
     }
@@ -145,7 +146,7 @@ public class Order {
 
     public static void main(String[] args) {
         String test_va = "1";
-        Order test = new Order("10", "601", "7", "Processing");
+        Order test = new Order("7", "222", "10", "Processing");
         //test.selectDB(test_va);
 
         test.insertDB();
