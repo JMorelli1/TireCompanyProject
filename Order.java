@@ -52,8 +52,8 @@ public class Order {
         return this.orderID;
     }
 
-    public void setOrderID(String new_orderID) {
-        this.orderID = new_orderID;
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
     }
 
     public String getTireID() {

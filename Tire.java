@@ -7,7 +7,6 @@ package Business;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -18,39 +17,49 @@ import java.sql.Statement;
  ***********************************************************************************/
 public class Tire {
 
-    public String type;
-    public String brand;
-    public String stock;
-    public String price;
-    public String tireSize;
-    public String stockID;
-    public String vechicleType;
+    private String type;
+    private String brand;
+    private String stock;
+    private String price;
+    private String tireSize;
+    private String stockID;
+    private String vehicleType;
+    private String sql;
+    private DBAccess db = new DBAccess();
+    
 
  /************************************************************************************
  * Tire constructor, Initializes all properties to "" when 0 
  * parameters are given.
  ***********************************************************************************/    
     public Tire() {
-        String type = "";
-        String brand = "";
-        String stock = "";
-        String price = "";
-        String stockID = "";
-        String tireSize = "";
-        String vechicleType = "";
+        type = "";
+        brand = "";
+        stock = "";
+        price = "";
+        stockID = "";
+        tireSize = "";
+        vehicleType = "";
     }
 
 /************************************************************************************
  * Tire constructor, Initializes properties to given values.
+ * @param stockID
+ * @param type
+ * @param brand
+ * @param stock
+ * @param price
+ * @param tireSize
+ * @param vehicleType
  ***********************************************************************************/ 
-    public Tire(String type, String brand, String stock, String price, String tireSize, String stockID, String vehicleType) {
+    public Tire(String stockID, String type, String tireSize, String brand, String stock, String price, String vehicleType) {
         this.type = type;
         this.brand = brand;
         this.stock = stock;
         this.price = price;
         this.tireSize = tireSize;
         this.stockID = stockID;
-        this.vechicleType = vehicleType;
+        this.vehicleType = vehicleType;
     }
 
 /************************************************************************************
@@ -59,7 +68,6 @@ public class Tire {
     public String getType() {
         return this.type;
     }
-
     public void setType(String new_type) {
         this.type = new_type;
     }
@@ -104,12 +112,12 @@ public class Tire {
         this.stockID = new_stockID;
     }
 
-    public String getVechicleType() {
-        return this.vechicleType;
+    public String getVehicleType() {
+        return this.vehicleType;
     }
 
-    public void setVechicleType(String new_vType) {
-        this.vechicleType = new_vType;
+    public void setVehicleType(String new_vType) {
+        this.vehicleType = new_vType;
     }
 
 /************************************************************************************
@@ -117,47 +125,36 @@ public class Tire {
  * properties to the server log.
  ***********************************************************************************/ 
     public void display() {
-        System.out.println("Displaying Tire properties. Type: " + this.getType() + ". Brand: " + this.getBrand() + ". Stock: " + this.getStock() + ". Pricing: " + this.getPrice()
-                + ". Size: " + this.getSize() + ". Stock ID: " + this.getStockID() + ". Car type: " + this.getVechicleType() + ".");
+        System.out.println("Displaying Tire properties:\n Stock ID: " + this.getStockID() + "\n Type: " + this.getType() + "\n Brand: " + this.getBrand() + "\n Stock: " + this.getStock() + "\n Pricing: " + this.getPrice()
+                + "\n Size: " + this.getSize() + "\n Stock ID: " + this.getStockID() + "\n Car type: " + this.getVehicleType() + ".");
     }
 /************************************************************************************
  * selectDB, uses SELECT SQL to query database. Requires 1 String parameter. Queries
  * the Tire table for entries whose id key matches the
  * given parameter.
+ * @param tireID
  ***********************************************************************************/
-    public void selectDB(String tireID) {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at select (for Tire).");
-            Statement statement = con.createStatement();
-            String sql = "Select * from Tire where tireID = '" + tireID + "'";
-            System.out.println(sql);
-            ResultSet rs = statement.executeQuery(sql);
-            System.out.println("Result set compiled (for Tire).");
-            rs.next();
-
-            this.setType(rs.getString("TireID"));
-            System.out.println("results from 1: " + rs.getString(1));
-            this.setType(rs.getString("TireType"));
-            System.out.println("results from 2: " + rs.getString(2));
-            this.setSize(rs.getString("TireSize"));
-            System.out.println("results from 3: " + rs.getString(3));
-            this.setBrand(rs.getString("Brand"));
-            System.out.println("results from 4: " + rs.getString(4));
-            this.setStock(rs.getString("Stock"));
-            System.out.println("results from 5: " + rs.getString(5));
-            this.setPrice(rs.getString("Price"));
-            System.out.println("results from 6: " + rs.getString(6));
-            this.setVechicleType(rs.getString("VehicleType"));
-            System.out.println("results from 7: " + rs.getString(7));
-            System.out.println("Selections completed...");
-            System.out.println(" ");
-
-            con.close();
-        } catch (SQLException e) {
-            System.out.println("Crash at selectDB method (for Tire). " + e);
-            System.out.println(" ");
+    
+    public void selectDB(String tireID){
+        
+        sql = "SELECT * FROM Tire WHERE TireID = " + tireID;
+        ResultSet resultSet = db.SelectDB(sql);
+        
+        try{
+            resultSet.next();
+            
+            setStockID(resultSet.getString("TireID"));
+            setType(resultSet.getString("TireType"));
+            setSize(resultSet.getString("TireSize"));
+            setBrand(resultSet.getString("Brand"));
+            setStock(resultSet.getString("Stock"));
+            setPrice(resultSet.getString("Price"));
+            setVehicleType(resultSet.getString("VehicleType"));
         }
+        catch(SQLException e){
+            System.out.println("Error with Tire DB Select Method: " + e);
+        }
+        
     }
 
 /************************************************************************************
@@ -165,22 +162,11 @@ public class Tire {
  * Inserts the given parameters into the Tire table of the 
  * database. 
  ***********************************************************************************/ 
-    public void insertDB(String TireID, String type, String size, String brand, String stock, String price, String vType) {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at insert (for Tire).");
-            Statement statement = con.createStatement();
-            String sql = "Insert into Tire (TireID, TireType, TireSize, Brand, Stock, Price, VehicleType) VALUES ('" + TireID + "', '" + type + "', '" + size + "', '" + brand + "', '" + stock + "', '" + price + "', '" + vType + "')";
-            System.out.println(sql);
-            statement.executeUpdate(sql);
-            System.out.println("Insert completed.");
-            System.out.println(" ");
-
-            con.close();
-        } catch (SQLException e) {
-            System.out.println("Crash at insertDB method (for Tire). " + e);
-            System.out.println(" ");
-        }
+    public void insertDB() {
+        
+        sql = "Insert into Tire (TireID, TireType, TireSize, Brand, Stock, Price, VehicleType) VALUES ('"+getStockID()+"', '" +getType()+ "', '" +getSize()+ "', '" +getBrand()+ "', '" +getStock()+ "', '" +getPrice()+ "', '" +getVehicleType()+ "')";
+        db.InsertDB(sql);
+        
     }
 
 /************************************************************************************
@@ -188,28 +174,10 @@ public class Tire {
  * Tire table in  based on the current values of class 
  * properties.
  ***********************************************************************************/ 
-    public void updateDB() {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at update (for Tire).");
-            Statement statement = con.createStatement();
-            PreparedStatement ps = con.prepareStatement("UPDATE Tire SET TireType = ?, TireSize = ?, Brand = ?, Stock = ?, Price = ?, VehicleType = ? WHERE TireID = ?");
-            ps.setString(1, this.getType());
-            ps.setString(2, this.getSize());
-            ps.setString(3, this.getBrand());
-            ps.setString(4, this.getStock());
-            ps.setString(5, this.getPrice());
-            ps.setString(6, this.getVechicleType());
-            ps.setString(7, this.getStockID());
-            System.out.println("Prepped statement compelted.");
-            System.out.println(" ");
-            ps.executeUpdate();
-
-            con.close();
-        } catch (SQLException e) {
-            System.out.println("Crash at updateDB method. " + e);
-            System.out.println(" ");
-        }
+    public void updateDB() {        
+        
+        sql = "UPDATE Dentists set " + "TireType='"+getType()+"'," + " TireSize='"+getSize()+"'," + " Brand='"+getBrand()+"'," + " Stock='"+getStock()+"'," + " Price='"+getPrice()+"'," + " VehicleType='"+getVehicleType()+"'" + " WHERE TireID= '" + getStockID()+"'";
+        db.updateDB(sql);
     }
 /************************************************************************************
  * deleteDB, uses DELETE SQL to delete from database. Requires 0 parameters. Deletes
@@ -217,31 +185,22 @@ public class Tire {
  * property values.
  ***********************************************************************************/ 
     public void deleteDB() {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at delete (for Tire).");
-            Statement statement = con.createStatement();
-            String sql = "Delete from Tire where TireID = " + this.getStockID();
-            statement.executeUpdate(sql);
-            System.out.println("Deletion completed.");
-            System.out.println(" ");
-
-            con.close();
-        } catch (SQLException e) {
-            System.out.println("Crash at updateDB method (for Tire). " + e);
-            System.out.println(" ");
-        }
+        
+            sql = "Delete from Tire where TireID = '" + getStockID() + "'";
+            db.deleteDB(sql);
     }
 
     public static void main(String[] args) {
-        String test_va = "411";
+        String test_va = "412";
         Tire test = new Tire();
+        //Tire test = new Tire("412", "Passenger", "123/60-R15", "Kumho", "12", "71.00", "Jeep");
         test.selectDB(test_va);
+        //test.insertDB();
 
         test.display();
         //test.insertDB("411", "All Season", "185/50-R9001", "TiresRUs", "9001", "360","Autobot");
-        test.setPrice("3001");
-        test.updateDB();
-        test.deleteDB();
+        //test.setPrice("3001");
+        //test.updateDB();
+        //test.deleteDB();
     }
 }
