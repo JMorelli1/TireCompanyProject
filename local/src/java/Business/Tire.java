@@ -1,7 +1,7 @@
 /***********************************************************************************
   @author Elijah T. Badger                                                         *
   Tire.java (Project)                                                              *
-  Editor: N/A Edit Date: N/A                                                       * 
+  Editor: James Morelli Edit Date: 9/25/19                                                       * 
  ***********************************************************************************/
 package Business;
 
@@ -158,7 +158,7 @@ public class Tire {
     }
 
 /************************************************************************************
- * insertDB, uses INSERT SQL to insert into database. Requires 4 String parameters.
+ * insertDB, uses INSERT SQL to insert into database. 
  * Inserts the given parameters into the Tire table of the 
  * database. 
  ***********************************************************************************/ 
@@ -170,7 +170,7 @@ public class Tire {
     }
 
 /************************************************************************************
- * updateDB, uses UPDATE SQL to update database. Requires 0 parameters. Updates from the
+ * updateDB, uses UPDATE SQL to update database. Updates from the
  * Tire table in  based on the current values of class 
  * properties.
  ***********************************************************************************/ 
@@ -180,8 +180,8 @@ public class Tire {
         db.updateDB(sql);
     }
 /************************************************************************************
- * deleteDB, uses DELETE SQL to delete from database. Requires 0 parameters. Deletes
- * an entry from the Tire Table based on current class
+ * deleteDB, uses DELETE SQL to delete from database. Deletes
+ * an row from the Tire Table based on current class
  * property values.
  ***********************************************************************************/ 
     public void deleteDB() {

@@ -1,4 +1,8 @@
-
+/************************************************************************************
+ *@author James Morelli
+ * Tire Project
+ * Created: 9/24/19
+ ***********************************************************************************/ 
 package Business;
 
 import java.sql.*;
@@ -83,7 +87,7 @@ public class DBAccess {
     
     
 /************************************************************************************
- * openDBConnection establishes connection using Driver, creates
+ * openDBConnection establishes connection using Driver, initializes statement
  ***********************************************************************************/ 
     public void openDBConnection(){
         try{
@@ -95,7 +99,9 @@ public class DBAccess {
             System.out.print("Error Connecting " + e);
         }
     }
-    
+/************************************************************************************
+ * closeDBConnection closes connection with database
+ ***********************************************************************************/ 
     public void closeDBConnection(){
         try{
             con.close();
