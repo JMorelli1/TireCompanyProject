@@ -1,16 +1,12 @@
 /***********************************************************************************
   @author Elijah T. Badger                                                         *
   Admin.java (Project)                                                             *
-  Editor: N/A Edit Date: N/A                                                       * 
+  Editor: James Morelli Edit Date: 9/25/19                                                      * 
  ***********************************************************************************/
 package Business;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /************************************************************************************
  * Admin Class. Requires 0 or 3 parameters. Purpose: Complete database tasks
@@ -18,9 +14,11 @@ import java.sql.Statement;
  ***********************************************************************************/
 public class Admin {
 
-    public String employeeNumber;
-    public String username;
-    public String password;
+    private String employeeNumber;
+    private String username;
+    private String password;
+    private String sql;
+    private final DBAccess db = new DBAccess();
 
 
  /************************************************************************************
@@ -28,9 +26,9 @@ public class Admin {
  * parameters are given.
  ***********************************************************************************/      
     public Admin(){
-        String employeeNumber = "";
-        String username = "";
-        String password = "";
+        employeeNumber = "";
+        username = "";
+        password = "";
     }
     
 /************************************************************************************
@@ -74,40 +72,31 @@ public class Admin {
  * display, shows all property values. Requires 0 parameters. Prints the value of all
  * properties to the server log.
  ***********************************************************************************/ 
+    
     public void display() {
-        System.out.println("Displaying Admin properties. Employee Number: " + this.getEmpNumber() + ". Password: " + this.getPassword() + ". Username: " + this.getUsername() + ".");
+        System.out.println("Displaying Admin properties:\n Employee Number: " + getEmpNumber() + "\n Username: " + getUsername() + "\n Password: " + getPassword() + ".");
     }
 
-    
 /************************************************************************************
  * selectDB, uses SELECT SQL to query database. Requires 1 String parameter. Queries
  * the Admin table for entries whose id key matches the
  * given parameter.
+ * @param adminID
  ***********************************************************************************/ 
-    public void selectDB(String ID) {
+    public void selectAdmin(String adminID) {
         try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at select (for Admin).");
-            Statement statement = con.createStatement();
-            String sql = "Select * from Admin where EmployeeID = '" + ID + "'";
-            System.out.println(sql);
-            ResultSet rs = statement.executeQuery(sql);
-            System.out.println("Result set compiled (for Admin).");
-            rs.next();
+            
+            sql = "Select * from Admin where EmployeeID = '" + adminID + "'";
+            ResultSet resultSet = db.SelectDB(sql);
 
-            this.setEmpNumber(rs.getString("EmployeeID"));
-            System.out.println("results from 1: " + rs.getString(1));
-            this.setUsername(rs.getString("Username"));
-            System.out.println("results from 2: " + rs.getString(2));
-            this.setPassword(rs.getString("Password"));
-            System.out.println("results from 3: " + rs.getString(3));
-            System.out.println("Selections completed...");
-            System.out.println(" ");
+            resultSet.next();
 
-            con.close();
+            setEmpNumber(resultSet.getString("EmployeeID"));
+            setUsername(resultSet.getString("Username"));
+            setPassword(resultSet.getString("Password"));
+
         } catch (SQLException e) {
-            System.out.println("Crash at selectDB method (for Admin). " + e);
-            System.out.println(" ");
+            System.out.println("Error collecting result in selectAdmin " + e);
         }
     }
 
@@ -117,22 +106,11 @@ public class Admin {
  * Inserts the given parameters into the Admin table of the 
  * database. 
  ***********************************************************************************/ 
-    public void insertDB(String empNum, String pw, String username) {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at insert (for Admin).");
-            Statement statement = con.createStatement();
-            String sql = "Insert into Admin (EmployeeID, Username, password) VALUES ('" + empNum + "', '" + pw + "', '" + username + "')";
-            System.out.println(sql);
-            statement.executeUpdate(sql);
-            System.out.println("Insert completed.");
-            System.out.println(" ");
-
-            con.close();
-        } catch (SQLException e) {
-            System.out.println("Crash at insertDB method (for Admin). " + e);
-            System.out.println(" ");
-        }
+    public void insertDB() {
+        
+            String sql = "Insert into Admin (EmployeeID, Username, password) VALUES ('" +getEmpNumber()+ "', '" +getUsername()+ "', '" +getPassword()+ "')";
+            db.InsertDB(sql);
+            
     }
 
 /************************************************************************************
@@ -141,23 +119,10 @@ public class Admin {
  * properties.
  ***********************************************************************************/ 
     public void updateDB() {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at update (for Admin).");
-            Statement statement = con.createStatement();
-            PreparedStatement ps = con.prepareStatement("UPDATE Admin SET Username = ?, Password = ? WHERE EmployeeID = ?");
-            ps.setString(1, this.getUsername());
-            ps.setString(2, this.getPassword());
-            ps.setString(3, this.getEmpNumber());
-            System.out.println("Prepped statement compelted.");
-            System.out.println(" ");
-            ps.executeUpdate();
-
-            con.close();
-        } catch (SQLException e) {
-            System.out.println("Crash at updateDB method (for Admin). " + e);
-            System.out.println(" ");
-        }
+        
+            sql = "UPDATE Admin set " + "Username='"+getUsername()+"'," + " Password='"+getPassword()+"'" + " WHERE EmployeeID= '" + getEmpNumber()+"'";
+            db.updateDB(sql);
+            
     }
 /************************************************************************************
  * deleteDB, uses DELETE SQL to delete from database. Requires 0 parameters. Deletes
@@ -165,31 +130,22 @@ public class Admin {
  * property values.
  ***********************************************************************************/ 
     public void deleteDB() {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at delete (for Admin).");
-            Statement statement = con.createStatement();
-            String sql = "Delete from Admin where EmployeeID = " + this.getEmpNumber();
-            statement.executeUpdate(sql);
-            System.out.println("Deletion completed.");
-            System.out.println(" ");
-
-            con.close();
-        } catch (SQLException e) {
-            System.out.println("Crash at updateDB method (for Admin). " + e);
-            System.out.println(" ");
-        }
+        
+            sql = "Delete from Admin where EmployeeID = " + getEmpNumber();
+            db.deleteDB(sql);
+            
     }
 
     public static void main(String[] args) {
-        String test_va = "1";
+        String test_va = "5001";
         Admin test = new Admin();
-        //test.selectDB(test_va);
+        //Admin test = new Admin("5009", "Christian", "jumping");
+        test.selectAdmin(test_va);
 
-        //test.display();
-        //test.insertDB("9", "385", "4", "Processing");
-        //test.setPrice("3001");
-        //test.updateDB();
+        test.display();
+        //test.insertDB();
+//        test.setPassword("CrapPassword");
+//        test.updateDB();
         //test.deleteDB();
     }
 

@@ -1,16 +1,12 @@
 /***********************************************************************************
   @author Elijah T. Badger                                                         *
   Order.java (Project)                                                             *
-  Editor: N/A Edit Date: N/A                                                       * 
+  Editor: 9/25/19 Edit Date: 9/25/19                                                       * 
  ***********************************************************************************/
 package Business;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /************************************************************************************
  * Order Class. Requires 0 or 4 parameters. Purpose: Complete database tasks
@@ -18,10 +14,12 @@ import java.sql.Statement;
  ***********************************************************************************/
 public class Order {
 
-    public String orderID;
-    public String tireID;
-    public String quantity;
-    public String status;
+    private String orderID;
+    private String tireID;
+    private String quantity;
+    private String status;
+    private String sql;
+    private final DBAccess db = new DBAccess();
 
     
  /************************************************************************************
@@ -29,10 +27,10 @@ public class Order {
  * parameters are given.
  ***********************************************************************************/    
     public Order() {
-        String orderID = "";
-        String tireID = "";
-        String quantity = "";
-        String status = "";
+        orderID = "";
+        tireID = "";
+        quantity = "";
+        status = "";
     }
 
 /************************************************************************************
@@ -83,33 +81,22 @@ public class Order {
  * selectDB, uses SELECT SQL to query database. Requires 1 String parameter. Queries
  * the Order table for entries whose id key matches the
  * given parameter.
+ * @param orderID
  ***********************************************************************************/
-    public void selectDB(String OrderID) {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at select (for Order).");
-            Statement statement = con.createStatement();
-            String sql = "Select * from Order where OrderID = '" + OrderID + "'";
-            System.out.println(sql);
-            ResultSet rs = statement.executeQuery(sql);
-            System.out.println("Result set compiled (for Order).");
-            rs.next();
+    public void selectDB(String orderID) {
+        try{
+            sql = "Select * from Order where OrderID = '" + orderID + "'";
+            ResultSet resultSet = db.SelectDB(sql);
+            
+            resultSet.next();
 
-            this.setOrderID(rs.getString("OrderID"));
-            System.out.println("results from 1: " + rs.getString(1));
-            this.setTireID(rs.getString("TireID"));
-            System.out.println("results from 2: " + rs.getString(2));
-            this.setQuantity(rs.getString("Quantity"));
-            System.out.println("results from 3: " + rs.getString(3));
-            this.setStatus(rs.getString("Status"));
-            System.out.println("results from 4: " + rs.getString(4));
-            System.out.println("Selections completed...");
-            System.out.println(" ");
+            setOrderID(resultSet.getString("OrderID"));
+            setTireID(resultSet.getString("TireID"));
+            setQuantity(resultSet.getString("Quantity"));
+            setStatus(resultSet.getString("Status"));
 
-            con.close();
         } catch (SQLException e) {
             System.out.println("Crash at selectDB method (for Order). " + e);
-            System.out.println(" ");
         }
     }
 
@@ -118,22 +105,12 @@ public class Order {
  * Inserts the given parameters into the Order table of the 
  * database. 
  ***********************************************************************************/ 
-    public void insertDB(String order, String tire, String quantity, String status) {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at insert (for Order).");
-            Statement statement = con.createStatement();
-            String sql = "Insert into Order (orderID, tireID, quantity, status) VALUES ('" + order + "', '" + tire + "', '" + quantity + "', '" + status + "')";
-            System.out.println(sql);
-            statement.executeUpdate(sql);
-            System.out.println("Insert completed.");
-            System.out.println(" ");
-
-            con.close();
-        } catch (SQLException e) {
-            System.out.println("Crash at insertDB method (for Order). " + e);
-            System.out.println(" ");
-        }
+    public void insertDB() {
+        
+        sql = "Insert into Order (OrderID, TireID, Quantity, Status) VALUES ('"+getOrderID()+"', '"+getTireID()+"', '"+getQuantity()+"', '"+getStatus()+"')";
+        System.out.println(sql);
+        db.InsertDB(sql);
+            
     }
 
 /************************************************************************************
@@ -142,64 +119,41 @@ public class Order {
  * properties.
  ***********************************************************************************/ 
     public void updateDB() {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at update (for Order).");
-            Statement statement = con.createStatement();
-            PreparedStatement ps = con.prepareStatement("UPDATE Order SET TireID = ?, Quantity = ?, Status = ? WHERE OrderID = ?");
-            ps.setString(1, this.getTireID());
-            ps.setString(2, this.getQuantity());
-            ps.setString(3, this.getStatus());
-            ps.setString(4, this.getOrderID());
-            System.out.println("Prepped statement compelted.");
-            System.out.println(" ");
-            ps.executeUpdate();
-
-            con.close();
-        } catch (SQLException e) {
-            System.out.println("Crash at updateDB method (for Order). " + e);
-            System.out.println(" ");
-        }
+        
+        sql = "UPDATE Order set " + "TireID='"+getTireID()+"'," + " Quantity='"+getQuantity()+"'," + " Status='"+getStatus()+"'" + " WHERE OrderID= '" + getOrderID()+"'";
+        db.updateDB(sql);
+        
     }
+    
 /************************************************************************************
  * deleteDB, uses DELETE SQL to delete from database. Requires 0 parameters. Deletes
  * an entry from the Order Table based on current class
  * property values.
  ***********************************************************************************/ 
     public void deleteDB() {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at delete (for Order).");
-            Statement statement = con.createStatement();
-            String sql = "Delete from Order where OrderID = " + this.getOrderID();
-            statement.executeUpdate(sql);
-            System.out.println("Deletion completed.");
-            System.out.println(" ");
-
-            con.close();
-        } catch (SQLException e) {
-            System.out.println("Crash at updateDB method (for Order). " + e);
-            System.out.println(" ");
-        }
+        
+        sql = "Delete from Order where OrderID = " + getOrderID();
+        db.deleteDB(sql);
+        
     }
-    
+       
 /************************************************************************************
  * display, shows all property values. Requires 0 parameters. Prints the value of all
  * properties to the server log.
  ***********************************************************************************/ 
     public void display() {
-        System.out.println("Displaying Order properties. Order ID numbert: " + this.getOrderID() + ". Tire ID Number: " + this.getTireID() + ". Total tires in order: " + this.getQuantity() + ". Order Status: " + this.getStatus() + ".");
+        System.out.println("Displaying Order properties:\n Order ID number: " + getOrderID() + "\n Tire ID Number: " + getTireID() + "\n Total tires in order: " + getQuantity() + "\n Order Status: " + getStatus());
     }
 
     public static void main(String[] args) {
         String test_va = "1";
-        Order test = new Order();
+        Order test = new Order("7", "222", "10", "Processing");
         //test.selectDB(test_va);
 
-        //test.display();
-        test.insertDB("9", "385", "4", "Processing");
-        //test.setPrice("3001");
+        test.insertDB();
+        //test.setQuantity("20");
         //test.updateDB();
         //test.deleteDB();
+        test.display();
     }
 }

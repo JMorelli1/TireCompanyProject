@@ -1,16 +1,12 @@
 /***********************************************************************************
   @author Elijah T. Badger                                                         *
   Customer.java (Project)                                                          *
-  Editor: N/A Edit Date: N/A                                                       * 
+  Editor: James Morelli Edit Date: 9/25/19                                         * 
  ***********************************************************************************/
 package Business;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /************************************************************************************
  * Customer Class. Requires 0 or 11 parameters. Purpose: Complete database tasks
@@ -18,17 +14,21 @@ import java.sql.Statement;
  ***********************************************************************************/
 public class Customer {
 
-    public String fname;
-    public String lname;
-    public String username;
-    public String password;
-    public String ID;
-    public String address;
-    public String phone;
-    public String creditCardInfo;
-    public String expireDate;
-    public String securityCode;
-    public String orderID;
+    private String fname;
+    private String lname;
+    private String username;
+    private String password;
+    private String ID;
+    private String address;
+    private String phone;
+    private String creditCardInfo;
+    private String expireDate;
+    private String securityCode;
+    private String orderID;
+    private String sql;
+    private final DBAccess db = new DBAccess();
+    private OrderList orderList = new OrderList();
+    
     //public String listOfOrders;
 
  /************************************************************************************
@@ -37,21 +37,21 @@ public class Customer {
  ***********************************************************************************/   
     
     public Customer() {
-        String username = "";
-        String password = "";
-        String ID = "";
-        String address = "";
-        String phone = "";
-        String creditCardInfo = "";
-        String expireDate = "";
-        String securityCode = "";
-        String orderID = "";
+        username = "";
+        password = "";
+        ID = "";
+        address = "";
+        phone = "";
+        creditCardInfo = "";
+        expireDate = "";
+        securityCode = "";
+        orderID = "";
     }
     
 /************************************************************************************
  * Dentist constructor, Initializes properties to given values.
  ***********************************************************************************/ 
-    public Customer(String fname, String lname, String username, String password, String ID, String address, String phone, String creditCardInfo, String expireDate, String securityCode, String orderID) {
+    public Customer(String ID, String username, String password, String fname, String lname, String address, String phone, String creditCardInfo, String expireDate, String securityCode, String orderID) {
         this.fname = fname;
         this.lname = lname;
         this.username = username;
@@ -61,6 +61,7 @@ public class Customer {
         this.phone = phone;
         this.creditCardInfo = creditCardInfo;
         this.expireDate = expireDate;
+        this.securityCode = securityCode;
         this.orderID = orderID;
     }
     
@@ -168,40 +169,37 @@ public class Customer {
  * properties to the server log.
  ***********************************************************************************/  
     public void display() {
-        System.out.println("Displaying Customer properties. Name: " + this.getFN() + " " + this.getLN() + ". Username: " + this.getUsername() + ". Password: " + this.getPassword() + ". ID:" + this.getID() + ". Address: " + this.getAddress() + ". Phone number: " + this.getPhone() + ". Card number: " + this.getCreditCardInfo() + " " + this.getExpireDate() + " " + this.getSecurityCode() + ".");
+        System.out.println("Displaying Customer properties:\n Name: " + getFN() + " " + getLN() + "\n Username: " + getUsername() + "\n Password: " + getPassword() + "\n ID:" + getID() + "\n Address: " + getAddress() + "\n Phone number: " + getPhone() + "\n Card number: " + getCreditCardInfo() + "\n Expiration: " + getExpireDate() + "\n Security Code: " + getSecurityCode() + "\n Order ID: " + getOID());
+        orderList.display();
     }
  
 /************************************************************************************
  * selectDB, uses SELECT SQL to query database. Requires 1 String parameter. Queries
  * the Customer table for entries whose id key matches the
  * given parameter.
+ * @param custID
  ***********************************************************************************/    
-    public void selectDB(String ID) {
+    public void selectCustomer(String custID) {
         try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at select (for Customer).");
-            Statement statement = con.createStatement();
-            String sql = "Select * from Customer where CustomerID = '" + ID + "'";
-            System.out.println(sql);
-            ResultSet rs = statement.executeQuery(sql);
-            System.out.println("Result set compiled (for Admin).");
-            rs.next();
+            
+            sql = "Select * from Customer where CustomerID = '" + custID + "'";
+            ResultSet resultSet = db.SelectDB(sql);
+            
+            resultSet.next();
 
-            this.setID(rs.getString("CustomerID"));
-            this.setUsername(rs.getString("Username"));
-            this.setPassword(rs.getString("Password"));
-            this.setFN(rs.getString("FirstName"));
-            this.setLN(rs.getString("LastName"));
-            this.setAddress(rs.getString("Address"));
-            this.setPhone(rs.getString("PhoneNumber"));
-            this.setCreditCardInfo(rs.getString("CreditCardNumber"));
-            this.setExpireDate(rs.getString("ExpirationDate"));
-            this.setSecurityCode(rs.getString("SecurityCode"));
-            this.setOID(rs.getString("OrderID"));
-            System.out.println("Selections completed...");
-            System.out.println(" ");
+            setID(resultSet.getString("CustomerID"));
+            setUsername(resultSet.getString("Username"));
+            setPassword(resultSet.getString("Password"));
+            setFN(resultSet.getString("FirstName"));
+            setLN(resultSet.getString("LastName"));
+            setAddress(resultSet.getString("Address"));
+            setPhone(resultSet.getString("PhoneNumber"));
+            setCreditCardInfo(resultSet.getString("CreditCardNumber"));
+            setExpireDate(resultSet.getString("ExpirationDate"));
+            setSecurityCode(resultSet.getString("SecurityCode"));
+            setOID(resultSet.getString("OrderID"));
 
-            con.close();
+            findOrders();
         } catch (SQLException e) {
             System.out.println("Crash at selectDB method (for Admin). " + e);
             System.out.println(" ");
@@ -213,22 +211,10 @@ public class Customer {
  * Inserts the given parameters into the Customer table of the 
  * database. 
  ***********************************************************************************/  
-    public void insertDB(String id, String username, String pw, String fn, String ln, String address, String phone, String card_info, String expire, String sec_code, String oid) {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at insert (for Customer).");
-            Statement statement = con.createStatement();
-            String sql = "Insert into Customer (CustomerID, Username, Password, FirstName, LastName, Address, PhoneNumber, CreditCardNumber, ExpirationDate, SecurityCode, OrderID) VALUES ('" + id + "', '" + username + "', '" + pw + "', '" + fn + "', '" + ln + "', '" + address + "', '" + phone + "', '" + card_info + "', '" + expire + "', '" + sec_code + "', '" + oid + "')";
-            System.out.println(sql);
-            statement.executeUpdate(sql);
-            System.out.println("Insert completed.");
-            System.out.println(" ");
-
-            con.close();
-        } catch (SQLException e) {
-            System.out.println("Crash at insertDB method (for Customer). " + e);
-            System.out.println(" ");
-        }
+    public void insertCustomer() {
+        
+        sql = "Insert into Customer (CustomerID, Username, Password, FirstName, LastName, Address, PhoneNumber, CreditCardNumber, ExpirationDate, SecurityCode, OrderID) VALUES ('" +getID()+ "', '" +getUsername()+ "', '" +getPassword()+ "', '"+getFN()+ "', '" +getLN()+ "', '" +getAddress()+ "', '" +getPhone()+ "', '" +getCreditCardInfo()+ "', '" +getExpireDate()+ "', '" +getSecurityCode()+ "', '" +getOID()+ "')";
+        db.InsertDB(sql);
     }
 
 /************************************************************************************
@@ -236,32 +222,11 @@ public class Customer {
  * Customer table in  based on the current values of class 
  * properties.
  ***********************************************************************************/ 
-    public void updateDB() {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at update (for Admin).");
-            Statement statement = con.createStatement();
-            PreparedStatement ps = con.prepareStatement("UPDATE Customer SET Username = ?, Password = ?, FirstName = ?, LastName = ?, Address = ?, PhoneNumber = ?, CreditCardNumber = ?, ExpirationDate = ?, SecurityCode = ?, OrderID = ? WHERE CustomerID = ?");
-            ps.setString(1, this.getUsername());
-            ps.setString(2, this.getPassword());
-            ps.setString(3, this.getFN());
-            ps.setString(4, this.getLN());
-            ps.setString(5, this.getAddress());
-            ps.setString(6, this.getPhone());
-            ps.setString(7, this.getCreditCardInfo());
-            ps.setString(8, this.getExpireDate());
-            ps.setString(9, this.getSecurityCode());
-            ps.setString(10, this.getOID());
-            ps.setString(11, this.getCID());
-            System.out.println("Prepped statement compelted.");
-            System.out.println(" ");
-            ps.executeUpdate();
-
-            con.close();
-        } catch (SQLException e) {
-            System.out.println("Crash at updateDB method (for Customer). " + e);
-            System.out.println(" ");
-        }
+    public void updateCustomer() {
+        
+        sql = "UPDATE Customer set " + "Username='"+getUsername()+"'," + " Password='"+getPassword()+"'," + " FirstName='"+getFN()+"'," + " LastName='"+getLN()+"'," + " Address='"+getAddress()+"'," + " PhoneNumber='"+getPhone()+"'," + " CreditCardNumber='"+getCreditCardInfo()+"'," + " ExpirationDate='"+getExpireDate()+"'," + " SecurityCode='"+getSecurityCode()+"'," + " OrderID='"+getOID()+"'" + " WHERE CustomerID= '" + getCID()+"'";
+        db.updateDB(sql);
+        
     }
 
 /************************************************************************************
@@ -269,32 +234,44 @@ public class Customer {
  * an entry from the Customer Table based on current class
  * property values.
  ***********************************************************************************/ 
-    public void deleteDB() {
-        try {
-            Connection con = DriverManager.getConnection("jdbc:ucanaccess://F:/Winter 2019/TiresRUs/Tyres.accdb");
-            System.out.println("Connection established at delete (for Customer).");
-            Statement statement = con.createStatement();
-            String sql = "Delete from Customer where CustomerID = " + this.getCID();
-            statement.executeUpdate(sql);
-            System.out.println("Deletion completed.");
-            System.out.println(" ");
-
-            con.close();
-        } catch (SQLException e) {
-            System.out.println("Crash at updateDB method (for Customer). " + e);
-            System.out.println(" ");
+    public void deleteCustomer() {
+        sql = "Delete from Customer where CustomerID = " + getCID();
+        db.deleteDB(sql);
+        
+    }
+    
+    public void findOrders(){
+        
+        try{
+            sql = "Select * From Order Where CustomerID = " + getCID();
+            ResultSet resultSet = db.SelectDB(sql);
+            
+            Order order;
+            while(resultSet.next()){
+                order = new Order();
+                order.setOrderID(resultSet.getString("OrderID"));
+                order.setTireID(resultSet.getString("TireID"));
+                order.setQuantity(resultSet.getString("Quantity"));
+                order.setStatus(resultSet.getString("Status"));
+                orderList.addItem(order);
+            }
         }
+        catch(SQLException e){
+            System.out.println("Error generating list of Orders: " + e);
+        }
+        
     }
 
     public static void main(String[] args) {
-        String test_va = "1";
+        String test_va = "60029";
         Customer test = new Customer();
-        //test.selectDB(test_va);
+        //Customer test = new Customer("60041", "LDennis", "test", "Lauren", "Dennis", "123 Test rd", "770-111-1111", "4700111144445523","12/12", "232", "7" );
+        test.selectCustomer(test_va);
 
-        //test.display();
-        //test.insertDB("9", "385", "4", "Processing");
-        //test.setPrice("3001");
-        //test.updateDB();
+        test.display();
+        //test.insertCustomer();
+        //test.setPassword("GreatPassword");
+        //test.updateCustomer();
         //test.deleteDB();
     }
 
