@@ -5,8 +5,10 @@
         <group>
             <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/Tire.java</file>
             <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/DBAccess.java</file>
-            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/Order.java</file>
-            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/LoginServlet.java</file>
+            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/web/stylesheet.css</file>
+            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/Customer.java</file>
+            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/web/tireSearch.jsp</file>
+            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/web/index.html</file>
             <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/TireList.java</file>
         </group>
     </open-files>
