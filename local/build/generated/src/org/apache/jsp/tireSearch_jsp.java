@@ -57,7 +57,7 @@ public final class tireSearch_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        ");
 
             TireList list = new TireList();
-            list = list.generateTireList(true);
+            list = list.generateTireList();
             
             
       out.write("\n");

@@ -31,6 +31,7 @@
             <div class="wrapper">
                 <table>
             <tr>
+                <th>Purchase</th>
                 <th>Tire ID</th>
                 <th>Tire Type</th>
                 <th>Size of Tire</th>
@@ -43,6 +44,7 @@
                 for(int i=0; i<list.listSize(); i++){
                     %>
             <tr>
+                <td><input type="checkbox" name="<%=list.tireList.get(i).getStockID()%>" value="test"></td>
                 <td><%=list.tireList.get(i).getStockID()%></td>
                 <td><%=list.tireList.get(i).getType()%></td>
                 <td><%=list.tireList.get(i).getSize()%></td>
