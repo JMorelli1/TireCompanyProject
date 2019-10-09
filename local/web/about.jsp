@@ -1,6 +1,5 @@
 <%-- 
     Document   : about
-    Created on : Oct 9, 2019, 2:17:14 PM
     Author     : migue
 --%>
 
@@ -9,7 +8,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>About T1Tires </title>
     </head>
     <body>
         <h1>Hello World!</h1>
