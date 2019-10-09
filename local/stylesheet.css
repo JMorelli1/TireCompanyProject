@@ -1,0 +1,125 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Oct 2, 2019, 8:29:00 PM
+    Author     : morel
+*/
+header, nav, main, footer{ display: block;}
+html, body{ height: 100%;}
+*{
+	box-sizing: border-box;
+}
+body{
+	font-family: georgia, serif;
+	font-size: 13pt;
+	margin: 0;
+        padding-bottom: 35px;
+}
+main{
+	text-align: center;
+	overflow: auto;
+}
+nav{
+	margin-top: 0;
+}
+nav ul{
+	background-color: grey;
+	font-size: 2em;
+	list-style-type: none;
+	padding: 10px 12px;
+	margin: 0;
+        margin-bottom: 15px;
+}
+nav li{
+	border-right: 1px solid white;
+	display: inline;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+nav a{
+	color: white;
+	text-decoration: none;
+}
+nav a:link{ color: white;}
+nav a:hover{ color: black;}
+#interiorbox{
+	background-color: #e6e6e6;
+	box-shadow: 3px 3px 3px #1e1e1e;
+	border-radius: 15px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0;
+        padding-bottom: 35px;
+	width: 90%;
+}
+.wrapper{
+	margin-right: auto;
+	margin-left: auto;
+	width: 80%;
+}
+/*column calls for dividing div tag*/
+#largecolumn{
+	float: left;
+	margin: 0;
+	width: 75%;
+	border-right: 2px solid #1e1e1e;
+}
+#smallcolumn{
+	float: right;
+	margin: 0;
+	width: 25%;
+}
+dt{
+	font-size: 1.1em;
+	font-weight: 500;
+}
+/*Row apparently removes floats after columns? come back later to see if necessary */
+.row:after{
+	clear: both;
+	display: table;
+}
+.floatLeft{
+	float: left;
+	margin-bottom: 25px;
+}
+/*Table design*/
+table, th, td{
+	border-collapse: collapse;
+        text-align: center;
+}
+table{
+	width: 100%;
+}
+th{
+	background-color: grey;
+	color: white;
+	font-size: 1.5em;
+	padding: 15px;
+}
+tr:nth-child(even){
+	background-color: silver;
+}
+tr:hover{
+	background-color: #6d6d6d;
+}
+td{
+	padding: 5px;
+}
+caption{
+	background-color: grey;
+	color: white;
+	font-size: 1.5em;
+	padding: 15px;
+}
+.lowerpad{
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+	background: purple;
+	margin-bottom: 40px;
+	margin-top: 0;
+	padding: 10px;
+	width: 100%;
+}

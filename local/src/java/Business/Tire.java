@@ -188,17 +188,27 @@ public class Tire {
     }
 
     public static void main(String[] args) {
-        String test_va = "412";
+        String test_va = "Select * From Tire";
+        String testChanged = "Select * From Tire Where Brand IN ('Firestone')";
         Tire test = new Tire();
         //Tire test = new Tire("412", "Passenger", "123/60-R15", "Kumho", "12", "71.00", "Jeep");
-        test.selectTire(test_va);
+        //test.selectTire(test_va);
         //test.insertDB();
 
-        test.display();
+        //test.display();
         //test.insertDB("411", "All Season", "185/50-R9001", "TiresRUs", "9001", "360","Autobot");
         //test.setPrice("3001");
         //test.updateDB();
         //test.deleteDB();
+        
+        TireList t1 = new TireList();
+        t1 = t1.generateTireList();
+        t1.display();
+        
+        System.out.println("\n\n TEST CHECK \n\n");
+        
+        t1 = t1.generateTireList();
+        t1.display();
         
     }
 }
