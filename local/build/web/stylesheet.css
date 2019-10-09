@@ -60,6 +60,31 @@ nav a:hover{ color: black;}
 	margin-left: auto;
 	width: 80%;
 }
+/*column calls for dividing div tag*/
+#largecolumn{
+	float: left;
+	margin: 0;
+	width: 15%;
+	border-right: 2px solid #1e1e1e;
+}
+#smallcolumn{
+	float: right;
+	margin: 0;
+	width: 85%;
+}
+dt{
+	font-size: 1.1em;
+	font-weight: 500;
+}
+/*Row apparently removes floats after columns? come back later to see if necessary */
+.row:after{
+	clear: both;
+	display: table;
+}
+.floatLeft{
+	float: left;
+	margin-bottom: 25px;
+}
 /*Table design*/
 table, th, td{
 	border-collapse: collapse;
@@ -97,4 +122,19 @@ caption{
 	margin-top: 0;
 	padding: 10px;
 	width: 100%;
+}
+
+form{
+	padding: 2em;
+}
+label{
+	display: block;
+	float: left;
+	width: 100%;
+	text-align: center;
+        margin-bottom: 10px;
+}
+input, textarea{
+	display: block;
+        position: relative;
 }

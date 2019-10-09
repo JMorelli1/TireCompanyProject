@@ -64,13 +64,13 @@ nav a:hover{ color: black;}
 #largecolumn{
 	float: left;
 	margin: 0;
-	width: 15%;
+	width: 75%;
 	border-right: 2px solid #1e1e1e;
 }
 #smallcolumn{
 	float: right;
 	margin: 0;
-	width: 85%;
+	width: 25%;
 }
 dt{
 	font-size: 1.1em;
@@ -117,24 +117,9 @@ caption{
 .lowerpad{
 	border-bottom-left-radius: 15px;
 	border-bottom-right-radius: 15px;
-	background: grey;
+	background: purple;
 	margin-bottom: 40px;
 	margin-top: 0;
 	padding: 10px;
 	width: 100%;
-}
-
-form{
-	padding: 2em;
-}
-label{
-	display: block;
-	float: left;
-	width: 100%;
-	text-align: center;
-        margin-bottom: 10px;
-}
-input, textarea{
-	display: block;
-        position: relative;
 }

@@ -17,7 +17,7 @@ public class TireList {
     
     public ArrayList<Tire> tireList = new ArrayList<>();
     private DBAccess dbAccess = new DBAccess();
-    private String sql;
+    private final String sql = "Select * From Tire";
 
 /************************************************************************************
  * AddItem adds item to ArayList. Requires 1 Tire object. Purpose: Add an Tire object
@@ -62,7 +62,6 @@ public class TireList {
        TireList listOfTires = new TireList();
        Tire tire;
        ResultSet resultSet;
-       sql = "SELECT * FROM Tire";
        
        resultSet = dbAccess.SelectDB(sql);
        try{
