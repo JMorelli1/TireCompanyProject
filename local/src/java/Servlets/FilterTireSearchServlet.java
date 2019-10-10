@@ -5,11 +5,9 @@
  */
 package Servlets;
 import Business.TireList;
-import Business.Tire;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -57,27 +55,49 @@ public class FilterTireSearchServlet extends HttpServlet {
         if(checkedTireBrands != null){
             for(int i = 0; i < tl1.listSize();i++){
                 for(String checkedTireBrandsElement : checkedTireBrands){
-                    if(tl1.getTire(i).getBrand().equals(checkedTireBrandsElement)){
+                    if(tl1.getTire(i).getBrand().equals(checkedTireBrandsElement) && !filteredList.containsItem(tl1.getTire(i))){
                         filteredList.addItem(tl1.getTire(i));
                     }
                 }
-//                for(String checkedPriceRangeElement : checkedPriceRange){
-//                    if(tl1.getTire(i).getBrand().equals(checkedPriceRangeElement)){
-//                        filteredList.addItem(tl1.getTire(i));
-//                    }
-//                }
-//                for(String checkedVehicleTypeElement : checkedVehicleType){
-//                    if(tl1.getTire(i).getVehicleType().equals(checkedVehicleTypeElement)){
-//                        filteredList.addItem(tl1.getTire(i));
-//                    }
-//                }
             }
         }
-        else{
+        if(checkedPriceRange != null){   
+            for(int i = 0; i < tl1.listSize();i++){
+                for(String checkedPriceRangeElement : checkedPriceRange){
+                    double testValue = Double.parseDouble(tl1.getTire(i).getPrice());
+                    switch(checkedPriceRangeElement){
+                        case "Range1":
+                            if(testValue > 10 && testValue < 100 && !filteredList.containsItem(tl1.getTire(i))){
+                                filteredList.addItem(tl1.getTire(i));
+                            }
+                            break;
+                        case "Range2":
+                            if(testValue > 100 && testValue < 200 && !filteredList.containsItem(tl1.getTire(i))){
+                                filteredList.addItem(tl1.getTire(i));
+                            }
+                            break;
+                        case "Range3":
+                            if(testValue > 200 && testValue < 300 && !filteredList.containsItem(tl1.getTire(i))){
+                                filteredList.addItem(tl1.getTire(i));
+                            }
+                            break;
+                    }
+                }
+            }
+        }
+        if(checkedVehicleType != null){
+            for(int i = 0; i < tl1.listSize();i++){
+                for(String checkedVehicleTypeElement : checkedVehicleType){
+                    if(tl1.getTire(i).getVehicleType().matches("(.*)" + checkedVehicleTypeElement + "(.*)") && !filteredList.containsItem(tl1.getTire(i))){
+                        filteredList.addItem(tl1.getTire(i));
+                    }
+                }
+            }
+        }
+        if((checkedVehicleType == null) && (checkedPriceRange == null) && (checkedTireBrands == null)){
             filteredList = tl1;
         }
         
-            
             session1.setAttribute("filteredList", filteredList);
             rdTireSearch.forward(request, response);
         }

@@ -21,7 +21,6 @@
             if(filteredList == null){
                 filteredList = new TireList();
                 fullList = new TireList();
-//                fullList = new TireList();
                 filteredList = filteredList.generateTireList();
                 fullList=filteredList;
                 session.setAttribute("tireSearchList", fullList);

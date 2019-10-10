@@ -28,6 +28,13 @@ public class TireList {
        tireList.add(a);
    }
    
+   public void removeItem(Tire a){
+       tireList.remove(a);
+   }
+   public boolean containsItem(Tire a){
+       return tireList.contains(a);
+   }
+   
 /************************************************************************************
  * ListSize Method to return size of ArrayList. Requires 0 parameters. Purpose: Returns the value of the count
  * property.

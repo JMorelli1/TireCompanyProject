@@ -3,14 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/TireList.java</file>
-            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/web/stylesheet.css</file>
-            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/web/index.html</file>
-            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/Customer.java</file>
-            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/web/tireSearch.jsp</file>
-            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/DBAccess.java</file>
+            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/Admin.java</file>
             <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/Tire.java</file>
-            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/stylesheet.css</file>
+            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/DBAccess.java</file>
+            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/Customer.java</file>
+            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/web/index.html</file>
+            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/web/tireSearch.jsp</file>
+            <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/TireList.java</file>
         </group>
     </open-files>
 </project-private>
