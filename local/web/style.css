@@ -514,3 +514,53 @@ input.input100 {
     opacity: 1;
   }
 }
+
+
+.column {
+  float: left;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.left {
+  width: 15%;
+}
+
+.right {
+  width: 85%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;}
+
+.calign{
+  height: 85px;
+  line-height: 85px;
+  text-align: right;
+  border: 2px ;
+  
+  position: absolute;
+  left: 400px;
+
+  border: 3px;
+  padding: 10px;
+  
+}
+
+.call{
+  
+    height: 30px;
+    line-height: 40px;
+    text-align:center;
+    vertical-align: middle; /* center checkbox vertically */
+    font-weight: bold;
+}
+
+.lefta{
+     text-align: left; /* center checkbox horizontally */
+     height: 15px;
+    line-height: 40px;
+}
+
