@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/Admin.java</file>
             <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/Tire.java</file>
             <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/DBAccess.java</file>
@@ -10,6 +11,9 @@
             <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/web/index.html</file>
             <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/web/tireSearch.jsp</file>
             <file>file:/C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/src/java/Business/TireList.java</file>
+=======
+            <file>file:/C:/Users/migue/Documents/NetBeansProjects/TireCompanyProject/local/web/about.jsp</file>
+>>>>>>> 8bb25f344c55d466be0011ba4f97c5cf9f542906
         </group>
     </open-files>
 </project-private>
