@@ -85,6 +85,7 @@
      <table class="calign" >
                     <tr class="">
                         <th>Purchase</th>
+               
                         <th>Tire ID</th>
                         <th>Tire Type</th>
                         <th>Size of Tire</th>
@@ -98,7 +99,7 @@
                     %>
                     <tr>
                         <td><input type="checkbox" name="<%=filteredList.tireList.get(i).getStockID()%>" value="test"></td>
-                        <td><img src="tire1.jpg" alt="tire1" width="200" height="200"><%=filteredList.tireList.get(i).getStockID()%></td>
+                        <td><img src="tire2.jpg" alt="tire1" width="200" height="200"><%=filteredList.tireList.get(i).getStockID()%></td>
                         <td><%=filteredList.tireList.get(i).getType()%></td>
                         <td><%=filteredList.tireList.get(i).getSize()%></td>
                         <td><%=filteredList.tireList.get(i).getBrand()%></td>

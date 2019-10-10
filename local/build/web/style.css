@@ -537,9 +537,10 @@ input.input100 {
 
 .calign{
   height: 85px;
-  line-height: 85px;
+  line-height: 90px;
   text-align: right;
   border: 2px ;
+  width: 75%;
   
   position: absolute;
   left: 400px;
