@@ -605,3 +605,16 @@ input.input100 {
   border: 1px solid #006398;
   box-shadow: 2px 2px 20px #AFE9FF;
 }
+
+.aus{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:40%;
+  
+}
+.para{
+      padding:0;
+    margin: 0;
+}
+
