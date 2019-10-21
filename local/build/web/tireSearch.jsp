@@ -34,9 +34,9 @@
             </ul>
         </nav>
         <main>
-            <div id="largecolumn">
+            <div action="FilteTireSearchServlet" id="largecolumn">
                 <p style="border-bottom: 2px solid #1e1e1e; padding-bottom:10px;">Filters</p>
-                <form action="FilterTireSearchServlet" method="post">
+                <form method="post">
                     <label>Tire Brands</label>
                     <input type="checkbox" name="TireBrands" value="Firestone" /> Firestone 
                     <input type="checkbox" name="TireBrands" value="Michelin" /> Michelin
@@ -55,11 +55,12 @@
                     <input type="checkbox" name="VehicleType" value="Infiniti" /> Infiniti
                     <input type="checkbox" name="VehicleType" value="Toyota" /> Toyota
                     <input type="checkbox" name="VehicleType" value="Jeep" /> Jeep
-                    <input type="submit" value="Filter" value="Firestone" />
+                    <input type="submit" value="Filter" />
                 </form>
             </div>
             <div id="smallcolumn">
-                <table>
+                <form action="AddTiresServlet" method="post">
+                <table action="AddTiresServlet">
                     <tr>
                         <th>Purchase</th>
                         <th>Tire ID</th>
@@ -74,7 +75,7 @@
                         for(int i=0; i<filteredList.listSize(); i++){
                     %>
                     <tr>
-                        <td><input type="checkbox" name="<%=filteredList.tireList.get(i).getStockID()%>" value="test"></td>
+                        <td><input type="checkbox" value="test" name="selectedTires"></td>
                         <td><%=filteredList.tireList.get(i).getStockID()%></td>
                         <td><%=filteredList.tireList.get(i).getType()%></td>
                         <td><%=filteredList.tireList.get(i).getSize()%></td>
@@ -85,9 +86,10 @@
                     </tr>
                         <%
                          }
-                        
                         %>
                 </table>
+                        <input type="submit" value="Add Tires" /> 
+                </form>
                 <div class="lowerpad"></div>
             </div>
         </main>

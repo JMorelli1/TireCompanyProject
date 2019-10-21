@@ -1,17 +1,16 @@
 <%-- 
-    Document   : tireSearch
-    Created on : Oct 2, 2019, 9:05:35 PM
+    Document   : checkout
+    Created on : Oct 21, 2019, 11:13:09 AM
     Author     : morel
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>\
+<%@page import="Business.TireList" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="stylesheet.css"/>
-        <%@page import="Business.TireList" %>
-        <title>Tire Search Page</title>
+        <title>JSP Page</title>
     </head>
     <body>
         <%
@@ -26,7 +25,7 @@
                 session.setAttribute("tireSearchList", fullList);
             }
             %>
-        <h1>Tire Search Page</h1>
+        <h1>Checkout Page</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -34,31 +33,6 @@
             </ul>
         </nav>
         <main>
-            <div action="FilteTireSearchServlet" id="largecolumn">
-                <p style="border-bottom: 2px solid #1e1e1e; padding-bottom:10px;">Filters</p>
-                <form method="post">
-                    <label>Tire Brands</label>
-                    <input type="checkbox" name="TireBrands" value="Firestone" /> Firestone 
-                    <input type="checkbox" name="TireBrands" value="Michelin" /> Michelin
-                    <input type="checkbox" name="TireBrands" value="Provider" /> Provider
-                    <input type="checkbox" name="TireBrands" value="Barum" /> Barum
-                    <input type="checkbox" name="TireBrands" value="Kumho" /> Kumho
-                    <input type="checkbox" name="TireBrands" value="Bridgestone" /> Bridgestone
-                    <br />
-                    <label>Price Ranges</label>
-                    <input type="checkbox" name="PriceRange" value="Range1" /> $10 - $100
-                    <input type="checkbox" name="PriceRange" value="Range2" /> $100 - $200
-                    <input type="checkbox" name="PriceRange" value="Range3" /> $200 - $300
-                    <br />
-                    <label>Vehicle Type</label>
-                    <input type="checkbox" name="VehicleType" value="Nissan" /> Nissan
-                    <input type="checkbox" name="VehicleType" value="Infiniti" /> Infiniti
-                    <input type="checkbox" name="VehicleType" value="Toyota" /> Toyota
-                    <input type="checkbox" name="VehicleType" value="Jeep" /> Jeep
-                    <input type="submit" value="Filter" />
-                </form>
-            </div>
-            <div id="smallcolumn">
                 <form action="AddTiresServlet" method="post">
                 <table action="AddTiresServlet">
                     <tr>
@@ -75,7 +49,6 @@
                         for(int i=0; i<filteredList.listSize(); i++){
                     %>
                     <tr>
-                        <td><input type="checkbox" value="test" name="selectedTires"></td>
                         <td><%=filteredList.tireList.get(i).getStockID()%></td>
                         <td><%=filteredList.tireList.get(i).getType()%></td>
                         <td><%=filteredList.tireList.get(i).getSize()%></td>
@@ -89,9 +62,7 @@
                         %>
                 </table>
                         <input type="submit" value="Add Tires" /> 
-                </form>
-                <div class="lowerpad"></div>
-            </div>
+            </form>
         </main>
     </body>
 </html>
