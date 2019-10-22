@@ -44,7 +44,7 @@ public class FilterTireSearchServlet extends HttpServlet {
             TireList tl1;
             tl1 = (TireList)session1.getAttribute("tireSearchList");
             
-            TireList filteredList = tl1;
+            TireList filteredList = new TireList();
             
             String [] checkedTireBrands = request.getParameterValues("TireBrands");
             String [] checkedPriceRange = request.getParameterValues("PriceRange");

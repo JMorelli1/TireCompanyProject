@@ -13,7 +13,7 @@ public class DBAccess {
     private Statement stm;
     private ResultSet resultSet;
     private final String ConLocation = "jdbc:ucanaccess://C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/Tyres.accdb";
-    
+
 /************************************************************************************
  * SelectDB opens connection with database then executes Select query within give SQL statement then closes connection 
  * and returns ResultSet. Used to pull relevant fields information from database.
