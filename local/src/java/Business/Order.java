@@ -36,8 +36,7 @@ public class Order {
 /************************************************************************************
  * Order constructor, Initializes properties to given values.
  ***********************************************************************************/ 
-    public Order(String orderID, String tireID, String quantity, String status) {
-        this.orderID = orderID;
+    public Order(String tireID, String quantity, String status) {
         this.tireID = tireID;
         this.quantity = quantity;
         this.status = status;
@@ -106,9 +105,9 @@ public class Order {
  * database. 
  ***********************************************************************************/ 
     public void insertDB() {
-        
-        sql = "Insert into Order (OrderID, TireID, Quantity, Status) VALUES ('"+getOrderID()+"', '"+getTireID()+"', '"+getQuantity()+"', '"+getStatus()+"')";
-        System.out.println(sql);
+        int newID = countOrders() + 1;
+        sql = "Insert into Order (OrderID, TireID, Quantity, Status) VALUES ('"+newID+"','"+getTireID()+"', '"+getQuantity()+"', '"+getStatus()+"')";
+        System.out.println(sql + "\n" + newID);
         db.InsertDB(sql);
             
     }
@@ -136,6 +135,20 @@ public class Order {
         db.deleteDB(sql);
         
     }
+    public int countOrders(){
+        int count = 0;
+        sql = "SELECT * FROM Order";
+        ResultSet rs = db.SelectDB(sql);
+        try{
+            while(rs.next()){
+                count++;
+            }
+        }
+        catch(SQLException e){
+            System.out.println("Crash at countOrders method (for Order). " + e);
+        }
+        return count;
+    }
        
 /************************************************************************************
  * display, shows all property values. Requires 0 parameters. Prints the value of all
@@ -146,8 +159,8 @@ public class Order {
     }
 
     public static void main(String[] args) {
-        String test_va = "1";
-        Order test = new Order("7", "222", "10", "Processing");
+        //String test_va = "1";
+        Order test = new Order("222", "10", "Processing");
         //test.selectDB(test_va);
 
         test.insertDB();

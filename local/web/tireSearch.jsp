@@ -81,6 +81,7 @@
             </div>
   <div class="column right" >
        <p style="border-bottom: 2px solid #1e1e1e; padding-bottom:10px;">.</p>
+       <form action="AddTiresServlet" method="post">
      <table class="calign" >
                     <tr class="">
                         <th>Purchase</th>
@@ -97,8 +98,9 @@
                         for(int i=0; i<filteredList.listSize(); i++){
                     %>
                     <tr>
-                        <td><input type="checkbox" name="<%=filteredList.tireList.get(i).getStockID()%>" value="test"></td>
-                        <td><img src="tire2.jpg" alt="tire1" width="200" height="200"><%=filteredList.tireList.get(i).getStockID()%></td>
+                        <td><input type="checkbox" value="<%=filteredList.tireList.get(i).getStockID()%>" name="selectedTires"></td>
+                        <td><img src="tire2.jpg" alt="tire1" width="200" height="200"></td>
+                        <td><%=filteredList.tireList.get(i).getStockID()%></td>
                         <td><%=filteredList.tireList.get(i).getType()%></td>
                         <td><%=filteredList.tireList.get(i).getSize()%></td>
                         <td><%=filteredList.tireList.get(i).getBrand()%></td>
@@ -109,7 +111,9 @@
                         <%
                          }
                         %>
+                        <input type="submit" value="Add Tires" />
                 </table>
+        </form>
   </div>
 </div>
 

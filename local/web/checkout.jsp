@@ -10,31 +10,42 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+        <title>Checkout Page</title>
     </head>
     <body>
         <%
-            TireList fullList;
-            TireList filteredList;
-            filteredList = (TireList)session.getAttribute("filteredList");
-            if(filteredList == null){
-                filteredList = new TireList();
-                fullList = new TireList();
-                filteredList = filteredList.generateTireList();
-                fullList=filteredList;
-                session.setAttribute("tireSearchList", fullList);
+            TireList checkoutList;
+            checkoutList = (TireList)session.getAttribute("checkoutList");
+            if(checkoutList == null){
+                checkoutList = new TireList();
             }
             %>
-        <h1>Checkout Page</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="tireSearch.jsp">Tire Search</a></li>
-            </ul>
-        </nav>
+                      <nav>
+        <div class="logo">
+            <h4>T1tires</h4>
+        </div>
+        <ul class="nav-links">
+             <li>
+                <a href="index.html">Home</a>
+            </li> 
+
+            <li>
+                <a href="login.jsp">Login</a>
+            </li> 
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="faq.jsp">FAQ</a>
+            </li>
+        </ul>
+            
+
+    </nav>
         <main>
-                <form action="AddTiresServlet" method="post">
-                <table action="AddTiresServlet">
+                <form action="SubmitOrderServlet" method="post">
+                <table class="calign">
                     <tr>
                         <th>Purchase</th>
                         <th>Tire ID</th>
@@ -46,22 +57,24 @@
                         <th>Vehicle Type</th>
                     </tr>
                     <%
-                        for(int i=0; i<filteredList.listSize(); i++){
+                        for(int i=0; i<checkoutList.listSize(); i++){
                     %>
                     <tr>
-                        <td><%=filteredList.tireList.get(i).getStockID()%></td>
-                        <td><%=filteredList.tireList.get(i).getType()%></td>
-                        <td><%=filteredList.tireList.get(i).getSize()%></td>
-                        <td><%=filteredList.tireList.get(i).getBrand()%></td>
-                        <td><%=filteredList.tireList.get(i).getStock()%></td>
-                        <td><%=filteredList.tireList.get(i).getPrice()%></td>
-                        <td><%=filteredList.tireList.get(i).getVehicleType()%></td>
+                        <td><img src="tire2.jpg" alt="tire1" width="200" height="200"></td>
+                        <td><%=checkoutList.tireList.get(i).getStockID()%></td>
+                        <td><%=checkoutList.tireList.get(i).getType()%></td>
+                        <td><%=checkoutList.tireList.get(i).getSize()%></td>
+                        <td><%=checkoutList.tireList.get(i).getBrand()%></td>
+                        <td><%=checkoutList.tireList.get(i).getStock()%></td>
+                        <td><%=checkoutList.tireList.get(i).getPrice()%></td>
+                        <td><%=checkoutList.tireList.get(i).getVehicleType()%></td>
                     </tr>
                         <%
                          }
+                         session.setAttribute("checkoutList", checkoutList);
                         %>
                 </table>
-                        <input type="submit" value="Add Tires" /> 
+                        <input type="submit" value="Order" /> 
             </form>
         </main>
     </body>
