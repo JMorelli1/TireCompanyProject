@@ -12,7 +12,7 @@ public class DBAccess {
     private Connection con;
     private Statement stm;
     private ResultSet resultSet;
-    private final String ConLocation = "jdbc:ucanaccess://C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/Tyres.accdb";
+    private static String ConLocation = "jdbc:ucanaccess://C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/Tyres.accdb";
 
 /************************************************************************************
  * SelectDB opens connection with database then executes Select query within give SQL statement then closes connection 
@@ -93,6 +93,7 @@ public class DBAccess {
     public void openDBConnection(){
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
+            ConLocation = ConLocation.replace("\\", "/");
             con = DriverManager.getConnection(ConLocation);
             stm = con.createStatement();
         }
@@ -111,4 +112,8 @@ public class DBAccess {
             System.out.println("Error closing database: " + e);
         }
     }
+//    public static void main(String[] args){
+//        ConLocation = ConLocation.replace("\\", "/");
+//        System.out.println(ConLocation);
+//    }
 }
