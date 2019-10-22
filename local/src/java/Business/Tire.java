@@ -22,6 +22,7 @@ public class Tire {
     private String stockID;
     private String vehicleType;
     private String sql;
+    private int quantity;
     private final DBAccess db = new DBAccess();
     
 
@@ -37,6 +38,7 @@ public class Tire {
         stockID = "";
         tireSize = "";
         vehicleType = "";
+        quantity = 0;
     }
 
 /************************************************************************************
@@ -57,6 +59,7 @@ public class Tire {
         this.tireSize = tireSize;
         this.stockID = stockID;
         this.vehicleType = vehicleType;
+        quantity = 0;
     }
 
 /************************************************************************************
@@ -115,6 +118,14 @@ public class Tire {
 
     public void setVehicleType(String new_vType) {
         this.vehicleType = new_vType;
+    }
+    
+    public int getQuantity(){
+        return quantity;
+    }
+    
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
     }
 
 /************************************************************************************
@@ -188,17 +199,27 @@ public class Tire {
     }
 
     public static void main(String[] args) {
-        String test_va = "412";
+        String test_va = "Select * From Tire";
+        String testChanged = "Select * From Tire Where Brand IN ('Firestone')";
         Tire test = new Tire();
         //Tire test = new Tire("412", "Passenger", "123/60-R15", "Kumho", "12", "71.00", "Jeep");
-        test.selectTire(test_va);
+        //test.selectTire(test_va);
         //test.insertDB();
 
-        test.display();
+        //test.display();
         //test.insertDB("411", "All Season", "185/50-R9001", "TiresRUs", "9001", "360","Autobot");
         //test.setPrice("3001");
         //test.updateDB();
         //test.deleteDB();
+        
+        TireList t1 = new TireList();
+        t1 = t1.generateTireList();
+        t1.display();
+        
+        System.out.println("\n\n TEST CHECK \n\n");
+        
+        t1 = t1.generateTireList();
+        t1.display();
         
     }
 }

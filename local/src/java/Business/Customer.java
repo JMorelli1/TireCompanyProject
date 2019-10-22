@@ -250,8 +250,7 @@ public class Customer {
             while(resultSet.next()){
                 order = new Order();
                 order.setOrderID(resultSet.getString("OrderID"));
-                order.setTireID(resultSet.getString("TireID"));
-                order.setQuantity(resultSet.getString("Quantity"));
+                order.setCustomerID(resultSet.getString("CustomerID"));
                 order.setStatus(resultSet.getString("Status"));
                 orderList.addItem(order);
             }
