@@ -14,6 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import Business.TireList;
+import Business.Order;
+import Business.Customer;
+import javax.servlet.RequestDispatcher;
 
 /**
  *
@@ -35,11 +38,20 @@ public class SubmitOrderServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
+            
             HttpSession session = request.getSession();
+            RequestDispatcher rdCompleted = request.getRequestDispatcher("orderprocessed.jsp");
+            RequestDispatcher rdFailed = request.getRequestDispatcher("orderfailed.jsp");
+            
             TireList checkoutList = (TireList)session.getAttribute("checkoutList");
             
+            Customer customer = (Customer)session.getAttribute("customer");
+            Order newOrder = new Order();
             
+            newOrder.insertNewOrderDB(customer.getCID(), "Processing");
+            newOrder.insertOrderedItems(checkoutList);
+            
+            rdCompleted.forward(request, response);
         }
     }
 

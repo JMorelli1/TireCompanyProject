@@ -22,6 +22,7 @@ public class Tire {
     private String stockID;
     private String vehicleType;
     private String sql;
+    private int quantity;
     private final DBAccess db = new DBAccess();
     
 
@@ -37,6 +38,7 @@ public class Tire {
         stockID = "";
         tireSize = "";
         vehicleType = "";
+        quantity = 0;
     }
 
 /************************************************************************************
@@ -57,6 +59,7 @@ public class Tire {
         this.tireSize = tireSize;
         this.stockID = stockID;
         this.vehicleType = vehicleType;
+        quantity = 0;
     }
 
 /************************************************************************************
@@ -115,6 +118,14 @@ public class Tire {
 
     public void setVehicleType(String new_vType) {
         this.vehicleType = new_vType;
+    }
+    
+    public int getQuantity(){
+        return quantity;
+    }
+    
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
     }
 
 /************************************************************************************

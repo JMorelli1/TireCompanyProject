@@ -15,10 +15,10 @@ import java.sql.SQLException;
 public class Order {
 
     private String orderID;
-    private String tireID;
-    private String quantity;
+    private String customerID;
     private String status;
     private String sql;
+    private int newID;
     private final DBAccess db = new DBAccess();
 
     
@@ -28,17 +28,16 @@ public class Order {
  ***********************************************************************************/    
     public Order() {
         orderID = "";
-        tireID = "";
-        quantity = "";
+        customerID = "";
         status = "";
     }
 
 /************************************************************************************
  * Order constructor, Initializes properties to given values.
  ***********************************************************************************/ 
-    public Order(String tireID, String quantity, String status) {
-        this.tireID = tireID;
-        this.quantity = quantity;
+    public Order(String orderID, String tireID, String status) {
+        this.orderID = orderID;
+        this.customerID = tireID;
         this.status = status;
     }
 
@@ -53,20 +52,12 @@ public class Order {
         this.orderID = orderID;
     }
 
-    public String getTireID() {
-        return this.tireID;
+    public String getCustomerID() {
+        return this.customerID;
     }
 
-    public void setTireID(String new_TID) {
-        this.tireID = new_TID;
-    }
-
-    public String getQuantity() {
-        return this.quantity;
-    }
-
-    public void setQuantity(String new_quantity) {
-        this.quantity = new_quantity;
+    public void setCustomerID(String new_TID) {
+        this.customerID = new_TID;
     }
 
     public String getStatus() {
@@ -90,8 +81,7 @@ public class Order {
             resultSet.next();
 
             setOrderID(resultSet.getString("OrderID"));
-            setTireID(resultSet.getString("TireID"));
-            setQuantity(resultSet.getString("Quantity"));
+            setCustomerID(resultSet.getString("CustomerID"));
             setStatus(resultSet.getString("Status"));
 
         } catch (SQLException e) {
@@ -104,10 +94,24 @@ public class Order {
  * Inserts the given parameters into the Order table of the 
  * database. 
  ***********************************************************************************/ 
-    public void insertDB() {
-        int newID = countOrders() + 1;
-        sql = "Insert into Order (OrderID, TireID, Quantity, Status) VALUES ('"+newID+"','"+getTireID()+"', '"+getQuantity()+"', '"+getStatus()+"')";
+    public void insertNewOrderDB(String customerID, String status) {
+        newID = countOrders() + 1;
+        sql = "Insert into Order (OrderID, CustomerID, Status) VALUES ('"+newID+"','"+customerID+"', '"+status+"')";
         System.out.println(sql + "\n" + newID);
+        db.InsertDB(sql);
+            
+    }
+    
+    public void insertOrderedItems(TireList orderedItems){
+        for(int i=0; i<orderedItems.listSize(); i++){
+                    sql="Insert into OrderedItems (OrderID, TireID, Quantity) VALUES ('"+newID+"','"+orderedItems.getTire(i).getStockID()+"',"+orderedItems.getTire(i).getQuantity()+")";
+                    db.InsertDB(sql);            
+        }
+    }
+
+    
+    public void insertDB() {
+        sql = "Insert into Order (OrderID, CustomerID, Status) VALUES ('"+getCustomerID()+"','"+getCustomerID()+"', '"+getStatus()+"')";
         db.InsertDB(sql);
             
     }
@@ -119,7 +123,7 @@ public class Order {
  ***********************************************************************************/ 
     public void updateDB() {
         
-        sql = "UPDATE Order set " + "TireID='"+getTireID()+"'," + " Quantity='"+getQuantity()+"'," + " Status='"+getStatus()+"'" + " WHERE OrderID= '" + getOrderID()+"'";
+        sql = "UPDATE Order set " + "CustomerID='"+getCustomerID()+"'," + " Status='"+getStatus()+"'" + " WHERE OrderID= '" + getOrderID()+"'";
         db.updateDB(sql);
         
     }
@@ -155,7 +159,7 @@ public class Order {
  * properties to the server log.
  ***********************************************************************************/ 
     public void display() {
-        System.out.println("Displaying Order properties:\n Order ID number: " + getOrderID() + "\n Tire ID Number: " + getTireID() + "\n Total tires in order: " + getQuantity() + "\n Order Status: " + getStatus());
+        System.out.println("Displaying Order properties:\n Order ID number: " + getOrderID() + "\n Customer ID Number: " + getCustomerID() + "\n Order Status: " + getStatus());
     }
 
     public static void main(String[] args) {
