@@ -1,17 +1,22 @@
-/***********************************************************************************
-  @author Elijah T. Badger                                                         *
-  Tire.java (Project)                                                              *
-  Editor: James Morelli Edit Date: 9/25/19                                                       * 
- ***********************************************************************************/
+/** *********************************************************************************
+ * @author Elijah T. Badger                                                         *
+ * Tire.java (Project)                                                              *
+ * Editor: James Morelli Edit Date: 9/25/19                                                       *
+ ********************************************************************************** */
 package Business;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
-/************************************************************************************
- * Tire Class. Requires 0 or 7 parameters. Purpose: Complete database tasks
- * and hold relevant values from database in class property fields. 
- ***********************************************************************************/
+/**
+ * **********************************************************************************
+ * Tire Class. Requires 0 or 7 parameters. Purpose: Complete database tasks and
+ * hold relevant values from database in class property fields. 
+ **********************************************************************************
+ */
 public class Tire {
 
     private String type;
@@ -22,13 +27,14 @@ public class Tire {
     private String stockID;
     private String vehicleType;
     private String sql;
-    private final DBAccess db = new DBAccess();
-    
+    private DBAccess db = new DBAccess();
 
- /************************************************************************************
- * Tire constructor, Initializes all properties to "" when 0 
- * parameters are given.
- ***********************************************************************************/    
+    /**
+     * **********************************************************************************
+     * Tire constructor, Initializes all properties to "" when 0 parameters are
+     * given.
+ **********************************************************************************
+     */
     public Tire() {
         type = "";
         brand = "";
@@ -39,16 +45,19 @@ public class Tire {
         vehicleType = "";
     }
 
-/************************************************************************************
- * Tire constructor, Initializes properties to given values.
- * @param stockID
- * @param type
- * @param brand
- * @param stock
- * @param price
- * @param tireSize
- * @param vehicleType
- ***********************************************************************************/ 
+    /**
+     * **********************************************************************************
+     * Tire constructor, Initializes properties to given values.
+     *
+     * @param stockID
+     * @param type
+     * @param brand
+     * @param stock
+     * @param price
+     * @param tireSize
+     * @param vehicleType
+ **********************************************************************************
+     */
     public Tire(String stockID, String type, String tireSize, String brand, String stock, String price, String vehicleType) {
         this.type = type;
         this.brand = brand;
@@ -59,12 +68,15 @@ public class Tire {
         this.vehicleType = vehicleType;
     }
 
-/************************************************************************************
- * All get/set methods for Tire properties.
- ***********************************************************************************/  
+    /**
+     * **********************************************************************************
+     * All get/set methods for Tire properties.
+ **********************************************************************************
+     */
     public String getType() {
         return this.type;
     }
+
     public void setType(String new_type) {
         this.type = new_type;
     }
@@ -117,29 +129,35 @@ public class Tire {
         this.vehicleType = new_vType;
     }
 
-/************************************************************************************
- * display, shows all property values. Requires 0 parameters. Prints the value of all
- * properties to the server log.
- ***********************************************************************************/ 
+    /**
+     * **********************************************************************************
+     * display, shows all property values. Requires 0 parameters. Prints the
+     * value of all properties to the server log.
+ **********************************************************************************
+     */
     public void display() {
         System.out.println("Displaying Tire properties:\n Stock ID: " + this.getStockID() + "\n Type: " + this.getType() + "\n Brand: " + this.getBrand() + "\n Stock: " + this.getStock() + "\n Pricing: " + this.getPrice()
                 + "\n Size: " + this.getSize() + "\n Stock ID: " + this.getStockID() + "\n Car type: " + this.getVehicleType() + ".");
     }
-/************************************************************************************
- * selectDB, uses SELECT SQL to query database. Requires 1 String parameter. Queries
- * the Tire table for entries whose id key matches the
- * given parameter.
- * @param tireID
- ***********************************************************************************/
-    
-    public void selectTire(String tireID){
-        
+
+    /**
+     * **********************************************************************************
+     * selectDB, uses SELECT SQL to query database. Requires 1 String parameter.
+     * Queries the Tire table for entries whose id key matches the given
+     * parameter.
+     *
+     * @param tireID
+ **********************************************************************************
+     */
+
+    public void selectDB(String tireID) {
+
         sql = "SELECT * FROM Tire WHERE TireID = " + tireID;
         ResultSet resultSet = db.SelectDB(sql);
-        
-        try{
+
+        try {
             resultSet.next();
-            
+
             setStockID(resultSet.getString("TireID"));
             setType(resultSet.getString("TireType"));
             setSize(resultSet.getString("TireSize"));
@@ -147,51 +165,54 @@ public class Tire {
             setStock(resultSet.getString("Stock"));
             setPrice(resultSet.getString("Price"));
             setVehicleType(resultSet.getString("VehicleType"));
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             System.out.println("Error with Tire DB Select Method: " + e);
         }
-        
+
     }
 
-/************************************************************************************
- * insertDB, uses INSERT SQL to insert into database. 
- * Inserts the given parameters into the Tire table of the 
- * database. 
- ***********************************************************************************/ 
-    public void insertTire() {
-        
-        sql = "Insert into Tire (TireID, TireType, TireSize, Brand, Stock, Price, VehicleType) VALUES ('"+getStockID()+"', '" +getType()+ "', '" +getSize()+ "', '" +getBrand()+ "', '" +getStock()+ "', '" +getPrice()+ "', '" +getVehicleType()+ "')";
+    /**
+     * **********************************************************************************
+     * insertDB, uses INSERT SQL to insert into database. Inserts the given
+     * parameters into the Tire table of the database. 
+ **********************************************************************************
+     */
+    public void insertDB() {
+
+        sql = "Insert into Tire (TireID, TireType, TireSize, Brand, Stock, Price, VehicleType) VALUES ('" + getStockID() + "', '" + getType() + "', '" + getSize() + "', '" + getBrand() + "', '" + getStock() + "', '" + getPrice() + "', '" + getVehicleType() + "')";
         db.InsertDB(sql);
-        
+
     }
 
-/************************************************************************************
- * updateDB, uses UPDATE SQL to update database. Updates from the
- * Tire table in  based on the current values of class 
- * properties.
- ***********************************************************************************/ 
-    public void updateTire() {        
-        
-        sql = "UPDATE Tire set " + "TireType='"+getType()+"'," + " TireSize='"+getSize()+"'," + " Brand='"+getBrand()+"'," + " Stock='"+getStock()+"'," + " Price='"+getPrice()+"'," + " VehicleType='"+getVehicleType()+"'" + " WHERE TireID= '" + getStockID()+"'";
+    /**
+     * **********************************************************************************
+     * updateDB, uses UPDATE SQL to update database. Updates from the Tire table
+     * in based on the current values of class properties.
+ **********************************************************************************
+     */
+    public void updateDB() {
+
+        sql = "UPDATE Tire set " + "TireType='" + getType() + "'," + " TireSize='" + getSize() + "'," + " Brand='" + getBrand() + "'," + " Stock='" + getStock() + "'," + " Price='" + getPrice() + "'," + " VehicleType='" + getVehicleType() + "'" + " WHERE TireID= '" + getStockID() + "'";
         db.updateDB(sql);
     }
-/************************************************************************************
- * deleteDB, uses DELETE SQL to delete from database. Deletes
- * an row from the Tire Table based on current class
- * property values.
- ***********************************************************************************/ 
-    public void deleteTire() {
-        
-            sql = "Delete from Tire where TireID = '" + getStockID() + "'";
-            db.deleteDB(sql);
+
+    /**
+     * **********************************************************************************
+     * deleteDB, uses DELETE SQL to delete from database. Deletes an row from
+     * the Tire Table based on current class property values.
+ **********************************************************************************
+     */
+    public void deleteDB() {
+
+        sql = "Delete from Tire where TireID = '" + getStockID() + "'";
+        db.deleteDB(sql);
     }
 
     public static void main(String[] args) {
         String test_va = "412";
         Tire test = new Tire();
         //Tire test = new Tire("412", "Passenger", "123/60-R15", "Kumho", "12", "71.00", "Jeep");
-        test.selectTire(test_va);
+        test.selectDB(test_va);
         //test.insertDB();
 
         test.display();
@@ -199,6 +220,5 @@ public class Tire {
         //test.setPrice("3001");
         //test.updateDB();
         //test.deleteDB();
-        
     }
 }
