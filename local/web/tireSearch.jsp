@@ -80,6 +80,19 @@
                 </form>
         </div>
             </div>
+    
+  
+
+
+<div class="vl">  
+  <style>
+.vl {
+  border-left: 3px solid black;
+  height: 750px;
+}</style>
+
+</div>
+
   <div class="column right" >
        <p style="border-bottom: 2px solid #1e1e1e; padding-bottom:10px;">.</p>
      <table class="calign" >

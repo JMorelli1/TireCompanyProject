@@ -612,9 +612,19 @@ input.input100 {
   margin-right: auto;
   width:40%;
   
-}
+}   
 .para{
       padding:0;
     margin: 0;
+}
+
+
+.vl {
+  border-left: 6px ;
+  height: 500px;
+  position: absolute;
+  left: 15%;
+  margin-left: -3px;
+  top: 108px;
 }
 
