@@ -18,10 +18,8 @@
             <a href="index.html"><li>Home Page</li></a>
             <a href="about.jsp"><li>Help</li></a>
         </ul>
-        <form action="http://localhost:8080/TiresRUs/customerProfileServlet" method="post">
-            <input type = "text" name = "oid_field" value = "" />
-            <input type = "text" name = "tid_field" value = "" />
-            <input type = "text" name = "quantity_field" value = "" />
+        <form action="http://localhost:8080/TiresRUs/addOrderServlet" method="post">
+            <label>Tire ID:</label><input type = "text" name = "tid_field" value = "" />
 
             <input type = "submit" name = "send" value="Submit"/>
         </form>

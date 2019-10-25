@@ -1,7 +1,7 @@
 <%-- 
-    Document   : admin_stock_lookup
-    Created on : Sep 25, 2019, 2:41:02 PM
-    Author     : ebadger
+    Document   : admin_stock_display
+    Created on : Oct 24, 2019, 3:08:50 AM
+    Author     : Elijah Badger
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -37,20 +37,18 @@
             <a href="about.jsp"><li>Help</li></a>
         </ul>
         <h1>Welcome, <%=username%>!</h1>
-        <form action="http://localhost:8080/TiresRUs/stockModifyServlet" method="post">
             <table>
-                <tr><td>Type:</td><td><input type = "text" name = "type" value = ""/></td></tr>
-                <tr><td>Size:</td><td><input type = "text" name = "size" value = ""/></td></tr>
-                <tr><td>Brand:</td><td><input type = "text" name = "brand" value = ""/></td></tr>
-                <tr><td>Stock:</td><td><input type = "text" name = "stock" value = ""/></td></tr>
-                <tr><td>Price:</td><td><input type = "text" name = "price" value = ""/></td></tr>
-                <tr><td>Vehicle Type:</td><td><input type = "text" name = "vtype" value = ""/></td></tr>
+                <tr><td>Type:</td><td><input type = "text" name = "type" value = <%=type%> /></td></tr>
+                <tr><td>Size:</td><td><input type = "text" name = "size" value = <%=size%> /></td></tr>
+                <tr><td>Brand:</td><td><input type = "text" name = "brand" value = <%=brand%> /></td></tr>
+                <tr><td>Stock:</td><td><input type = "text" name = "stock" value = <%=stock%> /></td></tr>
+                <tr><td>Price:</td><td><input type = "text" name = "price" value = <%=price%> /></td></tr>
+                <tr><td>Vehicle Type:</td><td><input type = "text" name = "vtype" value = <%=vtype%> /></td></tr>
 
             </table>
 
 
-            <input type = "submit" name = "Modify" value="Modify"/>
-            </form>
+                <a href="admin_stock_modify.jsp"><button>Modify</button></a>
 
     </body>
 </html>
