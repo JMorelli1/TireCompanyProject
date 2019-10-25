@@ -48,6 +48,7 @@ public class DBAccess {
     public void InsertDB(String sqlStm) {
         openDBConnection();
         try {
+            System.out.println(sqlStm); //Test code. Remove from final product.
             stm.executeUpdate(sqlStm);
         } catch (SQLException e) {
             System.out.println("Error Insert into DB: " + e);

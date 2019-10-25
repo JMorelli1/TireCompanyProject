@@ -122,7 +122,7 @@ public class Order {
      */
     public void insertDB() {
 
-        sql = "Insert into Order (OrderID, CustomerID, ShipperID, Status) VALUES ('" + getOrderID() + "', '" + getCustomerID() + "', '" + getShipperID() + "', '" + getStatus() + "')";
+        sql = "Insert into Order (OrderID, CustomerID, Status, ShipperID) VALUES ('" + getOrderID() + "', '" + getCustomerID() + "', '" + getStatus() + "', '" + getShipperID() + "')";
         System.out.println(sql);
         db.InsertDB(sql);
 

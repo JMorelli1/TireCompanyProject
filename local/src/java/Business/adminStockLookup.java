@@ -50,7 +50,7 @@ public class adminStockLookup extends HttpServlet {
                 t.display();
 
                 session.setAttribute("tire", t);
-                RequestDispatcher rd = context.getRequestDispatcher("/admin_stock_modify.jsp");
+                RequestDispatcher rd = context.getRequestDispatcher("/admin_stock_display.jsp");
                 rd.forward(request, response);
             } catch (Exception e) {
                 System.out.println("Crash in Admin lookup servlet." + e); //Test code. Remove from final product.

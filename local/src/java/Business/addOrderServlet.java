@@ -7,6 +7,7 @@ package Business;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Random;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -14,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -37,16 +39,23 @@ public class addOrderServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             try {
                 ServletContext context = getServletContext();
+                HttpSession session = request.getSession();
+                
+                Customer c = (Customer) session.getAttribute("customer");
+                
+                Random r = new Random();
+                int random_id = r.nextInt(1000);
+                String randomid = Integer.toString(random_id);
 
                 Order o = new Order();
-                o.setOrderID(request.getParameter("oid_field"));
-                o.setCustomerID(request.getParameter("tid_field"));
-                o.setShipperID(request.getParameter("quantity_field"));
+                o.setOrderID(randomid);
+                o.setCustomerID(c.getCID());
+                o.setShipperID("9011");
                 o.setStatus("Processing");
 
                 o.insertDB();
 
-                RequestDispatcher rd = context.getRequestDispatcher("/add_customer_profile.jsp");
+                RequestDispatcher rd = context.getRequestDispatcher("/add_customer_order.jsp");
                 rd.forward(request, response);
             } catch (Exception e) {
 

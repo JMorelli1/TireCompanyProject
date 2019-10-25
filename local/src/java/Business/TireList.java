@@ -12,8 +12,8 @@ import java.util.ArrayList;
 /**
  * **********************************************************************************
  * TireList Class. Requires 0 parameters. Purpose: Hold a list of Tire in an
- * ArrayList for Customer class use. 
- **********************************************************************************
+ * ArrayList for Customer class use.
+ * *********************************************************************************
  */
 public class TireList {
 
@@ -27,7 +27,7 @@ public class TireList {
      * Tire object to the ArrayList and increase counter by 1.
      *
      * @param a
- **********************************************************************************
+     * *********************************************************************************
      */
     public void addItem(Tire a) {
         tireList.add(a);
@@ -37,7 +37,7 @@ public class TireList {
      * **********************************************************************************
      * ListSize Method to return size of ArrayList. Requires 0 parameters.
      * Purpose: Returns the value of the count property.
- **********************************************************************************
+     * *********************************************************************************
      */
     public int listSize() {
         return tireList.size();
@@ -49,7 +49,7 @@ public class TireList {
      * with the int parameter and return the Tire object at the given index
      *
      * @param x
- **********************************************************************************
+     * *********************************************************************************
      */
     public Tire getTire(int x) {
         return tireList.get(x);
@@ -60,13 +60,21 @@ public class TireList {
      * display Method to display contents of Tire objects. Requires 0
      * parameters. Purpose: Uses a for loop to call the display method of each
      * Tire object in the ArrayList and print the information to the server log.
- **********************************************************************************
+     * *********************************************************************************
      */
     public void display() {
         for (int x = 0; x < tireList.size(); x++) {
             Tire pointer = tireList.get(x);
             pointer.display();
         }
+    }
+
+    public void removeItem(Tire a) {
+        tireList.remove(a);
+    }
+
+    public boolean containsItem(Tire a) {
+        return tireList.contains(a);
     }
 
     public TireList generateTireList() {

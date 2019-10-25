@@ -277,7 +277,7 @@ public class Customer {
                 order = new Order();
                 order.setOrderID(resultSet.getString("OrderID"));
                 order.setCustomerID(resultSet.getString("CustomerID"));
-                order.setShipperID(resultSet.getString("Quantity"));
+                order.setShipperID(resultSet.getString("ShipperID"));
                 order.setStatus(resultSet.getString("Status"));
                 orderList.addItem(order);
             }
