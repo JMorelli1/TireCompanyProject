@@ -112,7 +112,7 @@ public class Order {
     
     public void insertDB() {
         sql = "Insert into Order (OrderID, CustomerID, Status) VALUES ('"+getCustomerID()+"','"+getCustomerID()+"', '"+getStatus()+"')";
-        db.InsertDB(sql);
+        db.insertDB(sql);
             
     }
 
