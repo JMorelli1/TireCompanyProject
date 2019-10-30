@@ -97,7 +97,7 @@ public class Admin {
     public void selectDB(String ID) {
 
         //String sql = "SELECT * FROM Admin WHERE EmployeeID = " + ID;
-        String sql = "SELECT * FROM Admin WHERE username = '" + ID +"'";
+        String sql = "SELECT * FROM Admin WHERE Username = '" + ID +"'";
         ResultSet resultSet = db.SelectDB(sql);
 
         try {

@@ -205,6 +205,40 @@ public class Customer {
             System.out.println(" ");
         }
     }
+    
+    /************************************************************************************
+ * selectCustomerUsername, uses SELECT SQL to query database. Requires 1 String parameter. Queries
+ * the Customer table for entries whose username key matches the
+ * given parameter.
+ * @param custUsername
+ ***********************************************************************************/    
+    
+        public void selectCustomerUsername(String custUsername) {
+        try {
+            
+            sql = "SELECT * FROM Customer WHERE Username = '" + custUsername + "'";
+            ResultSet resultSet = db.SelectDB(sql);
+            
+            resultSet.next();
+
+            setID(resultSet.getString("CustomerID"));
+            setUsername(resultSet.getString("Username"));
+            setPassword(resultSet.getString("Password"));
+            setFN(resultSet.getString("FirstName"));
+            setLN(resultSet.getString("LastName"));
+            setAddress(resultSet.getString("Address"));
+            setPhone(resultSet.getString("PhoneNumber"));
+            setCreditCardInfo(resultSet.getString("CreditCardNumber"));
+            setExpireDate(resultSet.getString("ExpirationDate"));
+            setSecurityCode(resultSet.getString("SecurityCode"));
+            setOID(resultSet.getString("OrderID"));
+
+            findOrders();
+        } catch (SQLException e) {
+            System.out.println("Crash at selectDB method (for Admin). " + e);
+            System.out.println(" ");
+        }
+    }
 
 /************************************************************************************
  * insertDB, uses INSERT SQL to insert into database. Requires 11 String parameters.

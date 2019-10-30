@@ -60,7 +60,7 @@ public class Shipper {
     
     public void selectDB(String username) {
         try {
-            sql = "Select * from Shipper where username = '" + username + "'";
+            sql = "Select * from Shipper where Username = '" + username + "'";
             ResultSet resultSet = db.SelectDB(sql);
 
             resultSet.next();
