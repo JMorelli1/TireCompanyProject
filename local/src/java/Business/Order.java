@@ -102,9 +102,9 @@ public class Order {
             
     }
     
-    public void insertOrderedItems(TireList orderedItems){
+    public void insertOrderedItems(TireList orderedItems, int quantity){
         for(int i=0; i<orderedItems.listSize(); i++){
-                    sql="Insert into OrderedItems (OrderID, TireID, Quantity) VALUES ('"+newID+"','"+orderedItems.getTire(i).getStockID()+"',"+orderedItems.getTire(i).getQuantity()+")";
+                    sql="Insert into OrderedItems (OrderID, TireID, Quantity) VALUES ('"+newID+"','"+orderedItems.getTire(i).getStockID()+"',"+quantity+")";
                     db.InsertDB(sql);            
         }
     }

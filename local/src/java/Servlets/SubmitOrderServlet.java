@@ -49,7 +49,7 @@ public class SubmitOrderServlet extends HttpServlet {
             Order newOrder = new Order();
             
             newOrder.insertNewOrderDB(customer.getCID(), "Processing");
-            newOrder.insertOrderedItems(checkoutList);
+            newOrder.insertOrderedItems(checkoutList, 5);
             
             rdCompleted.forward(request, response);
         }

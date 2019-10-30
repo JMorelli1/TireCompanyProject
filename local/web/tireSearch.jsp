@@ -58,24 +58,27 @@
                 <form  action="FilterTireSearchServlet" method="post">
                     <label  class="call" >Tire Brands</label>
                     <div class="lefta">
+                    <input type="checkbox" name="TireBrands" value="Barum" /> Barum   </br>
+                    <input type="checkbox" name="TireBrands" value="Bridgestone" /> Bridgestone   </br>
+                    <input type="checkbox" name="TireBrands" value="Corsa" /> Corsa   </br>
                     <input type="checkbox" name="TireBrands" value="Firestone" /> Firestone   </br> 
+                    <input type="checkbox" name="TireBrands" value="Goodyear" /> Goodyear   </br>
+                    <input type="checkbox" name="TireBrands" value="Kumho" /> Kumho   </br>
                     <input type="checkbox" name="TireBrands" value="Michelin" /> Michelin     </br>
                     <input type="checkbox" name="TireBrands" value="Provider" /> Provider     </br>
-                    <input type="checkbox" name="TireBrands" value="Barum" /> Barum   </br>
-                    <input type="checkbox" name="TireBrands" value="Kumho" /> Kumho   </br>
-                    <input type="checkbox" name="TireBrands" value="Bridgestone" /> Bridgestone   </br>
+                    <input type="checkbox" name="TireBrands" value="Road Hugger" /> Road Hugger   </br>
                     <br />
                     <label>Price Ranges</label>
                     <input type="checkbox" name="PriceRange" value="Range1" /> $10 - $100 </br> 
                     <input type="checkbox" name="PriceRange" value="Range2" /> $100 - $200 </br> 
-                    <input type="checkbox" name="PriceRange" value="Range3" /> $200 - $300 </br> 
+                    <input type="checkbox" name="PriceRange" value="Range3" /> $200 - $300 </br>
                     <br />
                     <label>Vehicle Type</label>
                     <input type="checkbox" name="VehicleType" value="Nissan" /> Nissan </br> 
                     <input type="checkbox" name="VehicleType" value="Infiniti" /> Infiniti </br> 
                     <input type="checkbox" name="VehicleType" value="Toyota" /> Toyota </br> 
                     <input type="checkbox" name="VehicleType" value="Jeep" /> Jeep </br> 
-                    <input type="submit" value="Filter" value="Firestone" /> </br> 
+                    <input type="submit" /> </br> 
                 </form>
         </div>
             </div>
@@ -99,6 +102,7 @@
                     %>
                     <tr>
                         <td><input type="checkbox" value="<%=filteredList.tireList.get(i).getStockID()%>" name="selectedTires"></td>
+                        <td>Quantity: <input type="number" name="quantity" min="1" max="100"></td>
                         <td><img src="tire2.jpg" alt="tire1" width="200" height="200"></td>
                         <td><%=filteredList.tireList.get(i).getStockID()%></td>
                         <td><%=filteredList.tireList.get(i).getType()%></td>
