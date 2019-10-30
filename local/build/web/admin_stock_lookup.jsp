@@ -6,6 +6,12 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@page import = "Business.*" %>
+
+<%Admin a = (Admin) session.getAttribute("admin");
+    String empn = a.getEmpNumber();
+    String pass = a.getPassword();
+    String username = a.getUsername();%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -14,14 +20,17 @@
     <body>
         <h1>Tires R' Us</h1>
         <ul>
-            <li><a href="">Home Page</a></li>
-            <li><a href="">Help</a></li>
+            <a href="admin_homepage.jsp"><li>Your Home Page</li></a>
+            <a href="index.html"><li>Home Page</li></a>
+            <a href="about.jsp"><li>Help</li></a>
         </ul>
-        <h1>Welcome, Admin!</h1>
-            <input type = "text" id = "stock" value = ""/>
- 
-            
-            <input type = "submit" id = "enter" value="Submit"/>
+        <h1>Welcome, <%=username%>! Enter stock ID number.</h1>
+        <form action="http://localhost:8080/TiresRUs/adminStockLookup" method="post">
+
+            <input type = "text" name = "stock" value = ""/>
+
+
+            <input type = "submit" name = "enter" value="Submit"/>
 
     </body>
 </html>

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : shipper_edit_order
-    Created on : Sep 25, 2019, 2:42:59 PM
-    Author     : ebadger
+    Document   : shipper_change_status
+    Created on : Oct 23, 2019, 12:17:53 AM
+    Author     : Elijah Badger
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -30,14 +30,15 @@ String sid = o.getShipperID();
             <a href="index.html"><li>Home Page</li></a>
             <a href="about.jsp"><li>Help</li></a>
         </ul>
-        <h1>Search Results:</h1>
+        <h1>Choose a new status:</h1>
         <form action="http://localhost:8080/TiresRUs/modifyOrderServlet" method="post">
-             <select name = "list">
+                         <select name = "list" id = "list">
                <option value = "Processing">Processing</option>
                <option value = "In Transit">Transit</option>
-               <option value = "Complete">Complete</option>
+               <option value = "Completed">Completed</option>
              </select>
         
         <input type = "submit" name = "send" value="Edit Status" />
+        </form>
     </body>
 </html>

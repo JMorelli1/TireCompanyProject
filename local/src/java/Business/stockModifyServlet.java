@@ -53,7 +53,7 @@ public class stockModifyServlet extends HttpServlet {
                 t.setType(request.getParameter("type"));
                 t.setVehicleType(request.getParameter("vtype"));
 
-                t.updateDB();
+                t.updateTire();
 
                 session.setAttribute("tire", t);
                 RequestDispatcher rd = context.getRequestDispatcher("/admin_stock_modify.jsp");

@@ -173,7 +173,7 @@ public class Tire {
     public void insertTire() {
         
         sql = "Insert into Tire (TireID, TireType, TireSize, Brand, Stock, Price, VehicleType) VALUES ('"+getStockID()+"', '" +getType()+ "', '" +getSize()+ "', '" +getBrand()+ "', '" +getStock()+ "', '" +getPrice()+ "', '" +getVehicleType()+ "')";
-        db.InsertDB(sql);
+        db.insertDB(sql);
         
     }
 

@@ -52,7 +52,7 @@ public class addStockServlet extends HttpServlet {
                 t.setType(request.getParameter("type"));
                 t.setVehicleType(request.getParameter("vtype"));
 
-                t.insertDB();
+                t.insertTire();
 
                 session.setAttribute("tire", t);
                 RequestDispatcher rd = context.getRequestDispatcher("/admin_add_stock.jsp");

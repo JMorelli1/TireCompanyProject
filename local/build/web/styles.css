@@ -37,3 +37,13 @@ and open the template in the editor.
         color: black;
         border: gray;
     }
+
+    .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #990000;
+   color: white;
+   text-align: center;
+    }

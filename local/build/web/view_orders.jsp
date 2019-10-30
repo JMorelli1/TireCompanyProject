@@ -1,33 +1,18 @@
 <%-- 
-    Document   : view_customer_orders
-    Created on : Sep 25, 2019, 2:44:52 PM
-    Author     : ebadger
+    Document   : view_orders
+    Created on : Oct 24, 2019, 1:31:56 AM
+    Author     : Elijah Badger
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import = "Business.*" %>
 <%@page import = "java.sql.*" %>
-<%--<%Customer c = (Customer) session.getAttribute("customer");
-    String oid = c.getOID();
-    String cid = c.getCID();
-    String fn = c.getFN();
-    String ln = c.getLN();
+<%Customer c = (Customer) session.getAttribute("customer");
+
     String username = c.getUsername();
-    String pass = c.getPassword();
-    String addr = c.getAddress();
-    String phone = c.getPhone();
-    String card_info = c.getCreditCardInfo();
-    String exp_date = c.getExpireDate();
-    String sec_code = c.getSecurityCode();%>--%>
-
-<%
-    
-Order o = new Order();
-DBAccess dba = new DBAccess();
-String sql = "Select * from Order";
-
-ResultSet rs = dba.SelectDB(sql);
 %>
+
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -43,14 +28,14 @@ ResultSet rs = dba.SelectDB(sql);
         </ul>
 
         <table>
-            <%
-            while (rs.next()){
-                String oid = rs.getString("OrderID");
-                String cid = rs.getString("CustomerID");
-                String status = rs.getString("status");
-                String sid = rs.getString("ShipperID");
             
-            %>
+            <%for(int x = 0; x < c.getOrderList().listSize(); x++) {
+                    Order holder = c.getOrderList().getOrder(x);
+                    String cid = holder.getCustomerID();
+                    String oid = holder.getOrderID();
+                    String sid = holder.getShipperID();
+                    String status = holder.getStatus();%>
+            
             <tr><td>Order ID:</td>
                 <td><input type="text" value= <%=oid%> name="oid"/></td>
             </tr>
@@ -68,6 +53,6 @@ ResultSet rs = dba.SelectDB(sql);
             </tr>
             <%}%>
         </table>
-        <a href="shipper_homepage.jsp"><button>Return to Your Home Page</button></a>
+        <a href="customer_homepage.jsp"><button>Return to Your Home Page</button></a>
     </body>
 </html>

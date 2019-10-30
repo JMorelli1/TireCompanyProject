@@ -1,3 +1,5 @@
+
+  
 *{
     padding:0;
     margin: 0;
@@ -517,8 +519,6 @@ input.input100 {
     opacity: 1;
   }
 }
-
-
 .column {
   float: left;
   padding: 10px;
@@ -617,4 +617,3 @@ input.input100 {
       padding:0;
     margin: 0;
 }
-

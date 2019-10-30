@@ -123,7 +123,7 @@ public class Admin {
     public void insertDB() {
 
         String sql = "Insert into Admin (EmployeeID, Username, Password) VALUES ('" + getEmpNumber() + "', '" + getUsername() + "', '" + getPassword() + "')";
-        db.InsertDB(sql);
+        db.insertDB(sql);
 
     }
 

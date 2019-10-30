@@ -1,7 +1,7 @@
 <%-- 
-    Document   : about
-    Created on : Oct 9, 2019, 2:45:04 PM
-    Author     : migue
+    Document   : about.jsp
+    Created on : Sep 25, 2019, 2:37:21 PM
+    Author     : ebadger
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

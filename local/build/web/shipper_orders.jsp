@@ -14,11 +14,12 @@
     <body>
         <h1>Tires R' Us</h1>
         <ul>
-            <li><a href="">Home Page</a></li>
-            <li><a href="">Help</a></li>
+            <a href="shipper_homepage.jsp"><li>Your Home Page</li></a>
+            <a href="index.html"><li>Home Page</li></a>
+            <a href="about.jsp"><li>Help</li></a>
         </ul>
         <h1>Welcome, Shipper!</h1>
-<%-- a for loop that displays each order that has bee made --%>
+        <%-- a for loop that displays each order that has bee made --%>
 
     </body>
 </html>

@@ -44,7 +44,7 @@ public class adminStockLookup extends HttpServlet {
                 Tire t = new Tire();
                 //Admin a = (Admin) session.getAttribute("admin");
 
-                t.selectDB(request.getParameter("stock"));
+                t.selectTire(request.getParameter("stock"));
                 System.out.println("Double checking vlaues for Tire object."); //Test code. Remove from final product.
                 System.out.println("---"); //Test code. Remove from final product.
                 t.display();

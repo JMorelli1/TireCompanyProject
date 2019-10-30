@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
             System.out.println("Password captured."); //Test code. Remove from final product.            
             Customer c = new Customer();
             System.out.println("Customer obj created. Data fields: " ); //Test code. Remove from final product.
-            c.selectDB(uid); 
+            c.selectCustomer(uid); 
             c.display();
                 if (c.getPassword().equals(upw)) {
                     session = request.getSession();

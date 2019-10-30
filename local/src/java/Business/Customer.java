@@ -214,7 +214,7 @@ public class Customer {
     public void insertCustomer() {
         
         sql = "Insert into Customer (CustomerID, Username, Password, FirstName, LastName, Address, PhoneNumber, CreditCardNumber, ExpirationDate, SecurityCode, OrderID) VALUES ('" +getID()+ "', '" +getUsername()+ "', '" +getPassword()+ "', '"+getFN()+ "', '" +getLN()+ "', '" +getAddress()+ "', '" +getPhone()+ "', '" +getCreditCardInfo()+ "', '" +getExpireDate()+ "', '" +getSecurityCode()+ "', '" +getOID()+ "')";
-        db.InsertDB(sql);
+        db.insertDB(sql);
     }
 
 /************************************************************************************

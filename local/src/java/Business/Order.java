@@ -98,14 +98,14 @@ public class Order {
         newID = countOrders() + 1;
         sql = "Insert into Order (OrderID, CustomerID, Status) VALUES ('"+newID+"','"+customerID+"', '"+status+"')";
         System.out.println(sql + "\n" + newID);
-        db.InsertDB(sql);
+        db.insertDB(sql);
             
     }
     
     public void insertOrderedItems(TireList orderedItems, int quantity){
         for(int i=0; i<orderedItems.listSize(); i++){
                     sql="Insert into OrderedItems (OrderID, TireID, Quantity) VALUES ('"+newID+"','"+orderedItems.getTire(i).getStockID()+"',"+quantity+")";
-                    db.InsertDB(sql);            
+                    db.insertDB(sql);            
         }
     }
 
