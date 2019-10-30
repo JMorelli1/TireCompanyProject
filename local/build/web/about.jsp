@@ -58,6 +58,5 @@
             By the end of the decade, our company grew to six stores and 
             established a strong reputation for customer satisfaction.
         </p></div>
- 
     </body>
 </html>

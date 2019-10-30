@@ -1,7 +1,7 @@
 <%-- 
-    Document   : about
-    Created on : Oct 9, 2019, 2:45:04 PM
-    Author     : migue
+    Document   : about.jsp
+    Created on : Sep 25, 2019, 2:37:21 PM
+    Author     : ebadger
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -58,6 +58,5 @@
             By the end of the decade, our company grew to six stores and 
             established a strong reputation for customer satisfaction.
         </p></div>
- 
     </body>
 </html>
