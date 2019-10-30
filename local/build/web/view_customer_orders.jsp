@@ -5,6 +5,29 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import = "Business.*" %>
+<%@page import = "java.sql.*" %>
+<%--<%Customer c = (Customer) session.getAttribute("customer");
+    String oid = c.getOID();
+    String cid = c.getCID();
+    String fn = c.getFN();
+    String ln = c.getLN();
+    String username = c.getUsername();
+    String pass = c.getPassword();
+    String addr = c.getAddress();
+    String phone = c.getPhone();
+    String card_info = c.getCreditCardInfo();
+    String exp_date = c.getExpireDate();
+    String sec_code = c.getSecurityCode();%>--%>
+
+<%
+    
+Order o = new Order();
+DBAccess dba = new DBAccess();
+String sql = "Select * from Order";
+
+ResultSet rs = dba.SelectDB(sql);
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -14,11 +37,37 @@
     <body>
         <h1>Tires R' Us</h1>
         <ul>
-            <li><a href="">Home Page</a></li>
-            <li><a href="">Help</a></li>
+            <a href="shipper_homepage.jsp"><li>Your Home Page</li></a>
+            <a href="index.html"><li>Home Page</li></a>
+            <a href="about.jsp"><li>Help</li></a>
         </ul>
-        
-        <%-- for loop goes here, which will check all customer orders and dispaly them here
-        --%>
+
+        <table>
+            <%
+            while (rs.next()){
+                String oid = rs.getString("OrderID");
+                String cid = rs.getString("CustomerID");
+                String status = rs.getString("status");
+                String sid = rs.getString("ShipperID");
+            
+            %>
+            <tr><td>Order ID:</td>
+                <td><input type="text" value= <%=oid%> name="oid"/></td>
+            </tr>
+            <tr><td>Customer ID:</td>
+                <td><input type="text" value= <%=cid%> name="cid"/></td>
+            </tr>
+            <tr><td>Status:</td>
+                <td><input type="text" value= <%=status%> name="status"/></td>
+            </tr>
+            <tr><td>Shipper assigned to order:</td>
+                <td><input type="text" value= <%=sid%> name="sid"/></td>
+            </tr>
+            <tr>
+                <td><p>---------------------</p></td>
+            </tr>
+            <%}%>
+        </table>
+        <a href="shipper_homepage.jsp"><button>Return to Your Home Page</button></a>
     </body>
 </html>

@@ -14,12 +14,14 @@
     <body>
         <h1>Tires R' Us</h1>
         <ul>
-            <li><a href="">Home Page</a></li>
-            <li><a href="">Help</a></li>
+            <a href="shipper_homepage.jsp"><li>Your Home Page</li></a>
+            <a href="index.html"><li>Home Page</li></a>
+            <a href="about.jsp"><li>Help</li></a>
         </ul>
         <h1>Welcome, Shipper!</h1>
+<form action="http://localhost:8080/TiresRUs/findOrdersServlet" method="post">
         <input type = "text" id = "oid_field" value = "" />
         <input type = "submit" id = "send" value="Submit"/>
-
+</form>
     </body>
 </html>

@@ -1,7 +1,10 @@
+
+  
 *{
     padding:0;
     margin: 0;
     box-sizing: border-box;
+    
     
 }
 
@@ -24,7 +27,6 @@ nav{
     display: flex;
     justify-content: space-around;
     width: 25%;  
-
 }
 
 .nav-links li{
@@ -45,15 +47,15 @@ body, html {
 
 /*---------------------------------------------*/
 a {
-	font-family: Poppins-Regular;
+	font-family: Poppins-Regular, sans-serif;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
 	margin: 0px;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  -moz-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
 }
 
 a:focus {
@@ -71,7 +73,7 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 p {
-	font-family: Poppins-Regular;
+	font-family: Poppins-Regular, sans-serif;
 	font-size: 14px;
 	line-height: 1.7;
 	color: #666666;
@@ -120,7 +122,10 @@ textarea:focus:-moz-placeholder { color:transparent; }
 textarea:focus::-moz-placeholder { color:transparent; }
 textarea:focus:-ms-input-placeholder { color:transparent; }
 
-input::-webkit-input-placeholder {color: #999999;}
+
+            /* this is the input-placeholder*/
+input::-webkit-input-placeholder {color: #EBEBEB;}
+
 input:-moz-placeholder {color: #999999;}
 input::-moz-placeholder {color: #999999;}
 input:-ms-input-placeholder {color: #999999;}
@@ -151,13 +156,12 @@ iframe {
 }
 
 
-/*//////////////////////////////////////////////////////////////////
-[ Utility ]*/
+            /* Forgot password text*/
 .txt1 {
-  font-family: Poppins-Regular;
+  font-family: Poppins-bold, sans-serif;
   font-size: 13px;
   line-height: 1.4;
-  color: #999999;
+  color: #EBEBEB;
 }
 
 /*//////////////////////////////////////////////////////////////////
@@ -180,20 +184,21 @@ iframe {
   justify-content: center;
   align-items: center;
   padding: 15px;
-  background: #ebeeef;
+  background: #EBEBEB;
 }
 
-
+      /*-DONE-*/
 .wrap-login100 {
   width: 670px;
-  background: #fff;
+  background: #FF6700;
   border-radius: 10px;
   overflow: hidden;
   position: relative;
 }
 
-/*==================================================================
-[ Title form ]*/
+
+
+  /*- Title form DONE-*/
 .login100-form-title {
   width: 100%;
   position: relative;
@@ -214,14 +219,19 @@ iframe {
   padding: 70px 15px 74px 15px;
 }
 
+  
+/*-DONE-*/
 .login100-form-title-1 {
-  font-family: Poppins-Bold;
-  font-size: 30px;
-  color: #fff;
+  font-family: Poppins-bold, sans-serif;
+  font-size: 45px;
+  color: #FF6700;
   text-transform: uppercase;
   line-height: 1.2;
   text-align: center;
+  
 }
+
+  /*-DONE-*/
 
 .login100-form-title::before {
   content: "";
@@ -232,9 +242,9 @@ iframe {
   height: 100%;
   top: 0;
   left: 0;
-  background-color: rgba(54,84,99,0.7);
-}
-
+  }
+  
+  /* background-color: rgba(54,84,99,0.7); /*
 
 /*==================================================================
 [ Form ]*/
@@ -258,13 +268,13 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  border-bottom: 1px solid #b2b2b2;
+  border-bottom: 1.5px solid #EBEBEB;
 }
 
 .label-input100 {
-  font-family: Poppins-Regular;
+  font-family: Poppins-bold, sans-serif;
   font-size: 15px;
-  color: #808080;
+  color: #EBEBEB;
   line-height: 1.2;
   text-align: right;
 
@@ -275,11 +285,15 @@ iframe {
 
 }
 
-/*---------------------------------------------*/
+
+wrap-input100 validate-input m-b-26 ::placeholder { /* WebKit, Blink, Edge */
+    color:    #EBEBEB;
+}
+/*------font color --------*/
 .input100 {
-  font-family: Poppins-Regular;
+  font-family: Poppins-Regular, sans-serif;
   font-size: 15px;
-  color: #555555;
+  color: #EBEBEB;
   line-height: 1.2;
 
   display: block;
@@ -311,7 +325,6 @@ iframe {
   -o-transition: all 0.6s;
   -moz-transition: all 0.6s;
   transition: all 0.6s;
-
   background: #57b846;
 }
 
@@ -338,9 +351,9 @@ input.input100 {
 }
 
 .label-checkbox100 {
-  font-family: Poppins-Regular;
+  font-family: Poppins-Regular, sans-serif;
   font-size: 13px;
-  color: #999999;
+  color: #EBEBEB;
   line-height: 1.4;
 
   display: block;
@@ -351,7 +364,7 @@ input.input100 {
 
 .label-checkbox100::before {
   content: "\f00c";
-  font-family: FontAwesome;
+    font-family: Poppins-Regular, sans-serif;
   font-size: 13px;
   color: transparent;
 
@@ -378,7 +391,7 @@ input.input100 {
 }
 
 .input-checkbox100:checked + .label-checkbox100::before {
-  color: #57b846;
+  color: #004E98;
 }
 
 /*------------------------------------------------------------------
@@ -391,6 +404,8 @@ input.input100 {
   display: -ms-flexbox;
   display: flex;
   flex-wrap: wrap;
+  
+    
 }
 
 .login100-form-btn {
@@ -404,12 +419,12 @@ input.input100 {
   padding: 0 20px;
   min-width: 160px;
   height: 50px;
-  background-color: #57b846;
+  background-color: #3A6EA5;
   border-radius: 25px;
 
-  font-family: Poppins-Regular;
+  font-family: Poppins-Regular, sans-serif;
   font-size: 16px;
-  color: #fff;
+  color: #EBEBEB;
   line-height: 1.2;
 
   -webkit-transition: all 0.4s;
@@ -419,7 +434,7 @@ input.input100 {
 }
 
 .login100-form-btn:hover {
-  background-color: #333333;
+  background-color: #004E98;
 }
 
 
@@ -436,15 +451,6 @@ input.input100 {
   .login100-form {
     padding: 43px 15px 57px 15px;
   }
-
-  .label-input100 {
-    text-align: left;
-    position: unset;
-    top: unset;
-    left: unset;
-    width: 100%;
-    padding: 0 5px;
-  }
 }
 
 
@@ -459,7 +465,7 @@ input.input100 {
   content: attr(data-validate);
   position: absolute;
   max-width: 70%;
-  background-color: #fff;
+  background-color: #EBEBEB;
   border: 1px solid #c80000;
   border-radius: 2px;
   padding: 4px 25px 4px 10px;
@@ -472,8 +478,8 @@ input.input100 {
   right: 2px;
   pointer-events: none;
 
-  font-family: Poppins-Medium;
-  color: #c80000;
+  font-family: Poppins-Medium, sans-serif;
+  color: #EBEBEB;
   font-size: 13px;
   line-height: 1.4;
   text-align: left;
@@ -489,7 +495,7 @@ input.input100 {
 
 .alert-validate::after {
   content: "\f06a";
-  font-family: FontAwesome;
+  font-family: Poppins-Medium, sans-serif;
   display: block;
   position: absolute;
   color: #c80000;
@@ -514,3 +520,101 @@ input.input100 {
     opacity: 1;
   }
 }
+
+
+        /*-below this is everything for the create_admin page */
+   
+.login-box body{
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-position: center;
+    background-color: #EBEBEB;
+   
+}
+
+        /*-DONE-*/
+.login-box{
+    width: 320px;
+    height: 420px;
+    background: #FF6700;
+    color: #EBEBEB;
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    padding: 70px 30px;
+}
+
+        /*-DONE-*/
+.login-box h1{
+    margin: 0;
+    padding: 0 0 20px;
+    text-align: center;
+    font-size: 22px;
+}
+
+        /*-DONE-*/
+.login-box p{
+    margin: 0;
+    padding: 2px;
+    font-weight: bold;
+    color: #EBEBEB;
+    
+}
+
+        /*-DONE-*/
+.login-box input{
+    width: 100%;
+    margin-bottom: 20px;
+    color: #EBEBEB;
+}
+
+        /*-DONE-*/
+.login-box input[type="text"], input[type="password"]
+{
+    border: none;
+    border-bottom: 1px solid #EBEBEB;
+    background: transparent;
+    outline: none;
+    height: 40px;
+    color: #EBEBEB;
+    font-size: 16px;
+}
+
+        /*-DONE-*/
+.login-box input[type="submit"]
+{
+    border: none;
+    outline: none;
+    height: 40px;
+    background: #3A6EA5;
+    color: #EBEBEB;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+        /*-DONE-*/
+.login-box input[type="submit"]:hover
+{
+    cursor: pointer;
+    background: #004E98;  
+}
+
+       /*-DONE-*/
+.avatar{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    top: -50px;
+    left: calc(50% - 50px);
+}
+
+       /*-DONE-*/
+.login-box ::placeholder{
+    color: #EBEBEB;
+}
+
+     /*above this is everything for the create_admin page */
