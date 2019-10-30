@@ -5,6 +5,7 @@
     margin: 0;
     box-sizing: border-box;
     
+    
 }
 
 nav{
@@ -12,6 +13,7 @@ nav{
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
+    
     
 }
 
@@ -38,6 +40,7 @@ nav{
     letter-spacing: 3px;
     font-weight: bold;
     font-size: 14px;
+    font-family: Poppins-Regular, sans-serif;
 }
     
 body, html {
@@ -516,4 +519,101 @@ input.input100 {
     opacity: 1;
   }
 }
+.column {
+  float: left;
+  padding: 10px;
+  height: 300px; /* Should be removed. Only for demonstration */
+}
 
+.left {
+  width: 15%;
+}
+
+.right {
+  width: 85%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;}
+
+.calign{
+  height: 85px;
+  line-height: 90px;
+  text-align: right;
+  border: 2px ;
+  width: 75%;
+  
+  position: absolute;
+  left: 400px;
+
+  border: 3px;
+  padding: 10px;
+  
+}
+
+.call{
+  
+    height: 30px;
+    line-height: 40px;
+    text-align:center;
+    vertical-align: middle; /* center checkbox vertically */
+    font-weight: bold;
+}
+
+.lefta{
+     text-align: left; /* center checkbox horizontally */
+     height: 15px;
+    line-height: 40px;
+}
+
+.section2 p{
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+    color: black;
+    font-family: Poppins-Regular, sans-serif;
+}
+
+.logos4tires{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+
+.shopt{
+    border-radius: 5px;
+  font-size: 20px;
+  padding: 14px 80px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #595454;
+  font-size: 1.5rem;
+ font-family: Poppins-Regular, sans-serif;
+  font-weight: bold;
+  border: 1px solid #fff;
+  box-shadow: 2px 2px 5px #AFE9FF;
+  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+}
+.shopt:hover{
+ 
+  border: 1px solid #006398;
+  box-shadow: 2px 2px 20px #AFE9FF;
+}
+
+.aus{
+    display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width:40%;
+  
+}
+.para{
+      padding:0;
+    margin: 0;
+}
