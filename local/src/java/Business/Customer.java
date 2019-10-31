@@ -27,7 +27,7 @@ public class Customer {
     private String orderID;
     private String sql;
     private final DBAccess db = new DBAccess();
-    private OrderList orderList = new OrderList();
+    public OrderList orderList = new OrderList();
     
     //public String listOfOrders;
 
@@ -294,6 +294,7 @@ public class Customer {
         }
         
     }
+    
 
     public static void main(String[] args) {
         String test_va = "60029";
