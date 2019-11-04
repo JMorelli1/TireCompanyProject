@@ -40,6 +40,7 @@ nav{
     font-weight: bold;
     font-size: 14px;
     font-family: Poppins-Regular, sans-serif;
+    
 }
     
 body, html {
@@ -47,12 +48,12 @@ body, html {
 	font-family: Poppins-Regular, sans-serif;
 }
 
-/*---------------------------------------------*/
+/* this handles all the nav links stuff*/
 a {
 	font-family: Poppins-Regular, sans-serif;
 	font-size: 14px;
 	line-height: 1.7;
-	color: #666666;
+	color: #000000;
 	margin: 0px;
 	transition: all 0.4s;
 	-webkit-transition: all 0.4s;
@@ -66,7 +67,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #57b846;
+  color: #FF6700;
 }
 
 /*---------------------------------------------*/
@@ -756,7 +757,7 @@ input.input100 {
 .footer-links a{
     text-decoration: none;
     letter-spacing: 3px;
-        color: white;
+    color: white;
     font-size: 14px;
     font-family: Poppins-Regular, sans-serif;
 }
