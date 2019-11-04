@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <%@page import = "Business.*" %>
 
-<%Tire t = (Tire) session.getAttribute("tire");
+<%Tire t = (Tire) session.getAttribute("adminSearchTire");
     String type = t.getType();
     String size = t.getSize();
     String brand = t.getBrand();
@@ -37,18 +37,17 @@
             <a href="about.jsp"><li>Help</li></a>
         </ul>
         <h1>Welcome, <%=username%>!</h1>
+        <form action="stockModifyServlet">
             <table>
-                <tr><td>Type:</td><td><input type = "text" name = "type" value = <%=type%> /></td></tr>
-                <tr><td>Size:</td><td><input type = "text" name = "size" value = <%=size%> /></td></tr>
-                <tr><td>Brand:</td><td><input type = "text" name = "brand" value = <%=brand%> /></td></tr>
-                <tr><td>Stock:</td><td><input type = "text" name = "stock" value = <%=stock%> /></td></tr>
-                <tr><td>Price:</td><td><input type = "text" name = "price" value = <%=price%> /></td></tr>
-                <tr><td>Vehicle Type:</td><td><input type = "text" name = "vtype" value = <%=vtype%> /></td></tr>
+                <tr><td>Type:</td><td><input type = "text" name = "Modifytype" value = <%=type%> /></td></tr>
+                <tr><td>Size:</td><td><input type = "text" name = "Modifysize" value = <%=size%> /></td></tr>
+                <tr><td>Brand:</td><td><input type = "text" name = "Modifybrand" value = <%=brand%> /></td></tr>
+                <tr><td>Stock:</td><td><input type = "text" name = "Modifystock" value = <%=stock%> /></td></tr>
+                <tr><td>Price:</td><td><input type = "text" name = "Modifyprice" value = <%=price%> /></td></tr>
+                <tr><td>Vehicle Type:</td><td><input type = "text" name = "Modifyvtype" value = <%=vtype%> /></td></tr>
 
             </table>
-
-
-                <a href="admin_stock_modify.jsp"><button>Modify</button></a>
-
+                <input type="submit" value="Modify" />
+            </form>
     </body>
 </html>

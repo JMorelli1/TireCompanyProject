@@ -37,21 +37,16 @@ public class adminStockLookup extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             try {
-                Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-                System.out.println("Starting Admin stock lookup servlet....");
                 HttpSession session = request.getSession();
-                ServletContext context = getServletContext();
-                Tire t = new Tire();
+                Tire adminSearchTire = new Tire();
                 //Admin a = (Admin) session.getAttribute("admin");
 
-                t.selectTire(request.getParameter("stock"));
-                System.out.println("Double checking vlaues for Tire object."); //Test code. Remove from final product.
-                System.out.println("---"); //Test code. Remove from final product.
-                t.display();
+                adminSearchTire.selectTire(request.getParameter("stock"));
 
-                session.setAttribute("tire", t);
-                RequestDispatcher rd = context.getRequestDispatcher("/admin_stock_display.jsp");
+                session.setAttribute("adminSearchTire", adminSearchTire);
+                RequestDispatcher rd = request.getRequestDispatcher("/admin_stock_display.jsp");
                 rd.forward(request, response);
+                
             } catch (Exception e) {
                 System.out.println("Crash in Admin lookup servlet." + e); //Test code. Remove from final product.
                 //RequestDispatcher rd = context.getRequestDispatcher("/error_page.jsp");

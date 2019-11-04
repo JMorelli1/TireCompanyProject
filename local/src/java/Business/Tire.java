@@ -208,18 +208,9 @@ public class Tire {
 
         //test.display();
         //test.insertDB("411", "All Season", "185/50-R9001", "TiresRUs", "9001", "360","Autobot");
-        //test.setPrice("3001");
-        //test.updateDB();
-        //test.deleteDB();
-        
-        TireList t1 = new TireList();
-        t1 = t1.generateTireList();
-        t1.display();
-        
-        System.out.println("\n\n TEST CHECK \n\n");
-        
-        t1 = t1.generateTireList();
-        t1.display();
-        
+        test.selectTire("245");
+        test.setPrice("50");
+        test.updateTire();
+        //test.deleteDB();  
     }
 }

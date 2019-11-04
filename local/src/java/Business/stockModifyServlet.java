@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 
-import Business.*;
+package Business;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,31 +36,23 @@ public class stockModifyServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            try {
-                Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-                System.out.println("Starting login servlet....");
+            
                 HttpSession session = request.getSession();
-                ServletContext context = getServletContext();
-                Tire t = (Tire) session.getAttribute("tire");
+                Tire adminSearchTire = (Tire)session.getAttribute("adminSearchTire");
+                String brand = request.getParameter("Modifybrand");
                 
-                t.display();
+                adminSearchTire.setBrand(request.getParameter("Modifybrand"));
+                adminSearchTire.setPrice(request.getParameter("Modifyprice"));
+                adminSearchTire.setSize(request.getParameter("Modifysize"));
+                adminSearchTire.setStock(request.getParameter("Modifystock"));
+                adminSearchTire.setType(request.getParameter("Modifytype"));
+                adminSearchTire.setVehicleType(request.getParameter("Modifyvtype"));
 
-                t.setBrand(request.getParameter("brand"));
-                t.setPrice(request.getParameter("price"));
-                t.setSize(request.getParameter("size"));
-                t.setStock(request.getParameter("stock"));
-                t.setType(request.getParameter("type"));
-                t.setVehicleType(request.getParameter("vtype"));
+                adminSearchTire.updateTire();
 
-                t.updateTire();
-
-                session.setAttribute("tire", t);
-                RequestDispatcher rd = context.getRequestDispatcher("/admin_stock_modify.jsp");
+                session.setAttribute("adminSearchTire", adminSearchTire);
+                RequestDispatcher rd = request.getRequestDispatcher("/admin_stock_display.jsp");
                 rd.forward(request, response);
-            } catch (Exception e) {
-                System.out.println("Crash in stockModifyServlet. " + e);
-            }
         }
     }
 

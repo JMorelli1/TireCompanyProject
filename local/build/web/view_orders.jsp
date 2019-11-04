@@ -47,7 +47,7 @@
                     %>
                     <table class="calign" >
                     <tr class="">
-                        <th>Purchase</th>
+                        <th>Quantity Purchased</th>
                         <th>Tire ID</th>
                         <th>Tire Type</th>
                         <th>Size of Tire</th>

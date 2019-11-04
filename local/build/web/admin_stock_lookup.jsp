@@ -25,7 +25,7 @@
             <a href="about.jsp"><li>Help</li></a>
         </ul>
         <h1>Welcome, <%=username%>! Enter stock ID number.</h1>
-        <form action="http://localhost:8080/TiresRUs/adminStockLookup" method="post">
+        <form action="adminStockLookup" method="post">
 
             <input type = "text" name = "stock" value = ""/>
 
