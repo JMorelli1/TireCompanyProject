@@ -1,6 +1,6 @@
 <%-- 
-    Document   : about
-    Created on : Oct 9, 2019, 2:17:14 PM
+    Document   : faq
+    Created on : Oct 14, 2019, 9:58:49 AM
     Author     : migue
 --%>
 
@@ -9,9 +9,10 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+              <link rel="stylesheet" type="text/css" href="style.css"/>
+        <title>FAQ Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>just created the page</h1>
     </body>
 </html>

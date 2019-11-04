@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Test
-    Created on : Oct 9, 2019, 1:54:36 PM
+    Document   : orderprocessed
+    Created on : Oct 22, 2019, 10:30:09 AM
     Author     : morel
 --%>
 
@@ -9,9 +9,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Order Completion Form</title>
     </head>
     <body>
-        <h1>This is a test</h1>
+        <h1>Order Completed</h1>
     </body>
 </html>
