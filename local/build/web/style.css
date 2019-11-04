@@ -166,8 +166,7 @@ iframe {
   color: #EBEBEB;
 }
 
-/*//////////////////////////////////////////////////////////////////
-[ login ]*/
+/*[ login ]*/
 
 .limiter {
   width: 100%;
@@ -719,3 +718,45 @@ input.input100 {
     margin: 0;
 }
 
+  /*-below this is everything for the footer */
+
+.footer {
+ 
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #FF6700;
+   color: white;
+   text-align: center;
+   
+       display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+   
+}
+
+.footer p {
+    color: white;
+    text-align: left;
+    
+}
+.footer-links{
+    display: flex;
+    justify-content: space-around;
+    width: 25%;
+    
+}
+
+.footer-links li{
+    list-style: none;
+       
+}
+
+.footer-links a{
+    text-decoration: none;
+    letter-spacing: 3px;
+        color: white;
+    font-size: 14px;
+    font-family: Poppins-Regular, sans-serif;
+}

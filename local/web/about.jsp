@@ -58,5 +58,30 @@
             By the end of the decade, our company grew to six stores and 
             established a strong reputation for customer satisfaction.
         </p></div>
+        
+                
+        </br>
+        </br>        
+        </br>
+        </br>
+        
+        
+        
+        <div class="footer">
+  <p>© 2019 Team1 Tires, Inc</p> 
+  
+     <ul class="footer-links">
+              <li><a href="http://scanfcode.com/category/front-end-development/">About</a></li>
+              <li><a href="http://scanfcode.com/category/back-end-development/">Terms</a></li>
+              <li><a href="http://scanfcode.com/category/java-programming-language/">Pricing</a></li>
+              <li><a href="http://scanfcode.com/category/android/">Contact</a></li>
+              <li><a href="http://scanfcode.com/category/templates/">Careers</a></li>
+            </ul>
+          </div>
+  
+</div>
+        
+
+        
     </body>
 </html>
