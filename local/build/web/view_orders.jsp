@@ -26,6 +26,9 @@
 		$( "#accordion" ).accordion();
 		} );
 	</script>
+        <style>
+            
+        </style>
     </head>
     <body>
         <h1>Tires R' Us</h1>
