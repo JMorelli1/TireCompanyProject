@@ -1,7 +1,7 @@
 <%-- 
     Document   : faq
     Created on : Oct 14, 2019, 9:58:49 AM
-    Author     : migue
+    Author     : miguel
 --%>
 
 <%-- 
@@ -14,10 +14,13 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">              
+        <meta name="viewport" content="width=device-width, initial-scale=1">   
+          <link rel="stylesheet" href="style.css">s
         <title>FAQ Page</title>
         <style>
-.accordion {
+
+  
+  .accordion {
   background-color: #eee;
   color: #444;
   cursor: pointer;
@@ -43,7 +46,27 @@
 </style>
     </head>
     <body>
-        <h2>Tires R Us FAQ</h2>
+           <nav>
+        <div class="logo">
+            <h4>T1tires</h4>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="login.jsp">Login</a>
+            </li> 
+              <li>
+                <a href="tireSearch.jsp">Search</a>
+            </li> 
+            <li>
+                <a href="about.jsp">About</a>
+            </li>
+            <li>
+                <a href="faq.jsp">FAQ</a>
+            </li>
+        </ul>
+    </nav>
+        
+        <h2>Team1 Tires FAQ</h2>
 
 <button class="accordion">Creating an Account/Logging in</button>
 <div class="panel">
