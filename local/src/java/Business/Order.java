@@ -18,8 +18,10 @@ public class Order {
     private String customerID;
     private String status;
     private String sql;
+    private int quantity;
     private int newID;
     private final DBAccess db = new DBAccess();
+    public TireList orderedItems = new TireList();
 
     
  /************************************************************************************
@@ -67,6 +69,12 @@ public class Order {
     public void setStatus(String new_status) {
         this.status = new_status;
     }
+    public int getQuantity(){
+        return quantity;
+    }
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
 /************************************************************************************
  * selectDB, uses SELECT SQL to query database. Requires 1 String parameter. Queries
  * the Order table for entries whose id key matches the
@@ -98,21 +106,48 @@ public class Order {
         newID = countOrders() + 1;
         sql = "Insert into Order (OrderID, CustomerID, Status) VALUES ('"+newID+"','"+customerID+"', '"+status+"')";
         System.out.println(sql + "\n" + newID);
-        db.InsertDB(sql);
+        db.insertDB(sql);
             
     }
     
-    public void insertOrderedItems(TireList orderedItems){
+    public void insertOrderedItems(TireList orderedItems, int quantity){
         for(int i=0; i<orderedItems.listSize(); i++){
-                    sql="Insert into OrderedItems (OrderID, TireID, Quantity) VALUES ('"+newID+"','"+orderedItems.getTire(i).getStockID()+"',"+orderedItems.getTire(i).getQuantity()+")";
-                    db.InsertDB(sql);            
+                    sql="Insert into OrderedItems (OrderID, TireID, Quantity) VALUES ('"+newID+"','"+orderedItems.getTire(i).getStockID()+"',"+quantity+")";
+                    db.insertDB(sql);            
         }
     }
-
+    public TireList findOrderedItems(){
+        
+        try{
+            sql = "Select * From OrderedItems Where OrderID = " + getOrderID();
+            ResultSet resultSetOrder = db.SelectDB(sql);
+            
+            Tire orderedTire;
+            while(resultSetOrder.next()){
+                orderedTire = new Tire();
+                orderedTire.setQuantity(resultSetOrder.getInt("Quantity"));
+                ResultSet resultSetTire = db.SelectDB("Select * From Tire Where TireID = " + resultSetOrder.getString("TireID"));
+                while(resultSetTire.next()){
+                    orderedTire.setStockID(resultSetTire.getString("TireID"));
+                    orderedTire.setType(resultSetTire.getString("TireType"));
+                    orderedTire.setSize(resultSetTire.getString("TireSize"));
+                    orderedTire.setBrand(resultSetTire.getString("Brand"));
+                    orderedTire.setStock(resultSetTire.getString("Stock"));
+                    orderedTire.setPrice(resultSetTire.getString("Price"));
+                    orderedTire.setVehicleType(resultSetTire.getString("VehicleType"));
+                    orderedItems.addItem(orderedTire);
+                }
+            }
+        }
+        catch(SQLException e){
+            System.out.println("Error generating list of Orders: " + e);
+        }
+        return orderedItems;
+    }
     
     public void insertDB() {
         sql = "Insert into Order (OrderID, CustomerID, Status) VALUES ('"+getCustomerID()+"','"+getCustomerID()+"', '"+getStatus()+"')";
-        db.InsertDB(sql);
+        db.insertDB(sql);
             
     }
 

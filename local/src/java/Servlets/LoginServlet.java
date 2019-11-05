@@ -1,17 +1,25 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/************************************************************************************
+ *@author James Morelli
+ * Tire Project: Login Servlet
+ * Created: 10/30/19
+ ***********************************************************************************/ 
 package Servlets;
 
+import Business.Admin;
+import Business.Customer;
+import Business.DBAccess;
+import Business.Shipper;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -33,16 +41,55 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet LoginServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet LoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            HttpSession session; 
+            DBAccess database = new DBAccess();
+            session = request.getSession();
+            boolean loginedIn = false;
+            
+            RequestDispatcher rdCustomer = request.getRequestDispatcher("/customer_homepage.jsp");
+            RequestDispatcher rdAdmin = request.getRequestDispatcher("/admin_homepage.jsp");
+            RequestDispatcher rdShipper = request.getRequestDispatcher("/shipper_homepage.jsp");
+            RequestDispatcher rdErrorPage = request.getRequestDispatcher("/error_page.jsp");
+            
+            String username = request.getParameter("username");
+            String password = request.getParameter("pass");
+            
+            ResultSet users = database.checkUserNames();
+            
+            try{
+                while(users.next()){
+                    if(username.equals(users.getString("Username")) && password.equals(users.getString("Password"))){
+                        if(users.getString("EmployeeID").startsWith("5")){
+                            Admin admin = new Admin();
+                            admin.selectDB(username);
+                            session.setAttribute("admin", admin);
+                            rdAdmin.forward(request, response);
+                            loginedIn = true;
+                        }
+                        else if(users.getString("EmployeeID").startsWith("7")){
+                            Customer customer = new Customer();
+                            customer.selectCustomerUsername(username);
+                            session.setAttribute("customer", customer);
+                            rdCustomer.forward(request, response);
+                            loginedIn = true;
+                        }
+                        else if(users.getString("EmployeeID").startsWith("9")){
+                            Shipper shipper = new Shipper();
+                            shipper.selectDB(username);
+                            session.setAttribute("shipper", shipper);
+                            rdShipper.forward(request, response);
+                            loginedIn = true;
+                        }
+                    }
+                }
+                if(loginedIn == false){
+                   rdErrorPage.forward(request, response); 
+                }
+            }
+            catch(SQLException e){
+                System.out.println("Error logging in: " + e);
+                rdErrorPage.forward(request, response);
+            }
         }
     }
 

@@ -24,10 +24,9 @@ public class Customer {
     private String creditCardInfo;
     private String expireDate;
     private String securityCode;
-    private String orderID;
     private String sql;
     private final DBAccess db = new DBAccess();
-    private OrderList orderList = new OrderList();
+    public OrderList orderList = new OrderList();
     
     //public String listOfOrders;
 
@@ -45,13 +44,12 @@ public class Customer {
         creditCardInfo = "";
         expireDate = "";
         securityCode = "";
-        orderID = "";
     }
     
 /************************************************************************************
  * Dentist constructor, Initializes properties to given values.
  ***********************************************************************************/ 
-    public Customer(String ID, String username, String password, String fname, String lname, String address, String phone, String creditCardInfo, String expireDate, String securityCode, String orderID) {
+    public Customer(String ID, String username, String password, String fname, String lname, String address, String phone, String creditCardInfo, String expireDate, String securityCode) {
         this.fname = fname;
         this.lname = lname;
         this.username = username;
@@ -62,21 +60,12 @@ public class Customer {
         this.creditCardInfo = creditCardInfo;
         this.expireDate = expireDate;
         this.securityCode = securityCode;
-        this.orderID = orderID;
     }
     
 
 /************************************************************************************
  * All get/set methods for Customer properties.
  ***********************************************************************************/
-    public void setOID(String new_oid) {
-        this.orderID = new_oid;
-    }
-
-    public String getOID() {
-        return this.orderID;
-    }
-
     public void setCID(String new_ID) {
         this.ID = new_ID;
     }
@@ -169,7 +158,7 @@ public class Customer {
  * properties to the server log.
  ***********************************************************************************/  
     public void display() {
-        System.out.println("Displaying Customer properties:\n Name: " + getFN() + " " + getLN() + "\n Username: " + getUsername() + "\n Password: " + getPassword() + "\n ID:" + getID() + "\n Address: " + getAddress() + "\n Phone number: " + getPhone() + "\n Card number: " + getCreditCardInfo() + "\n Expiration: " + getExpireDate() + "\n Security Code: " + getSecurityCode() + "\n Order ID: " + getOID());
+        System.out.println("Displaying Customer properties:\n Name: " + getFN() + " " + getLN() + "\n Username: " + getUsername() + "\n Password: " + getPassword() + "\n ID:" + getID() + "\n Address: " + getAddress() + "\n Phone number: " + getPhone() + "\n Card number: " + getCreditCardInfo() + "\n Expiration: " + getExpireDate() + "\n Security Code: " + getSecurityCode());
         orderList.display();
     }
  
@@ -197,7 +186,39 @@ public class Customer {
             setCreditCardInfo(resultSet.getString("CreditCardNumber"));
             setExpireDate(resultSet.getString("ExpirationDate"));
             setSecurityCode(resultSet.getString("SecurityCode"));
-            setOID(resultSet.getString("OrderID"));
+
+            findOrders();
+        } catch (SQLException e) {
+            System.out.println("Crash at selectDB method (for Admin). " + e);
+            System.out.println(" ");
+        }
+    }
+    
+    /************************************************************************************
+ * selectCustomerUsername, uses SELECT SQL to query database. Requires 1 String parameter. Queries
+ * the Customer table for entries whose username key matches the
+ * given parameter.
+ * @param custUsername
+ ***********************************************************************************/    
+    
+        public void selectCustomerUsername(String custUsername) {
+        try {
+            
+            sql = "SELECT * FROM Customer WHERE Username = '" + custUsername + "'";
+            ResultSet resultSet = db.SelectDB(sql);
+            
+            resultSet.next();
+
+            setID(resultSet.getString("CustomerID"));
+            setUsername(resultSet.getString("Username"));
+            setPassword(resultSet.getString("Password"));
+            setFN(resultSet.getString("FirstName"));
+            setLN(resultSet.getString("LastName"));
+            setAddress(resultSet.getString("Address"));
+            setPhone(resultSet.getString("PhoneNumber"));
+            setCreditCardInfo(resultSet.getString("CreditCardNumber"));
+            setExpireDate(resultSet.getString("ExpirationDate"));
+            setSecurityCode(resultSet.getString("SecurityCode"));
 
             findOrders();
         } catch (SQLException e) {
@@ -213,8 +234,8 @@ public class Customer {
  ***********************************************************************************/  
     public void insertCustomer() {
         
-        sql = "Insert into Customer (CustomerID, Username, Password, FirstName, LastName, Address, PhoneNumber, CreditCardNumber, ExpirationDate, SecurityCode, OrderID) VALUES ('" +getID()+ "', '" +getUsername()+ "', '" +getPassword()+ "', '"+getFN()+ "', '" +getLN()+ "', '" +getAddress()+ "', '" +getPhone()+ "', '" +getCreditCardInfo()+ "', '" +getExpireDate()+ "', '" +getSecurityCode()+ "', '" +getOID()+ "')";
-        db.InsertDB(sql);
+        sql = "Insert into Customer (CustomerID, Username, Password, FirstName, LastName, Address, PhoneNumber, CreditCardNumber, ExpirationDate, SecurityCode) VALUES ('" +getID()+ "', '" +getUsername()+ "', '" +getPassword()+ "', '"+getFN()+ "', '" +getLN()+ "', '" +getAddress()+ "', '" +getPhone()+ "', '" +getCreditCardInfo()+ "', '" +getExpireDate()+ "', '" +getSecurityCode()+"')";
+        db.insertDB(sql);
     }
 
 /************************************************************************************
@@ -224,7 +245,7 @@ public class Customer {
  ***********************************************************************************/ 
     public void updateCustomer() {
         
-        sql = "UPDATE Customer set " + "Username='"+getUsername()+"'," + " Password='"+getPassword()+"'," + " FirstName='"+getFN()+"'," + " LastName='"+getLN()+"'," + " Address='"+getAddress()+"'," + " PhoneNumber='"+getPhone()+"'," + " CreditCardNumber='"+getCreditCardInfo()+"'," + " ExpirationDate='"+getExpireDate()+"'," + " SecurityCode='"+getSecurityCode()+"'," + " OrderID='"+getOID()+"'" + " WHERE CustomerID= '" + getCID()+"'";
+        sql = "UPDATE Customer set " + "Username='"+getUsername()+"'," + " Password='"+getPassword()+"'," + " FirstName='"+getFN()+"'," + " LastName='"+getLN()+"'," + " Address='"+getAddress()+"'," + " PhoneNumber='"+getPhone()+"'," + " CreditCardNumber='"+getCreditCardInfo()+"'," + " ExpirationDate='"+getExpireDate()+"'," + " SecurityCode='"+getSecurityCode()+"'" + " WHERE CustomerID= '" + getCID()+"'";
         db.updateDB(sql);
         
     }
@@ -240,6 +261,20 @@ public class Customer {
         
     }
     
+    public int countCustomers(){
+        int count = 0;
+        sql = "SELECT * FROM Customer";
+        try{
+        ResultSet resultset = db.SelectDB(sql);
+        while(resultset.next()){
+            count++;
+        }
+        }catch(SQLException e){
+            System.out.println("Error counting customers");
+        }
+        return count;
+    }
+    
     public void findOrders(){
         
         try{
@@ -247,6 +282,7 @@ public class Customer {
             ResultSet resultSet = db.SelectDB(sql);
             
             Order order;
+            if(resultSet != null){
             while(resultSet.next()){
                 order = new Order();
                 order.setOrderID(resultSet.getString("OrderID"));
@@ -254,19 +290,22 @@ public class Customer {
                 order.setStatus(resultSet.getString("Status"));
                 orderList.addItem(order);
             }
+            }
         }
         catch(SQLException e){
             System.out.println("Error generating list of Orders: " + e);
         }
         
     }
+    
 
     public static void main(String[] args) {
-        String test_va = "60029";
+        //String test_va = "60029";
         Customer test = new Customer();
         //Customer test = new Customer("60041", "LDennis", "test", "Lauren", "Dennis", "123 Test rd", "770-111-1111", "4700111144445523","12/12", "232", "7" );
-        test.selectCustomer(test_va);
+        //test.selectCustomer(test_va);
 
+        test.selectCustomer("7011");
         test.display();
         //test.insertCustomer();
         //test.setPassword("GreatPassword");

@@ -12,7 +12,7 @@ public class DBAccess {
     private Connection con;
     private Statement stm;
     private ResultSet resultSet;
-    private static String ConLocation = "jdbc:ucanaccess://C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/local/Tyres.accdb";
+    private static String ConLocation = "jdbc:ucanaccess://C:/Users/morel/Documents/NetBeansProjects/TiresCompanyApp/TireCompanyProject/Tyres.accdb";
 
 /************************************************************************************
  * SelectDB opens connection with database then executes Select query within give SQL statement then closes connection 
@@ -40,7 +40,7 @@ public class DBAccess {
  * Used for inserting filled object into the database.
  * @param sqlStm
  ***********************************************************************************/ 
-    public void InsertDB(String sqlStm){
+    public void insertDB(String sqlStm){
        openDBConnection(); 
         try{
             stm.executeUpdate(sqlStm);
@@ -93,7 +93,6 @@ public class DBAccess {
     public void openDBConnection(){
         try{
             Class.forName("net.ucanaccess.jdbc.UcanaccessDriver");
-            ConLocation = ConLocation.replace("\\", "/");
             con = DriverManager.getConnection(ConLocation);
             stm = con.createStatement();
         }
@@ -116,4 +115,13 @@ public class DBAccess {
 //        ConLocation = ConLocation.replace("\\", "/");
 //        System.out.println(ConLocation);
 //    }
+    
+    public ResultSet checkUserNames(){
+        String sql = "SELECT EmployeeID, Username, Password FROM Admin;\n" +
+                     "UNION\n" +
+                     "SELECT CustomerID, Username, Password From Customer;\n" +
+                     "UNION\n" +
+                     "SELECT ShipperID, Username, Password FROM Shipper;";
+        return SelectDB(sql);
+    }
 }
