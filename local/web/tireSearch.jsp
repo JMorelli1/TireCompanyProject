@@ -40,7 +40,7 @@
                 <a href="login.jsp">Login</a>
             </li> 
             <li>
-                <a href="#">About</a>
+                <a href="about.jsp">About</a>
             </li>
             <li>
                 <a href="faq.jsp">FAQ</a>
