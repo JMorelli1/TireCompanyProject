@@ -9,26 +9,47 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="style.css">
         <title>Your Home Page</title>
     </head>
     <body>
-        <h1>Tires R' Us</h1>
-        <ul>
-            <a href="index.html"><li>Home Page</li></a>
-            <a href="about.jsp"><li>Help</li></a>
+      <nav>
+        <div class="logo">
+            <h4>T1tires</h4>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="login.jsp">Login</a>
+            </li> 
+              <li>
+                <a href="tireSearch.jsp">Search</a>
+            </li> 
+            <li>
+                <a href="about.jsp">About</a>
+            </li>
+            <li>
+                <a href="faq.jsp">FAQ</a>
+            </li>
         </ul>
-        <h1>Enter Your Details Below</h1>
-        <form action="http://localhost:8080/TiresRUs/CreateAdminAcct" method="post">
+    </nav>
+       
+        <form action="CreateAdminAcct" method="post">
         
-        <table>
-            <tr><td>Username:</td><td>
-                    <input type = "text" name = "username_field" value = "" /></td>
-            <tr>
-                <td>Password:</td>
-                <td><input type = "text" name = "password_field" value = "" /></td>
-            </tr>
-        </table>
-            <input type="submit" value="Done">
+             <div class="login-box">
+    <img src="avatar.png" class="avatar">
+        <h1>Enter your information</h1>
+            <form>
+                <label>Username</label>
+                <input type="text" name="username_field" placeholder="Enter Username">
+                <label>Password</label>
+                <input type="password" name="password_field" placeholder="Enter Password">
+                <input type="submit" name="submit" value="SIGN UP">
+             
+            </form>
+        
+        
+        </div>
+      
 </form>
     </body>
 </html>

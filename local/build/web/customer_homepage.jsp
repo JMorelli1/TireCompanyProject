@@ -9,7 +9,6 @@
 <%@page import = "Business.*" %>
 
 <%Customer c = (Customer) session.getAttribute("customer");
-    String oid = c.getOID();
     String cid = c.getCID();
     String fn = c.getFN();
     String ln = c.getLN();

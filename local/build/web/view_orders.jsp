@@ -10,7 +10,6 @@
 <%Customer c = (Customer) session.getAttribute("customer");
 
     String username = c.getUsername();
-    c.findOrders();
 %>
 
 

@@ -58,22 +58,42 @@
 
                 </div>
                 </form>
-                <div class="container-login100-form-btn">
-                    <a href="admin_login.jsp"><button class="login100-form-btn">
-                            Login as Admin
-                        </button></a>
-                </div>
-                <div class="container-login100-form-btn">
-                    <a href="shipper_login.jsp"><button class="login100-form-btn">
-                            Login as Shipper
-                        </button></a>
-                </div>
+                
+                    <br />
+                    <br />
+                    <br />
                     
-                    <a href="create_account.jsp"><button>Create Account</button></a>
+                
+                    
+                    <a href="createAccount.jsp"><button>Create Account</button></a>
 
             </div>
         </div>
     </div>
 </div>
+
+
+      
+        
+        
+        
+ 
+        
+        <div class="footer">
+  <p>© 2019 Team1 Tires, Inc</p> 
+  
+     <ul class="footer-links">
+              <li><a href="about.jsp">About</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#/">Contact</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+
+
+        
+            
+
 </body>
 </html>
