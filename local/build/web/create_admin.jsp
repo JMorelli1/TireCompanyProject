@@ -33,17 +33,17 @@
         </ul>
     </nav>
        
-        <form action="http://localhost:8080/TiresRUs/CreateAdminAcct" method="post">
+        <form action="CreateAdminAcct" method="post">
         
              <div class="login-box">
     <img src="avatar.png" class="avatar">
         <h1>Enter your information</h1>
             <form>
-            <p>Username</p>
-            <input type="text" name="username_field" placeholder="Enter Username">
-            <p>Password</p>
-            <input type="password" name="password_field" placeholder="Enter Password">
-            <input type="submit" name="submit" value="SIGN UP">
+                <label>Username</label>
+                <input type="text" name="username_field" placeholder="Enter Username">
+                <label>Password</label>
+                <input type="password" name="password_field" placeholder="Enter Password">
+                <input type="submit" name="submit" value="SIGN UP">
              
             </form>
         

@@ -58,18 +58,14 @@
 
                 </div>
                 </form>
-                <div class="container-login100-form-btn">
-                    <a href="admin_login.jsp"><button class="login100-form-btn">
-                            Login as Admin
-                        </button></a>
-                </div>
-                <div class="container-login100-form-btn">
-                    <a href="shipper_login.jsp"><button class="login100-form-btn">
-                            Login as Shipper
-                        </button></a>
-                </div>
+                
+                    <br />
+                    <br />
+                    <br />
                     
-                    <a href="create_account.jsp"><button>Create Account</button></a>
+                
+                    
+                    <a href="createAccount.jsp"><button>Create Account</button></a>
 
             </div>
         </div>

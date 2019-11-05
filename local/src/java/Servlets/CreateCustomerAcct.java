@@ -5,8 +5,6 @@ package Servlets;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-import Business.*;
 import Business.Customer;
 import java.util.*;
 import java.io.IOException;
@@ -43,29 +41,22 @@ public class CreateCustomerAcct extends HttpServlet {
             try {
                 ServletContext context = getServletContext();
                 Customer c = new Customer();
-                Random r = new Random();
-                int random_id = r.nextInt(10000);
-                int random_id2 = r.nextInt(9);
-                String randomid = Integer.toString(random_id);
-                String randomid2 = Integer.toString(random_id);
-                c.setCID(randomid);
+                int newId = c.countCustomers() + 7001;
+                c.setCID(Integer.toString(newId));
                 c.setAddress(request.getParameter("addr_field"));
                 c.setCreditCardInfo(request.getParameter("cardnumber_field"));
                 c.setExpireDate(request.getParameter("expire_field"));
                 c.setFN(request.getParameter("fname_field"));
                 c.setLN(request.getParameter("lname_field"));
-                c.setOID(randomid2);
                 c.setPassword(request.getParameter("password_field"));
                 c.setPhone(request.getParameter("phone_field"));
                 c.setSecurityCode(request.getParameter("security_field"));
                 c.setUsername(request.getParameter("username_field"));
                 
                 c.insertCustomer();
-                System.out.println("Account created. moving to new page..."); //Test Code. Remove from final product.
-                System.out.println("---"); //Test Code. Remove from final product.
                 
-                    RequestDispatcher rd = context.getRequestDispatcher("/login.jsp");
-                    rd.forward(request, response);
+                RequestDispatcher rd = context.getRequestDispatcher("/login.jsp");
+                rd.forward(request, response);
 
             } catch (Exception e) {
                 System.out.println("Crash in createAccount for customer servlet. " + e);
