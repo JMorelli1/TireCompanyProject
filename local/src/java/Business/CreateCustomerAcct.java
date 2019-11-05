@@ -57,7 +57,7 @@ public class CreateCustomerAcct extends HttpServlet {
                 c.setSecurityCode(request.getParameter("security_field"));
                 c.setUsername(request.getParameter("username_field"));
                 
-                c.insertDB();
+                c.insertCustomer();
                 System.out.println("Account created. moving to new page..."); //Test Code. Remove from final product.
                 System.out.println("---"); //Test Code. Remove from final product.
                 

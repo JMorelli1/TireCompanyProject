@@ -50,7 +50,6 @@ public class addOrderServlet extends HttpServlet {
                 Order o = new Order();
                 o.setOrderID(randomid);
                 o.setCustomerID(c.getCID());
-                o.setShipperID("9011");
                 o.setStatus("Processing");
 
                 o.insertDB();

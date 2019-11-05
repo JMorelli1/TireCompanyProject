@@ -57,7 +57,7 @@ public class customerProfileServlet extends HttpServlet {
                 c.setUsername(request.getParameter("username_field"));
 
                 c.display();
-                c.updateDB();
+                c.updateCustomer();
 
                 session.setAttribute("customer", c);
                 RequestDispatcher rd = context.getRequestDispatcher("/edit_customer_profile.jsp");
