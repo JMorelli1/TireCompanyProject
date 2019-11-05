@@ -75,5 +75,29 @@
         </div>
     </div>
 </div>
+
+
+      
+        
+        
+        
+ 
+        
+        <div class="footer">
+  <p>© 2019 Team1 Tires, Inc</p> 
+  
+     <ul class="footer-links">
+              <li><a href="about.jsp">About</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#/">Contact</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+
+
+        
+            
+
 </body>
 </html>
