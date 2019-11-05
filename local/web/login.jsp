@@ -22,7 +22,7 @@
                         </span>
                     </div>
 
-                    <form class="login100-form validate-form" action="http://localhost:8080/TiresRUs/LoginServlet" method="post">
+                    <form class="login100-form validate-form" action="LoginServlet" method="post">
                         <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                             <span class="label-input100">Username</span>
                             <input class="input100" type="text" name="username" placeholder="Enter username">

@@ -74,10 +74,15 @@
                     <input type="checkbox" name="PriceRange" value="Range3" /> $200 - $300 </br>
                     <br />
                     <label>Vehicle Type</label>
-                    <input type="checkbox" name="VehicleType" value="Nissan" /> Nissan </br> 
+                    <input type="checkbox" name="VehicleType" value="Ford" /> Ford </br> 
+                    <input type="checkbox" name="VehicleType" value="Honda" /> Honda </br> 
                     <input type="checkbox" name="VehicleType" value="Infiniti" /> Infiniti </br> 
-                    <input type="checkbox" name="VehicleType" value="Toyota" /> Toyota </br> 
                     <input type="checkbox" name="VehicleType" value="Jeep" /> Jeep </br> 
+                    <input type="checkbox" name="VehicleType" value="Lexus" /> Lexus </br> 
+                    <input type="checkbox" name="VehicleType" value="Mazda" /> Mazda </br> 
+                    <input type="checkbox" name="VehicleType" value="Mitsubishi" /> Mitsubishi </br> 
+                    <input type="checkbox" name="VehicleType" value="Nissan" /> Nissan </br> 
+                    <input type="checkbox" name="VehicleType" value="Toyota" /> Toyota </br> 
                     <input type="submit" /> </br> 
                 </form>
         </div>

@@ -8,14 +8,14 @@
 <!DOCTYPE html>
 <%@page import = "Business.*" %>
 
-<%Tire t = (Tire) session.getAttribute("tire");
-    String type = t.getType();
-    String size = t.getSize();
-    String brand = t.getBrand();
-    String stock = t.getStock();
-    String price = t.getPrice();
-    String id = t.getStockID();
-    String vtype = t.getVehicleType();%>
+<%Tire adminSearchTire = (Tire) session.getAttribute("adminSearchTire");
+    String type = adminSearchTire.getType();
+    String size = adminSearchTire.getSize();
+    String brand = adminSearchTire.getBrand();
+    String stock = adminSearchTire.getStock();
+    String price = adminSearchTire.getPrice();
+    String id = adminSearchTire.getStockID();
+    String vtype = adminSearchTire.getVehicleType();%>
 
 
 
@@ -37,7 +37,7 @@
             <a href="about.jsp"><li>Help</li></a>
         </ul>
         <h1>Welcome, <%=username%>!</h1>
-        <form action="http://localhost:8080/TiresRUs/stockModifyServlet" method="post">
+        <form action="stockModifyServlet" method="post">
             <table>
                 <tr><td>Type:</td><td><input type = "text" name = "type" value = ""/></td></tr>
                 <tr><td>Size:</td><td><input type = "text" name = "size" value = ""/></td></tr>

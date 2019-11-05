@@ -31,7 +31,7 @@ String sid = o.getShipperID();
             <a href="about.jsp"><li>Help</li></a>
         </ul>
         <h1>Search Results:</h1>
-        <form action="http://localhost:8080/TiresRUs/modifyOrderServlet" method="post">
+        <form action="modifyOrderServlet" method="post">
              <select name = "list">
                <option value = "Processing">Processing</option>
                <option value = "In Transit">Transit</option>

@@ -40,7 +40,7 @@ public class DBAccess {
  * Used for inserting filled object into the database.
  * @param sqlStm
  ***********************************************************************************/ 
-    public void InsertDB(String sqlStm){
+    public void insertDB(String sqlStm){
        openDBConnection(); 
         try{
             stm.executeUpdate(sqlStm);

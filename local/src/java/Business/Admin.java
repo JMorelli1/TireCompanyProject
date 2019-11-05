@@ -97,7 +97,7 @@ public class Admin {
     public void selectDB(String ID) {
 
         //String sql = "SELECT * FROM Admin WHERE EmployeeID = " + ID;
-        String sql = "SELECT * FROM Admin WHERE username = '" + ID +"'";
+        String sql = "SELECT * FROM Admin WHERE Username = '" + ID +"'";
         ResultSet resultSet = db.SelectDB(sql);
 
         try {
@@ -123,7 +123,7 @@ public class Admin {
     public void insertDB() {
 
         String sql = "Insert into Admin (EmployeeID, Username, Password) VALUES ('" + getEmpNumber() + "', '" + getUsername() + "', '" + getPassword() + "')";
-        db.InsertDB(sql);
+        db.insertDB(sql);
 
     }
 

@@ -60,7 +60,6 @@ public class OrderList {
     public Order getOrder(int x) {
         return order_list.get(x);
     }
-
     /**
      * **********************************************************************************
      * display Method to display contents of Order objects. Requires 0

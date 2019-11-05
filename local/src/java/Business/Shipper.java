@@ -2,13 +2,8 @@ package Business;
 
 
 import Business.*;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -65,7 +60,7 @@ public class Shipper {
     
     public void selectDB(String username) {
         try {
-            sql = "Select * from Shipper where username = '" + username + "'";
+            sql = "Select * from Shipper where Username = '" + username + "'";
             ResultSet resultSet = db.SelectDB(sql);
 
             resultSet.next();
@@ -83,7 +78,7 @@ public class Shipper {
 
         sql = "Insert into Shipper (ShipperID, Username, Password) VALUES ('" + this.getSID() + "', '" + this.getUsername() + "', '" + this.getPassword() + "')";
         System.out.println(sql);
-        db.InsertDB(sql);
+        db.insertDB(sql);
 
     }
     

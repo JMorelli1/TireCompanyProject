@@ -36,8 +36,7 @@ public class modifyOrderServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            try{
+            
                 HttpSession session = request.getSession();
                 ServletContext context = getServletContext();
                 
@@ -49,10 +48,7 @@ public class modifyOrderServlet extends HttpServlet {
                 session.setAttribute("search_order", o);
                 RequestDispatcher rd = context.getRequestDispatcher("/shipper_change_status.jsp");
                 rd.forward(request, response);
-            }
-            catch(Exception e){
-                System.out.println("Crash in modifyOrderServlet. " + e);
-            }
+
         }
     }
 

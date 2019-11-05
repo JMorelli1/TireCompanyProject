@@ -27,7 +27,7 @@ public class Customer {
     private String orderID;
     private String sql;
     private final DBAccess db = new DBAccess();
-    private OrderList orderList = new OrderList();
+    public OrderList orderList = new OrderList();
     
     //public String listOfOrders;
 
@@ -205,6 +205,40 @@ public class Customer {
             System.out.println(" ");
         }
     }
+    
+    /************************************************************************************
+ * selectCustomerUsername, uses SELECT SQL to query database. Requires 1 String parameter. Queries
+ * the Customer table for entries whose username key matches the
+ * given parameter.
+ * @param custUsername
+ ***********************************************************************************/    
+    
+        public void selectCustomerUsername(String custUsername) {
+        try {
+            
+            sql = "SELECT * FROM Customer WHERE Username = '" + custUsername + "'";
+            ResultSet resultSet = db.SelectDB(sql);
+            
+            resultSet.next();
+
+            setID(resultSet.getString("CustomerID"));
+            setUsername(resultSet.getString("Username"));
+            setPassword(resultSet.getString("Password"));
+            setFN(resultSet.getString("FirstName"));
+            setLN(resultSet.getString("LastName"));
+            setAddress(resultSet.getString("Address"));
+            setPhone(resultSet.getString("PhoneNumber"));
+            setCreditCardInfo(resultSet.getString("CreditCardNumber"));
+            setExpireDate(resultSet.getString("ExpirationDate"));
+            setSecurityCode(resultSet.getString("SecurityCode"));
+            setOID(resultSet.getString("OrderID"));
+
+            findOrders();
+        } catch (SQLException e) {
+            System.out.println("Crash at selectDB method (for Admin). " + e);
+            System.out.println(" ");
+        }
+    }
 
 /************************************************************************************
  * insertDB, uses INSERT SQL to insert into database. Requires 11 String parameters.
@@ -214,7 +248,7 @@ public class Customer {
     public void insertCustomer() {
         
         sql = "Insert into Customer (CustomerID, Username, Password, FirstName, LastName, Address, PhoneNumber, CreditCardNumber, ExpirationDate, SecurityCode, OrderID) VALUES ('" +getID()+ "', '" +getUsername()+ "', '" +getPassword()+ "', '"+getFN()+ "', '" +getLN()+ "', '" +getAddress()+ "', '" +getPhone()+ "', '" +getCreditCardInfo()+ "', '" +getExpireDate()+ "', '" +getSecurityCode()+ "', '" +getOID()+ "')";
-        db.InsertDB(sql);
+        db.insertDB(sql);
     }
 
 /************************************************************************************
@@ -260,6 +294,7 @@ public class Customer {
         }
         
     }
+    
 
     public static void main(String[] args) {
         String test_va = "60029";
