@@ -48,7 +48,16 @@
             <li>
                 <a href="faq.jsp">FAQ</a>
             </li>
-        </ul>
+            
+             <li>
+                 <a class="photonav" href="checkout.jsp"><img src="photos/cart.png"></a>
+                        </li> 
+
+         </ul>
+              <ul>
+
+
+              </ul>
             
 
     </nav>
