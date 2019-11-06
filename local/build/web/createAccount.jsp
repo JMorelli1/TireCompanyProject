@@ -43,8 +43,9 @@
                 <input type="text" name="username_field" placeholder="Enter Username">
                 <label>Password</label>
                 <input type="password" name="password_field" placeholder="Enter Password">
+              
                 <label>First Name</label>
-                <input type="text" name="fname_field">
+                <input type="text" name="fname_field" placeholder="Enter First Name">
                 <label>Last Name</label>
                 <input type="text" name="lname_field">
                 <label>Address</label>
