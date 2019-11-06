@@ -78,6 +78,7 @@
 <p>If you have an account, simply enter in your username and password and click "Login":</p>
 <img src="login.png" alt="login" style="width:500px;height:300px;">
 <p>If you don't have an account, click on the "Create Account" button below, enter in all the details it asks you for, submit and you should be good to go :</p>
+<img src="createaccount.png" alt="create" style="width:500px;height:300px;">
 </div>
 
 <button class="accordion">Searching and Ordering Tires</button>
