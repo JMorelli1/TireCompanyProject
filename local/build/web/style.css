@@ -67,7 +67,7 @@ a:focus {
 
 a:hover {
 	text-decoration: none;
-  color: #FF6700;
+    /*---if needed later i deleted this ---color: #FF6700;----*/ 
 }
 
 /*---------------------------------------------*/
@@ -165,6 +165,7 @@ iframe {
   font-size: 13px;
   line-height: 1.4;
   color: #EBEBEB;
+  text-decoration: none;
 }
 
 /*[ login ]*/
@@ -261,7 +262,8 @@ iframe {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 43px 88px 93px 190px;
-}
+  
+}  
 
 
 /*------------------------------------------------------------------
@@ -270,7 +272,8 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  border-bottom: 1.5px solid #EBEBEB;
+  
+  
 }
 
 .label-input100 {
@@ -288,7 +291,7 @@ iframe {
 }
 
 
-wrap-input100 validate-input m-b-26 ::placeholder { /* WebKit, Blink, Edge */
+wrap-input100 validate-input m-b-26 ::placeholder { 
     color:    #EBEBEB;
 }
 /*------font color --------*/
@@ -297,7 +300,7 @@ wrap-input100 validate-input m-b-26 ::placeholder { /* WebKit, Blink, Edge */
   font-size: 15px;
   color: #EBEBEB;
   line-height: 1.2;
-
+  border: none;   
   display: block;
   width: 100%;
   background: transparent;
@@ -396,8 +399,7 @@ input.input100 {
   color: #004E98;
 }
 
-/*------------------------------------------------------------------
-[ Button ]*/
+/* Button login form]*/
 .container-login100-form-btn {
   width: 100%;
   display: -webkit-box;
