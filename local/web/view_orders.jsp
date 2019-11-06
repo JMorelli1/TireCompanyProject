@@ -89,7 +89,7 @@
                     %>
                     <tr>
                         <td><%=t1.tireList.get(x).getQuantity()%></td>
-                        <td><img src="tire2.jpg" alt="tire1" width="200" height="200"></td>
+                        <td><img src="photos/tire2.jpg" alt="tire1" width="200" height="200"></td>
                         <td><%=t1.tireList.get(x).getStockID()%></td>
                         <td><%=t1.tireList.get(x).getType()%></td>
                         <td><%=t1.tireList.get(x).getSize()%></td>

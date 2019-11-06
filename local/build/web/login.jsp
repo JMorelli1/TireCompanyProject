@@ -34,7 +34,7 @@
         <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100">
-                    <div class="login100-form-title" style="background-image: url(tires.jpg);">
+                    <div class="login100-form-title" style="background-image: url(photos/tires.jpg);">
                         <span class="login100-form-title-1">
                             Sign Into T1Tires
                         </span>

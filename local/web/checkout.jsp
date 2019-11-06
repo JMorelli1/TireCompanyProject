@@ -60,7 +60,7 @@
                         for(int i=0; i<checkoutList.listSize(); i++){
                     %>
                     <tr>
-                        <td><img src="tire2.jpg" alt="tire1" width="200" height="200"></td>
+                        <td><img src="photos/tire2.jpg" alt="tire1" width="200" height="200"></td>
                         <td><%=checkoutList.tireList.get(i).getStockID()%></td>
                         <td><%=checkoutList.tireList.get(i).getType()%></td>
                         <td><%=checkoutList.tireList.get(i).getSize()%></td>

@@ -20,6 +20,7 @@
             TireList filteredList;
             filteredList = (TireList)session.getAttribute("filteredList");
             DecimalFormat currency = new DecimalFormat();
+            currency.applyPattern("##.##");
             if(filteredList == null){
                 filteredList = new TireList();
                 fullList = new TireList();
