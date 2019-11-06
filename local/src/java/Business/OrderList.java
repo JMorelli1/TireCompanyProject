@@ -44,6 +44,7 @@ public class OrderList {
      * **********************************************************************************
      * ListSize Method to return size of ArrayList. Requires 0 parameters.
      * Purpose: Returns the value of the count property.
+     * @return int
  **********************************************************************************
      */
     public int listSize() {
@@ -52,9 +53,9 @@ public class OrderList {
 
     /**
      * **********************************************************************************
-     * getAcct Method to get item from ArrayList. Requires 1 int parameter.
-     * Purpose: Index the ArayList with the int parameter and return the Order
-     * object at the given index.
+     * getOrder gets the Order object out of the arraylist at the given index
+     * @return Order
+     * @param x
  **********************************************************************************
      */
     public Order getOrder(int x) {

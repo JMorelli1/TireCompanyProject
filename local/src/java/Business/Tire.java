@@ -1,7 +1,7 @@
 /***********************************************************************************
   @author Elijah T. Badger                                                         *
   Tire.java (Project)                                                              *
-  Editor: James Morelli Edit Date: 9/25/19                                                       * 
+  Editor: James Morelli Edit Date: 11/5/19                                                       * 
  ***********************************************************************************/
 package Business;
 
@@ -137,7 +137,7 @@ public class Tire {
                 + "\n Size: " + this.getSize() + "\n Stock ID: " + this.getStockID() + "\n Car type: " + this.getVehicleType() + ".");
     }
 /************************************************************************************
- * selectDB, uses SELECT SQL to query database. Requires 1 String parameter. Queries
+ * selectTire, uses SELECT SQL to query database. Requires 1 String parameter. Queries
  * the Tire table for entries whose id key matches the
  * given parameter.
  * @param tireID
@@ -166,7 +166,7 @@ public class Tire {
     }
 
 /************************************************************************************
- * insertDB, uses INSERT SQL to insert into database. 
+ * insertTire, uses INSERT SQL to insert into database. 
  * Inserts the given parameters into the Tire table of the 
  * database. 
  ***********************************************************************************/ 
@@ -178,7 +178,7 @@ public class Tire {
     }
 
 /************************************************************************************
- * updateDB, uses UPDATE SQL to update database. Updates from the
+ * updateTire, uses UPDATE SQL to update database. Updates from the
  * Tire table in  based on the current values of class 
  * properties.
  ***********************************************************************************/ 
@@ -188,7 +188,7 @@ public class Tire {
         db.updateDB(sql);
     }
 /************************************************************************************
- * deleteDB, uses DELETE SQL to delete from database. Deletes
+ * deleteTire, uses DELETE SQL to delete from database. Deletes
  * an row from the Tire Table based on current class
  * property values.
  ***********************************************************************************/ 
@@ -196,21 +196,5 @@ public class Tire {
         
             sql = "Delete from Tire where TireID = '" + getStockID() + "'";
             db.deleteDB(sql);
-    }
-
-    public static void main(String[] args) {
-        String test_va = "Select * From Tire";
-        String testChanged = "Select * From Tire Where Brand IN ('Firestone')";
-        Tire test = new Tire();
-        //Tire test = new Tire("412", "Passenger", "123/60-R15", "Kumho", "12", "71.00", "Jeep");
-        //test.selectTire(test_va);
-        //test.insertDB();
-
-        //test.display();
-        //test.insertDB("411", "All Season", "185/50-R9001", "TiresRUs", "9001", "360","Autobot");
-        test.selectTire("245");
-        test.setPrice("50");
-        test.updateTire();
-        //test.deleteDB();  
     }
 }
