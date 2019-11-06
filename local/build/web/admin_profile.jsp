@@ -54,8 +54,8 @@
              <a href="edit_admin_profile.jsp"<button class="adpbtn1">
                                 Edit Profile
                  </button></a>
-                        </div>
-        <a class="centerb" href="edit_admin_profile.jsp"><input type="submit" name = "enter" value="Edit Profile"/></a>
+        </div>
+        
         </div>
     </body>
 </html>

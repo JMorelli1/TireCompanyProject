@@ -825,23 +825,13 @@ table.center input{
     border: none;
 }
 
-.centerb input 
-{
-    display: block;
-    margin: 0 auto;
-    
-}
 
         /* Button login form]*/
 .adpbtn {
-  width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: flex;
-  flex-wrap: wrap;
-   
+  width: 50px;
+    display: block;
+    margin: 20px auto;
+    
     
 }
 
