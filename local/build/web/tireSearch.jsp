@@ -4,6 +4,7 @@
     Author     : morel
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +19,7 @@
             TireList fullList;
             TireList filteredList;
             filteredList = (TireList)session.getAttribute("filteredList");
+            DecimalFormat currency = new DecimalFormat();
             if(filteredList == null){
                 filteredList = new TireList();
                 fullList = new TireList();
@@ -92,8 +94,9 @@
        <form action="AddTiresServlet" method="post">
      <table class="calign" >
                     <tr class="">
+                        <th></th>
                         <th>Purchase</th>
-               
+                        <th>Quantity</th>
                         <th>Tire ID</th>
                         <th>Tire Type</th>
                         <th>Size of Tire</th>
@@ -106,9 +109,9 @@
                         for(int i=0; i<filteredList.listSize(); i++){
                     %>
                     <tr>
+                        <td><img src="photos/tire2.jpg" alt="tire1" width="200" height="200"></td>
                         <td><input type="checkbox" value="<%=filteredList.tireList.get(i).getStockID()%>" name="selectedTires"></td>
                         <td>Quantity: <input type="number" name="quantity" min="1" max="100"></td>
-                        <td><img src="tire2.jpg" alt="tire1" width="200" height="200"></td>
                         <td><%=filteredList.tireList.get(i).getStockID()%></td>
                         <td><%=filteredList.tireList.get(i).getType()%></td>
                         <td><%=filteredList.tireList.get(i).getSize()%></td>

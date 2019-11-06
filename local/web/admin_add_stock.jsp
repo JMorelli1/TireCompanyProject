@@ -38,7 +38,7 @@
     </nav>
       
         <h1>Welcome, <%=username%>!</h1>
-        <form action="http://localhost:8080/TiresRUs/addStockServlet" method="post">
+        <form action="addStockServlet" method="post">
             <table>
                 <tr><td>Type:</td><td><input type = "text" name = "type" value = ""/></td></tr>
                 <tr><td>Size:</td><td><input type = "text" name = "size" value = ""/></td></tr>
