@@ -76,27 +76,27 @@
 <button class="accordion">Creating an Account/Logging in</button>
 <div class="panel">
 <p>If you have an account, simply enter in your username and password and click "Login":</p>
-<img src="login.png" alt="login" style="width:500px;height:300px;">
+<img src="photos/login.png" alt="login" style="width:500px;height:300px;">
 <p>If you don't have an account, click on the "Create Account" button below, enter in all the details it asks you for, submit and you should be good to go :</p>
-<img src="createaccount.png" alt="create" style="width:500px;height:300px;">
+<img src="photos/createaccount.png" alt="create" style="width:500px;height:300px;">
 </div>
 
 <button class="accordion">Searching and Ordering Tires</button>
 <div class="panel">
 <p>First use the filters on the left side to find what kind of tires your car needs, then press submit:</p>
-<img src="TireSearch1.png" alt="Tire 1" style="width:500px;height:300px;">
+<img src="photos/TireSearch1.png" alt="Tire 1" style="width:500px;height:300px;">
 <p>Once you find the tire you need, click on the text box next to it and then "add tire":</p>
-<img src="TireSearch2.png" alt="Tire 2" style="width:500px;height:300px;">
+<img src="photos/TireSearch2.png" alt="Tire 2" style="width:500px;height:300px;">
 <p>If you have everything you want in the checkout list, click on the "order" button so the site can process your order  ":</p>
-<img src="TireSearch3.png" alt="Tire 3" style="width:500px;height:300px;">
+<img src="photos/TireSearch3.png" alt="Tire 3" style="width:500px;height:300px;">
 </div>
 
 <button class="accordion">Edit Profile</button>
 <div class="panel">
   <p>First login into your account and you should be brought to your homepage.</p>
-  <img src="homepage1.png" alt="home1" style="width:500px;height:300px;">
+  <img src="photos/homepage1.png" alt="home1" style="width:500px;height:300px;">
   <p>Click on the "View/Edit Profile" button and it'll bring you to your customer profile page. Click on "edit" button and you'' be able to edit any details you'd like.</p>
-  <img src="profile.png" alt="home1" style="width:500px;height:300px;">
+  <img src="photos/profile.png" alt="home1" style="width:500px;height:300px;">
   <p>Once you made all the changes you want, click done and your account will now reflect the changes you made to it.</p>
   
 </div>
