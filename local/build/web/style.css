@@ -554,8 +554,9 @@ input.input100 {
 
         /*-DONE-*/
 .login-box{
+    margin-top: 200px;
     width: 320px;
-    height: 420px;
+    height: 875px;
     background: #FF6700;
     color: #EBEBEB;
     top: 50%;
