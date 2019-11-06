@@ -56,7 +56,7 @@
         <img  src="add.png" name="a">
           </div>
      
-         <div class="vasB"
+         <div class="vasB">
         <a href="admin_profile.jsp"> <button>View/Edit Profile</button></a>
         <a href="admin_stock_lookup.jsp"> <button>Lookup Stock</button></a>
         <a href="admin_add_stock.jsp"> <button>Add To Stock</button></a>   
