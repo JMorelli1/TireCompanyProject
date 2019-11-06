@@ -25,7 +25,5 @@
         </ul>
         <h1>Welcome, <%=username%>!</h1>
         <a href="view_customer_orders.jsp"><button>View Orders</button></a>
-        <a href="find_customer_order.jsp"><button>Find/Edit Orders</button></a>
-
     </body>
 </html>

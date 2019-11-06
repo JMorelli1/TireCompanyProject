@@ -111,11 +111,12 @@ public class DBAccess {
             System.out.println("Error closing database: " + e);
         }
     }
-//    public static void main(String[] args){
-//        ConLocation = ConLocation.replace("\\", "/");
-//        System.out.println(ConLocation);
-//    }
     
+ /************************************************************************************
+ * checkUserNames, creates a list of all IDs, Usernames, and Passwords from the Customer, Admin,
+ *  and Shipper tables into to run a login credentials test
+ * @return ResultSet
+ ***********************************************************************************/ 
     public ResultSet checkUserNames(){
         String sql = "SELECT EmployeeID, Username, Password FROM Admin;\n" +
                      "UNION\n" +

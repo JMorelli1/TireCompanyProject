@@ -1,7 +1,7 @@
 /***********************************************************************************
   @author Elijah T. Badger                                                         *
   TireList.java (Project)                                                         *
-  Editor: N/A Edit Date: N/A                                                       * 
+  Editor: James Morelli Edit Date: 11/1/19                                                       * 
  ***********************************************************************************/
 package Business;
 
@@ -28,9 +28,19 @@ public class TireList {
        tireList.add(a);
    }
    
+/************************************************************************************
+ * removeItem removes a Tire from the tireList arraylist
+ * @param a
+ ***********************************************************************************/
    public void removeItem(Tire a){
        tireList.remove(a);
    }
+   
+/************************************************************************************
+ * containsItem, Checks if the is the same Tire Object already in the arraylist
+ * @return boolean
+ * @param a
+ ***********************************************************************************/
    public boolean containsItem(Tire a){
        return tireList.contains(a);
    }
@@ -44,8 +54,9 @@ public class TireList {
    }
    
  /************************************************************************************
- * getAcct Method to get item from ArrayList. Purpose: Index the ArayList with the int
+ * getTire Method to get item from ArrayList. Purpose: Index the ArayList with the int
  * parameter and return the Tire object at the given index
+ * @return Tire
  * @param x
  ***********************************************************************************/
    public Tire getTire(int x){
@@ -64,6 +75,10 @@ public class TireList {
        }
    }
    
+/************************************************************************************
+ * generateTireList, creates a TireList of all Tires within the Tire Table
+ * @return TireList
+ ***********************************************************************************/
    public TireList generateTireList(){
        
        TireList listOfTires = new TireList();
