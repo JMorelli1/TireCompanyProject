@@ -55,30 +55,21 @@
                                 Login
                             </button>
                         </div>
-
                 </div>
-                </form>
+       </form>
+                                   
                 
-                    <br />
-                    <br />
-                    <br />
-                    
-                
-                    
-                    <a href="createAccount.jsp"><button>Create Account</button></a>
+  <a   href="createAccount.jsp"><button>Create Account</button></a> 
 
             </div>
         </div>
+        
     </div>
 </div>
 
+  
 
-      
-        
-        
-        
- 
-        
+
         <div class="footer">
   <p>© 2019 Team1 Tires, Inc</p> 
   

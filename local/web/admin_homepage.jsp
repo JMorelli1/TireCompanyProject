@@ -16,19 +16,51 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+          <link rel="stylesheet" href="style.css">
         <title>Your Home Page</title>
     </head>
     <body>
-        <h1>Tires R' Us</h1>
-        <ul>
-            <a href="index.html"><li>Home Page</li></a>
-            <a href="about.jsp"><li>Help</li></a>
+        
+        
+            <nav>
+        <div class="logo">
+            <h4>T1tires</h4>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="index.html">Home</a>
+            </li> 
+              <li>
+                <a href="admin_homepage.jsp">Your Home page</a>
+            </li> 
+            <li>
+                <a href="FAQ.jsp">Help</a>
+            </li>
         </ul>
-        <h1>Welcome, <%=username%>!</h1>
+    </nav>
+        
+    
+        </br>
+         </br>
+         
+        <h1 class="h1-admin">Welcome, <%=username%>!</h1>
+        
+        
+         </br> </br>
+         
+         <div class="vas">
+             
+             
+        <img  src="edit.png" name="e" >
+        <img  src="search.png" name="s">
+        <img  src="add.png" name="a">
+          </div>
+     
+         <div class="vasB"
         <a href="admin_profile.jsp"> <button>View/Edit Profile</button></a>
         <a href="admin_stock_lookup.jsp"> <button>Lookup Stock</button></a>
         <a href="admin_add_stock.jsp"> <button>Add To Stock</button></a>   
-
+         </div>
 
     </body>
 </html>

@@ -24,15 +24,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <link rel="stylesheet" href="style.css">
         <title>Your Profile</title>
     </head>
     <body>
-        <h1>Tires R' Us</h1>
-        <ul>
-            <a href="index.html"><li>Home Page</li></a>
-            <a href="customer_homepage.jsp"><li>Your Home Page</li></a>
-            <a href="FAQ.jsp"><li>Help</li></a>
+         <nav>
+        <div class="logo">
+            <h4>T1tires</h4>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="index.html">Home</a>
+            </li> 
+              <li>
+                <a href="customer_homepage.jsp">Your Home page</a>
+            </li> 
+            <li>
+                <a href="FAQ.jsp">Help</a>
+            </li>
         </ul>
+    </nav>
+
         <h1>Welcome, <%=fn%>!</h1>
 
         <table>

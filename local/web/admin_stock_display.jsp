@@ -27,18 +27,33 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+           <link rel="stylesheet" href="style.css">
         <title>Stock Lookup</title>
     </head>
     <body>
-        <h1>Tires R' Us</h1>
-        <ul>
-            <a href="admin_homepage.jsp"><li>Your Home Page</li></a>
-            <a href="index.html"><li>Home Page</li></a>
-            <a href="about.jsp"><li>Help</li></a>
+          <nav>
+        <div class="logo">
+            <h4>T1tires</h4>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="index.html">Home</a>
+            </li> 
+              <li>
+                <a href="admin_homepage.jsp">Your Home page</a>
+            </li> 
+            <li>
+                <a href="FAQ.jsp">Help</a>
+            </li>
         </ul>
+    </nav>
+
+        <h1>Tires R' Us</h1>
+
         <h1>Welcome, <%=username%>!</h1>
         <form action="stockModifyServlet">
             <table>
+                
                 <tr><td>Type:</td><td><input type = "text" name = "Modifytype" value = <%=type%> /></td></tr>
                 <tr><td>Size:</td><td><input type = "text" name = "Modifysize" value = <%=size%> /></td></tr>
                 <tr><td>Brand:</td><td><input type = "text" name = "Modifybrand" value = <%=brand%> /></td></tr>
