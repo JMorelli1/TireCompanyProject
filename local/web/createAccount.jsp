@@ -10,12 +10,12 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" href="style.css">
-        <title>Your Home Page</title>
+        <title>Join us today!</title>
     </head>
     <body>
       <nav>
         <div class="logo">
-            <h4>T1tires</h4>
+            <a class="mm" href="index.html"<h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
             <li>
@@ -40,12 +40,12 @@
         <h1>Enter your information</h1>
             <form>
                 <label>Username</label>
-                <input type="text" name="username_field" placeholder="Enter Username">
+                <input type="text" name="username_field" placeholder="">
                 <label>Password</label>
-                <input type="password" name="password_field" placeholder="Enter Password">
+                <input type="password" name="password_field" placeholder="">
               
                 <label>First Name</label>
-                <input type="text" name="fname_field" placeholder="Enter First Name">
+                <input type="text" name="fname_field" placeholder="">
                 <label>Last Name</label>
                 <input type="text" name="lname_field">
                 <label>Address</label>
