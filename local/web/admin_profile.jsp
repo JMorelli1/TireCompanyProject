@@ -41,13 +41,20 @@
         <h1 class="h1ap">Welcome, <%=username%>!</h1>
         
        
-        <table class="center">
-        <tr><td>ID:</td><td><input type = "text" name = "emp_id" value = <%=empn%> /></td></tr>
+        <table class="center" >
+        <tr><td >ID:</td><td><input type = "text" name = "emp_id" value = <%=empn%> /></td></tr>
         <tr><td>Username:</td><td><input type = "text" name = "username" value = <%=username%> /></td></tr>
         <tr><td>Password:</td><td><input type = "text" name = "password" value = <%=pass%> /></td></tr> 
         </table>
         </br>
         
+        
+        
+         <div class="adpbtn">
+             <a href="edit_admin_profile.jsp"<button class="adpbtn1">
+                                Edit Profile
+                 </button></a>
+                        </div>
         <a class="centerb" href="edit_admin_profile.jsp"><input type="submit" name = "enter" value="Edit Profile"/></a>
         </div>
     </body>
