@@ -15,7 +15,7 @@
     <body>
             <nav>
         <div class="logo">
-            <h4>T1tires</h4>
+            <a class="mm" href="index.html"<h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
             <li>
