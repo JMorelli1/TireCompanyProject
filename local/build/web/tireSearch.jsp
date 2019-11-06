@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css"/>
         <%@page import="Business.TireList" %>
+        <%@page import="java.text.NumberFormat" %>
         <title>Tire Search Page</title>
     </head>
     <body>
@@ -19,8 +20,7 @@
             TireList fullList;
             TireList filteredList;
             filteredList = (TireList)session.getAttribute("filteredList");
-            DecimalFormat currency = new DecimalFormat();
-            currency.applyPattern("##.##");
+            NumberFormat formater = new DecimalFormat("#0.00");
             if(filteredList == null){
                 filteredList = new TireList();
                 fullList = new TireList();
@@ -118,7 +118,7 @@
                         <td><%=filteredList.tireList.get(i).getSize()%></td>
                         <td><%=filteredList.tireList.get(i).getBrand()%></td>
                         <td><%=filteredList.tireList.get(i).getStock()%></td>
-                        <td><%=filteredList.tireList.get(i).getPrice()%></td>
+                        <td><%=formater.format(Double.parseDouble(filteredList.tireList.get(i).getPrice()))%></td>
                         <td><%=filteredList.tireList.get(i).getVehicleType()%></td>
                     </tr>
                         <%

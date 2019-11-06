@@ -33,7 +33,7 @@
         </ul>
     </nav>
         <div class="aus">
-        <img src="aus.png" width="600" height="600">
+        <img src="photos/aus.png" width="600" height="600">
              </div>
         
       <div class="aus">
