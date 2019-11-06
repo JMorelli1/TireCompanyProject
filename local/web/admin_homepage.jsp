@@ -24,7 +24,7 @@
         
             <nav>
         <div class="logo">
-       <a class="mm" href="index.html"<h4>T1tires</h4></a>
+            <a class="mm" href="index.html"><h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
             <li>
@@ -51,9 +51,9 @@
          <div class="vas">
              
              
-        <img  src="edit.png" name="e" >
-        <img  src="search.png" name="s">
-        <img  src="add.png" name="a">
+        <a href="admin_profile.jsp"><img  src="photos/edit.png" name="e" ></a>
+        <a href="admin_stock_lookup.jsp"><img  src="photos/search.png" name="s"></a>
+        <a href="admin_add_stock.jsp"><img  src="photos/add.png" name="a"></a>
           </div>
      
          <div class="vasB">

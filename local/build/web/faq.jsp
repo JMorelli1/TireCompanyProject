@@ -71,8 +71,6 @@
         
         </br>
         
-                    
-
 <button class="accordion">Creating an Account/Logging in</button>
 <div class="panel">
 <p>If you have an account, simply enter in your username and password and click "Login":</p>
