@@ -9,7 +9,6 @@
 
 
 <%Customer c = (Customer) session.getAttribute("customer");
-    String oid = c.getOID();
     String cid = c.getCID();
     String fn = c.getFN();
     String ln = c.getLN();
@@ -35,7 +34,7 @@
             <a href="about.jsp"><li>Help</li></a>
         </ul>
         <h1>Welcome, Customer!</h1>
-        <form action="http://localhost:8080/TiresRUs/customerProfileServlet" method="post">
+        <form action="customerProfileServlet" method="post">
             <table><tr><td>Enter new username:</td>
                     <td><input type = "text" name = "username_field" value = <%=username%> /></td>
                 </tr><tr><td>Enter new password:</td>

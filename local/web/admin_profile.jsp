@@ -42,9 +42,9 @@
         
        
         <table class="center" >
-        <tr><td >ID:</td><td><input type = "text" name = "emp_id" value = <%=empn%> /></td></tr>
-        <tr><td>Username:</td><td><input type = "text" name = "username" value = <%=username%> /></td></tr>
-        <tr><td>Password:</td><td><input type = "text" name = "password" value = <%=pass%> /></td></tr> 
+        <tr><td >ID:</td><td><input type = "text" name = "emp_id" value = <%=empn%> readonly /></td></tr>
+        <tr><td>Username:</td><td><input type = "text" name = "username" value = <%=username%> readonly/></td></tr>
+        <tr><td>Password:</td><td><input type = "text" name = "password" value = <%=pass%> readonly/></td></tr> 
         </table>
         </br>
         

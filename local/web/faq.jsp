@@ -71,7 +71,7 @@
         
         </br>
         
-                    UPDATE THIS PAGE INFO PLS!
+                    
 
 <button class="accordion">Creating an Account/Logging in</button>
 <div class="panel">

@@ -8,7 +8,6 @@
 <%@page import = "Business.*" %>
 
 <%Customer c = (Customer) session.getAttribute("customer");
-    String oid = c.getOID();
     String cid = c.getCID();
     String fn = c.getFN();
     String ln = c.getLN();
@@ -56,7 +55,7 @@
                     <input type = "text" id = "username_field" value = <%=username%> /></td>
             <tr>
                 <td>Password:</td>
-                <td><input type = "text" id = "password_field" value = <%=pass%>/></td>
+                <td><input type = "text" id = "password_field" value = <%=pass%> /></td>
             </tr>
             <tr><td>First Name:</td>
                 <td><input type = "text" id = "fname_field" value = <%=fn%> /></td>
