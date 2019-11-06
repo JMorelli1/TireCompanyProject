@@ -32,19 +32,23 @@
                 <a href="admin_homepage.jsp">Your Home page</a>
             </li> 
             <li>
-                <a href="FAQ.jsp">Help</a>
+                <a href="faq.jsp">Help</a>
             </li>
         </ul>
     </nav>
-        <h1>Tires R' Us</h1>
-
-        <h1>Welcome, <%=username%>!</h1>
-        <table>
+            
+     
+        <h1 class="h1ap">Welcome, <%=username%>!</h1>
+        
+        <div clas="adp">
+        <table align="center">
         <tr><td>ID:</td><td><input type = "text" name = "emp_id" value = <%=empn%> /></td></tr>
         <tr><td>Username:</td><td><input type = "text" name = "username" value = <%=username%> /></td></tr>
         <tr><td>Password:</td><td><input type = "text" name = "password" value = <%=pass%> /></td></tr> 
         </table>
-        <a href="edit_admin_profile.jsp"><input type="submit" name = "enter" value="Edit Profile"/></a>
-
+        
+             </div>
+        <a class="editP" href="edit_admin_profile.jsp"><input type="submit" name = "enter" value="Edit Profile"/></a>
+        </div>
     </body>
 </html>

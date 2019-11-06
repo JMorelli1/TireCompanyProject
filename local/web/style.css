@@ -92,7 +92,7 @@ ul, li {
 /*---------------------------------------------*/
 input {
 	outline: none;
-	border: none;
+        /*border: none;*/
 }
 
 input[type="number"] {
@@ -796,6 +796,20 @@ input.input100 {
     height: 100px;
   
 }
+/* above is fro the h1 in admin_homepage.jsp */
+
+/* below is fro the h1 in admin_profile.jsp */
+
+.h1ap{
+      display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    height: 100px;
+}
+
+.adp enter{
 
 
 
+}
