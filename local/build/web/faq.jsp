@@ -15,14 +15,14 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">   
-          <link rel="stylesheet" href="style.css">s
+          <link rel="stylesheet" href="style.css">
         <title>FAQ Page</title>
         <style>
 
   
   .accordion {
-  background-color: #eee;
-  color: #444;
+  background-color: #004E98;
+  color: #EBEBEB;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -34,7 +34,7 @@
 }
 
 .active, .accordion:hover {
-  background-color: #ccc; 
+  background-color: #FF6700; 
 }
 
 .panel {
@@ -65,8 +65,13 @@
             </li>
         </ul>
     </nav>
+        </br>
         
-        <h2>Team1 Tires FAQ</h2>
+        <h2> Team1 Tires FAQ</h2>
+        
+        </br>
+        
+                    UPDATE THIS PAGE INFO PLS!
 
 <button class="accordion">Creating an Account/Logging in</button>
 <div class="panel">
@@ -112,5 +117,24 @@ for (i = 0; i < acc.length; i++) {
 }
 </script>
 
+
+<%-- 
+    easiest way to bring the footer all the way down to the page -miguel
+--%>
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+
     </body>
+    
+         <div class="footer">
+  <p>© 2019 Team1 Tires, Inc</p> 
+  
+     <ul class="footer-links">
+              <li><a href="about.jsp">About</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#/">Contact</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
 </html>
