@@ -16,6 +16,8 @@
         if(Boolean.parseBoolean(loginError) == true){
     %><script>alert("You incorrectly entered your Username and/or Password!\n Please retry");</script><%
         }
+        loginError = "false";
+        session.setAttribute("loginError", loginError);
         %>
     <body>
   <nav>

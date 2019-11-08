@@ -27,7 +27,7 @@
         <form action="CreateCustomerAcct" method="post">
         
              <div class="login-box">
-    <img src="avatar.png" class="avatar">
+    <img src="photos/avatar.png" class="avatar">
         <h1>Enter your information</h1>
             <form>
                 <label>Username</label>
