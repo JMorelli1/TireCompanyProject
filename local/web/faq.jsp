@@ -1,11 +1,5 @@
 <%-- 
     Document   : faq
-    Created on : Oct 14, 2019, 9:58:49 AM
-    Author     : miguel
---%>
-
-<%-- 
-    Document   : faq
     Edited on : Nov 4, 2019, 11:04:40 AM
     Author     : Jhalp
 --%>
@@ -17,6 +11,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">   
           <link rel="stylesheet" href="style.css">
         <title>FAQ Page</title>
+        <%@page import="Business.*" %>
         <style>
 
   
@@ -45,24 +40,27 @@
 }
 </style>
     </head>
+    <% Customer customer = (Customer)session.getAttribute("customer");
+       Admin admin = (Admin)session.getAttribute("admin");
+       Shipper shipper = (Shipper)session.getAttribute("shipper");%>
     <body>
-           <nav>
+    <nav>
         <div class="logo">
-            <a class="mm" href="index.html"<h4>T1tires</h4></a>
+            <a class="mm" href="index.jsp"><h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
-            <li>
-                <a href="login.jsp">Login</a>
-            </li> 
-              <li>
-                <a href="tireSearch.jsp">Search</a>
-            </li> 
-            <li>
-                <a href="about.jsp">About</a>
-            </li>
-            <li>
-                <a href="faq.jsp">FAQ</a>
-            </li>
+            <%if(customer != null){%>
+            <li><a href="customer_homepage.jsp">Homepage</a></li>
+            <%}if(admin != null){%>
+            <li><a href="admin_homepage.jsp">Homepage</a></li>
+            <%}if(shipper != null){%>
+            <li><a href="shipper_homepage.jsp">Homepage</a></li>
+            <%}else{%>
+            <li><a href="login.jsp">Login</a></li> 
+            <%}%>
+            <li><a href="tireSearch.jsp">Search</a></li> 
+            <li><a href="about.jsp">About</a></li>
+            <li><a href="faq.jsp">FAQ</a></li>
         </ul>
     </nav>
         </br>

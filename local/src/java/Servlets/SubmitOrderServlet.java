@@ -41,10 +41,12 @@ public class SubmitOrderServlet extends HttpServlet {
             
             HttpSession session = request.getSession();
             RequestDispatcher rdCompleted = request.getRequestDispatcher("orderprocessed.jsp");
+            RequestDispatcher rdLogin = request.getRequestDispatcher("login.jsp");
             RequestDispatcher rdFailed = request.getRequestDispatcher("orderfailed.jsp");
             
             TireList checkoutList = (TireList)session.getAttribute("checkoutList");
-            
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
+            System.out.print(quantity);
             Customer customer = (Customer)session.getAttribute("customer");
             Order newOrder = new Order();
             

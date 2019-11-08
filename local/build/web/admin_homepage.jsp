@@ -10,9 +10,9 @@
 <%@page import = "Business.*" %>
 
 <%Admin a = (Admin) session.getAttribute("admin");
-    String empn = a.getEmpNumber();
-    String pass = a.getPassword();
-    String username = a.getUsername();%>
+    String username = a.getUsername();
+    String URL = request.getRequestURL().toString();
+    String logoutURL = URL.substring(0, URL.length() - 18) + "LogoutServlet";%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -20,22 +20,14 @@
         <title>Your Home Page</title>
     </head>
     <body>
-        
-        
-            <nav>
+    <nav>
         <div class="logo">
-            <a class="mm" href="index.html"><h4>T1tires</h4></a>
+            <a class="mm" href="index.jsp"><h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
-            <li>
-                <a href="index.html">Home</a>
-            </li> 
-              <li>
-                <a href="admin_homepage.jsp">Your Home page</a>
-            </li> 
-            <li>
-                <a href="FAQ.jsp">Help</a>
-            </li>
+            <li><a href="admin_homepage.jsp">Homepage</a></li> 
+            <li><a href="faq.jsp">Help</a></li>
+            <li><a href="<%=logoutURL%>">Logout</a></li>
         </ul>
     </nav>
         

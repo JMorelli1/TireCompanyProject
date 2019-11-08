@@ -27,20 +27,15 @@
         <title>Your Profile</title>
     </head>
     <body>
-         <nav>
+    <nav>
         <div class="logo">
-            <h4>T1tires</h4>
+            <a class="mm" href="index.jsp"><h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
-            <li>
-                <a href="index.html">Home</a>
-            </li> 
-              <li>
-                <a href="customer_homepage.jsp">Your Home page</a>
-            </li> 
-            <li>
-                <a href="FAQ.jsp">Help</a>
-            </li>
+            <li><a href="customer_homepage.jsp">Homepage</a></li>
+            <li><a href="tireSearch.jsp">Search</a></li> 
+            <li><a href="about.jsp">About</a></li>
+            <li><a href="faq.jsp">FAQ</a></li>
         </ul>
     </nav>
 

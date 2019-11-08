@@ -11,24 +11,22 @@
         <link rel="stylesheet" href="style.css">
         <title>T1Tires</title>
     </head>
+    <%  String loginError;
+        loginError = (String)session.getAttribute("loginError");
+        if(Boolean.parseBoolean(loginError) == true){
+    %><script>alert("You incorrectly entered your Username and/or Password!\n Please retry");</script><%
+        }
+        %>
     <body>
   <nav>
         <div class="logo">
-            <a class="mm" href="index.html"<h4>T1tires</h4></a>
+            <a class="mm" href="index.jsp"<h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
-            <li>
-                <a href="login.jsp">Login</a>
-            </li> 
-              <li>
-                <a href="tireSearch.jsp">Search</a>
-            </li> 
-            <li>
-                <a href="about.jsp">About</a>
-            </li>
-            <li>
-                <a href="faq.jsp">FAQ</a>
-            </li>
+            <li><a href="login.jsp">Login</a></li> 
+            <li><a href="tireSearch.jsp">Search</a></li> 
+            <li><a href="about.jsp">About</a></li>
+            <li><a href="faq.jsp">FAQ</a></li>
         </ul>
     </nav>
         <div class="limiter">

@@ -18,16 +18,8 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Customer Orders</title>
-        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<!--	<script>
-		$( function() {
-		$( "#accordion" ).accordion();
-		} );
-	</script>-->
+        <link rel="stylesheet" href="style.css" />
         <style>
-
-  
   .accordion {
   background-color: #004E98;
   color: #EBEBEB;
@@ -54,14 +46,17 @@
 </style>
     </head>
     <body>
-        <h1>Tires R' Us</h1>
-        <ul>
-            <a href="customer_homepage.jsp"><li>Your Home Page</li></a>
-            <a href="index.html"><li>Home Page</li></a>
-            <a href="about.jsp"><li>Help</li></a>
+    <nav>
+        <div class="logo">
+            <a class="mm" href="index.jsp"><h4>T1tires</h4></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="customer_homepage.jsp">Homepage</a></li>
+            <li><a href="tireSearch.jsp">Search</a></li> 
+            <li><a href="about.jsp">About</a></li>
+            <li><a href="faq.jsp">FAQ</a></li>
         </ul>
-
-<!--        <div class="accordion">-->
+    </nav>
             <%
                 for(int i = 0; i<c.orderList.listSize(); i++){
             %>
@@ -122,6 +117,5 @@ for (i = 0; i < acc.length; i++) {
   });
 }
 </script>
-        <a href="customer_homepage.jsp"><button>Return to Your Home Page</button></a>
     </body>
 </html>

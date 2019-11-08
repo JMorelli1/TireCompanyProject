@@ -13,26 +13,17 @@
         <title>Join us today!</title>
     </head>
     <body>
-      <nav>
+  <nav>
         <div class="logo">
-            <a class="mm" href="index.html"<h4>T1tires</h4></a>
+            <a class="mm" href="index.jsp"<h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
-            <li>
-                <a href="login.jsp">Login</a>
-            </li> 
-              <li>
-                <a href="tireSearch.jsp">Search</a>
-            </li> 
-            <li>
-                <a href="about.jsp">About</a>
-            </li>
-            <li>
-                <a href="faq.jsp">FAQ</a>
-            </li>
+            <li><a href="login.jsp">Login</a></li> 
+            <li><a href="tireSearch.jsp">Search</a></li> 
+            <li><a href="about.jsp">About</a></li>
+            <li><a href="faq.jsp">FAQ</a></li>
         </ul>
     </nav>
-       
         <form action="CreateCustomerAcct" method="post">
         
              <div class="login-box">

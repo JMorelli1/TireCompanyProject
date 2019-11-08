@@ -6,7 +6,6 @@ package Servlets;
  * and open the template in the editor.
  */
 import Business.Customer;
-import java.util.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -16,6 +15,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -39,23 +39,26 @@ public class CreateCustomerAcct extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             try {
+                HttpSession session = request.getSession();
+                
                 ServletContext context = getServletContext();
-                Customer c = new Customer();
-                int newId = c.countCustomers() + 7001;
-                c.setCID(Integer.toString(newId));
-                c.setAddress(request.getParameter("addr_field"));
-                c.setCreditCardInfo(request.getParameter("cardnumber_field"));
-                c.setExpireDate(request.getParameter("expire_field"));
-                c.setFN(request.getParameter("fname_field"));
-                c.setLN(request.getParameter("lname_field"));
-                c.setPassword(request.getParameter("password_field"));
-                c.setPhone(request.getParameter("phone_field"));
-                c.setSecurityCode(request.getParameter("security_field"));
-                c.setUsername(request.getParameter("username_field"));
+                Customer customer = new Customer();
+                int newId = customer.countCustomers() + 7001;
+                customer.setCID(Integer.toString(newId));
+                customer.setAddress(request.getParameter("addr_field"));
+                customer.setCreditCardInfo(request.getParameter("cardnumber_field"));
+                customer.setExpireDate(request.getParameter("expire_field"));
+                customer.setFN(request.getParameter("fname_field"));
+                customer.setLN(request.getParameter("lname_field"));
+                customer.setPassword(request.getParameter("password_field"));
+                customer.setPhone(request.getParameter("phone_field"));
+                customer.setSecurityCode(request.getParameter("security_field"));
+                customer.setUsername(request.getParameter("username_field"));
                 
-                c.insertCustomer();
+                customer.insertCustomer();
                 
-                RequestDispatcher rd = context.getRequestDispatcher("/login.jsp");
+                session.setAttribute("customer", customer);
+                RequestDispatcher rd = context.getRequestDispatcher("/customer_homepage.jsp");
                 rd.forward(request, response);
 
             } catch (Exception e) {
