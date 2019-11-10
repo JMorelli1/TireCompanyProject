@@ -17,9 +17,15 @@
             Customer customer = (Customer)session.getAttribute("customer");
             TireList checkoutList;
             checkoutList = (TireList)session.getAttribute("checkoutList");
+            
             if(checkoutList == null){
                 checkoutList = new TireList();
             }
+            checkoutList.calculateSubTotal();
+            if(checkoutList.countQuantity() <= 10){
+                checkoutList.calculateShipping();
+            }
+            checkoutList.calculateTotal();
             %>
     <body>
     <nav>
@@ -45,6 +51,7 @@
                 <table class="calign">
                     <tr>
                         <th></th>
+                        <th>Quantity</th>
                         <th>Price</th>
                         <th>Tire Type</th>
                         <th>Size of Tire</th>
@@ -56,6 +63,7 @@
                     %>
                     <tr>
                         <td><img src="photos/tire2.jpg" alt="tire1" width="200" height="200"></td>
+                        <td><%=checkoutList.tireList.get(i).getQuantity()%></td>
                         <td><%=checkoutList.tireList.get(i).getPrice()%></td>
                         <td><%=checkoutList.tireList.get(i).getType()%></td>
                         <td><%=checkoutList.tireList.get(i).getSize()%></td>
@@ -68,6 +76,20 @@
                 </table>
                         <input type="submit" value="Order" /> 
             </form>
+                <table>
+                    <tr>
+                        <td>Subtotal: </td>
+                        <td><%=checkoutList.getSubTotal()%></td>
+                    </tr>
+                    <tr>
+                        <td>Shipping Cost: </td>
+                        <td><%=checkoutList.getShippingTotal()%></td>
+                    </tr>
+                    <tr>
+                        <td>Total: </td>
+                        <td><%=checkoutList.getTotal()%></td>
+                    </tr>
+                </table>
         </main>
     </body>
 </html>

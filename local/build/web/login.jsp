@@ -11,10 +11,15 @@
         <link rel="stylesheet" href="style.css">
         <title>T1Tires</title>
     </head>
-    <%  String loginError;
+    <%  String loginError = "";
         loginError = (String)session.getAttribute("loginError");
-        if(Boolean.parseBoolean(loginError) == true){
-    %><script>alert("You incorrectly entered your Username and/or Password!\n Please retry");</script><%
+        if(loginError != null){
+            if(loginError.equals("Incorrect")){
+                %><script>alert("You incorrectly entered your Username and/or Password!\n Please retry");</script><%
+            }
+            if(loginError.equals("AddTires")){
+                %><script>alert("Please login before adding tires");</script><%
+            }
         }
         loginError = "false";
         session.setAttribute("loginError", loginError);

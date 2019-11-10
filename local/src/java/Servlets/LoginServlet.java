@@ -84,7 +84,7 @@ public class LoginServlet extends HttpServlet {
                     }
                 }
                 if(loginedIn == false){
-                   String loginError = "true";
+                   String loginError = "Incorrect";
                    session.setAttribute("loginError", loginError);
                    rdErrorPage.forward(request, response); 
                 }

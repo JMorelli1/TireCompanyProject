@@ -8,7 +8,7 @@
 <%@page import = "Business.*" %>
 <%@page import = "java.sql.*" %>
 <%Customer c = (Customer) session.getAttribute("customer");
-
+    c.findOrders();
     String username = c.getUsername();
 %>
 
@@ -68,7 +68,8 @@
                     %>
                     <table >
                     <tr>
-                        <th>Quantity Purchased</th>
+                        <th></th>
+                        <th>Quantity</th>
                         <th>Tire ID</th>
                         <th>Tire Type</th>
                         <th>Size of Tire</th>
@@ -83,8 +84,8 @@
                         for(int x=0; x<t1.tireList.size(); x++){
                     %>
                     <tr>
-                        <td><%=t1.tireList.get(x).getQuantity()%></td>
                         <td><img src="photos/tire2.jpg" alt="tire1" width="200" height="200"></td>
+                        <td><%=t1.tireList.get(x).getQuantity()%></td>
                         <td><%=t1.tireList.get(x).getStockID()%></td>
                         <td><%=t1.tireList.get(x).getType()%></td>
                         <td><%=t1.tireList.get(x).getSize()%></td>

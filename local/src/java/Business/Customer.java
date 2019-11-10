@@ -26,7 +26,7 @@ public class Customer {
     private String securityCode;
     private String sql;
     private final DBAccess db = new DBAccess();
-    public OrderList orderList = new OrderList();
+    public OrderList orderList;
 
  /************************************************************************************
  * Customer constructor, Initializes all properties to "" when 0 
@@ -283,6 +283,7 @@ public class Customer {
     public void findOrders(){
         
         try{
+            orderList = new OrderList();
             sql = "Select * From Order Where CustomerID = " + getCID();
             ResultSet resultSet = db.SelectDB(sql);
             

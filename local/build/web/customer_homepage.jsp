@@ -10,8 +10,11 @@
 
 <%Customer customer = (Customer) session.getAttribute("customer");
     String username = customer.getUsername();
+    String orderStatus = "";
     String URL = request.getRequestURL().toString();
-    String logoutURL = URL.substring(0, URL.length() - 21) + "LogoutServlet";%>
+    String logoutURL = URL.substring(0, URL.length() - 21) + "LogoutServlet";
+    orderStatus = (String)session.getAttribute("orderStatus");
+%>
 
 <html>
     <head>
@@ -37,6 +40,7 @@
             <li><a href="about.jsp">About</a></li>
             <li><a href="faq.jsp">FAQ</a></li>
             <li><a href="<%=logoutURL%>">Logout</a></li>
+            <li><a class="photonav" href="checkout.jsp"><img src="photos/cart.png"></a></li>   
         </ul>
     </nav>
         <h1>Welcome, <%=username%>!</h1>
@@ -45,7 +49,9 @@
         <%--<a href="browse_tire_criteria.jsp"><button>Browse Tires</button></a> --%>
         <a href="tireSearch.jsp"><button>Browse Tires</button></a>
         <a href="view_orders.jsp"><button>View Orders</button></a>
-
-
+        
+        <% if(orderStatus != null && orderStatus.equals("completed")){  %>
+        <p>Your order has been completed! Thank you for choosing T1Tires!</p>
+        <%}%>
     </body>
 </html>
