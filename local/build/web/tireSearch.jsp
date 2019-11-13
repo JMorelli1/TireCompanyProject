@@ -11,13 +11,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css"/>
-<<<<<<< HEAD
+
         <%@page import="Business.TireList" %>
         <%@page import="java.text.NumberFormat"%>
-=======
+
         <%@page import="Business.*" %>
         <%@page import="java.text.NumberFormat" %>
->>>>>>> c915e519596ba1d78576ccef5aa5fbe68869b68e
+
         <title>Tire Search Page</title>
     </head>
     <body>
