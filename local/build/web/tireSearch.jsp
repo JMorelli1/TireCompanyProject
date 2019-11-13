@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css"/>
         <%@page import="Business.TireList" %>
-        <%@page import="java.text.NumberFormat" %>
+        <%@page import="java.text.NumberFormat"%>
         <title>Tire Search Page</title>
     </head>
     <body>
@@ -120,6 +120,7 @@
                     %>
                     <tr>
                         <td><img src="photos/tire2.jpg" alt="tire1" width="200" height="200"></td>
+                        
                         <td><input type="checkbox" value="<%=filteredList.tireList.get(i).getStockID()%>" name="selectedTires"></td>
                         <td>Quantity: <input type="number" name="quantity" min="1" max="100"></td>
                         <td><%=filteredList.tireList.get(i).getStockID()%></td>

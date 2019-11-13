@@ -5,9 +5,9 @@
         <group>
             <file>file:/C:/Users/migue/Documents/NetBeansProjects/TireCompanyProject/local/web/about.jsp</file>
             <file>file:/C:/Users/migue/Documents/NetBeansProjects/TireCompanyProject/local/web/style.css</file>
+            <file>file:/C:/Users/migue/Documents/NetBeansProjects/TireCompanyProject/local/web/admin_stock_lookup.jsp</file>
             <file>file:/C:/Users/migue/Documents/NetBeansProjects/TireCompanyProject/local/web/admin_profile.jsp</file>
-            <file>file:/C:/Users/migue/Documents/NetBeansProjects/TireCompanyProject/local/web/admin_homepage.jsp</file>
-            <file>file:/C:/Users/migue/Documents/NetBeansProjects/TireCompanyProject/local/web/login.jsp</file>
+            <file>file:/C:/Users/migue/Documents/NetBeansProjects/TireCompanyProject/local/web/tireSearch.jsp</file>
         </group>
     </open-files>
 </project-private>

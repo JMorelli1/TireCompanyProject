@@ -34,14 +34,15 @@
             </li>
         </ul>
     </nav>
-       
-        <h1>Welcome, <%=username%>! Enter stock ID number.</h1>
+        
+        <h1 class="h1asl">Welcome, <%=username%>! Enter stock ID number.</h1>
         <form action="adminStockLookup" method="post">
 
+             <div class="inputasl">
             <input type = "text" name = "stock" value = ""/>
-
-
-            <input type = "submit" name = "enter" value="Submit"/>
-
+          
+            <div class="inputasl">
+             <input type = "submit" name = "enter" value="Submit"/>
+            </div>
     </body>
 </html>

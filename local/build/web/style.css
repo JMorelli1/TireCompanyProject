@@ -23,7 +23,7 @@ nav{
     display: flex;
     justify-content: space-around;
     width: 25%; 
-    margin-left: 700px
+    margin-left: 999px;
 }
 
 .nav-links li{
@@ -53,7 +53,7 @@ body, html {
 /* this handles all the nav links stuff*/
 a {
 	font-family: Poppins-Regular, sans-serif;
-	font-size: 14px;
+	font-size: 20px;
 	line-height: 1.7;
 	color: #000000;
 	margin: 0px;
@@ -866,3 +866,22 @@ table.center input{
     text-decoration: none;
 }
 
+/* below is code for the admin stock lookup.jsp */
+.h1asl{
+        display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    height: 100px;
+}
+
+.inputasl{
+    display: flex;
+    justify-content: center;
+     font-size: bold;
+}
+.inputasl input{
+    
+    color: #FF6700;
+    font-size: bold;
+}
