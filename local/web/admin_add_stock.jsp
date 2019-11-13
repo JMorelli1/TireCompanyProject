@@ -31,6 +31,7 @@
     </nav>
       
         <h1 class="h1asl">Welcome, <%=username%>!</h1>
+        <h4 class="h1asl">Add/change tire information below!</h4>
         <form action="addStockServlet" method="post">
             <table class="aast">
                 <tr><td>Type:</td><td><input type = "text" name = "type" value = ""/></td></tr>
