@@ -46,11 +46,14 @@
 </style>
     </head>
     <body>
-           <nav>
+          <nav>
         <div class="logo">
             <h4>T1tires</h4>
         </div>
         <ul class="nav-links">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
             <li>
                 <a href="login.jsp">Login</a>
             </li> 
@@ -60,12 +63,52 @@
             <li>
                 <a href="about.jsp">About</a>
             </li>
-            <li>
-                <a href="faq.jsp">FAQ</a>
-            </li>
         </ul>
     </nav>
+        <h2>Team1 Tires FAQ</h2>
+        <button class="accordion">Shipping/Ordering</button>
+        <div class="panel">
+            <p>Q: Where do I find my Order number?</p>
+            <p>A: Once your order has been processed, log into your account and press the "View Orders" button to find all the information you need about your orders.</p>
+            <br/>
+            <p>Q: How long does shipping usually take?</p>
+            <p>A: Shipping generally takes 2 business days depending on the distribution center we ship from.</p>
+            <br/>
+            <p>Q: How do I check the status of my order online?</p>
+            <p>A: The quickest way to check your order status is to login to your account and click the "View Orders" button to see the status of any of your orders.</p>
+            <br/>
+            <p>Q: How long are my return labels good for?</p>
+            <p>A: A return label is good for 30 days from the date it is issued. If for some reason 30 days is not sufficient, we will re-issue the label or wait until you are ready to ship to issue it.</p>
+            <br/>
+            <p>Q: When will my order ship?</p>
+            <p>A: We make every effort to have your order shipped within 24 hours of processing, however our shippers do not pick up shipments on weekends or holidays. They will pick up shipments the following business day.</p>
+            <br/>
+            <p>Q: How do I process a return?</p>
+            <p>A: You will need to call us at 1-800-555-7473 to process a return.</p>
+        </div>
         
+        <button class="accordion">Warranty</button>
+        <div class="panel">
+            <p>Q: Do I get physical certificates when I purchase Certificates for Refund or Replacement?</p>
+            <p>A: Our Certificate for refund or replacement is not an actual certificate but rather a virtual certificate which will be a line item on your invoice. We will keep the information on our 
+                database and you can request a replacement invoice showing that you purchased the certificates at any time</p>
+            <br/>
+            <p>Q: How long does the Certificate for Refund or Replacement last?</p>
+            <p>A: Tires are covered for 3 years from date of purchase and must have at least 3/32” of tread depth. T1 Tires reserves the right to have the customer ship back the tire for inspection prior to replacement.</p>
+            
+        </div>
+        
+        <button class="accordion">Installation</button>
+        <div class="panel">
+            <p>Q: To what pressure do I inflate my new tires?</p>
+            <p>A: As long as we have your vehicle’s information, we will print your tire's recommended air pressure on the invoice. Correct pressure can also be located on the driver’s door jamb. Sometimes the pressure will be different than listed if you are using a tire size that is different than the size recommended by the vehicle manufacturer.</p>
+            <br/>
+            <p>Q: How much does installation cost?</p>
+            <p>A: The installation of your tires and wheels can vary in price based on the installer you decide to use. T1 Tires offer the most competitive pricing at the highest quality industry standard, but you can use any installer you prefer.</p>
+            <br/>
+            <p>Q: Where can I find installers?</p>
+            <p>A: You can have your tires and wheels installed at any T1 Tire store near you. If you do not have a store in your area, we have a list of other installers available at our customer service number: 1-800-555-7473.</p>
+        </div>
         <h2>Team1 Tires FAQ</h2>
 
 <button class="accordion">Creating an Account/Logging in</button>
