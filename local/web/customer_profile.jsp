@@ -8,7 +8,6 @@
 <%@page import = "Business.*" %>
 
 <%Customer c = (Customer) session.getAttribute("customer");
-    String oid = c.getOID();
     String cid = c.getCID();
     String fn = c.getFN();
     String ln = c.getLN();
@@ -24,15 +23,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <link rel="stylesheet" href="style.css">
         <title>Your Profile</title>
     </head>
     <body>
-        <h1>Tires R' Us</h1>
-        <ul>
-            <a href="index.html"><li>Home Page</li></a>
-            <a href="customer_homepage.jsp"><li>Your Home Page</li></a>
-            <a href="FAQ.jsp"><li>Help</li></a>
+    <nav>
+        <div class="logo">
+            <a class="mm" href="index.jsp"><h4>T1tires</h4></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="customer_homepage.jsp">Homepage</a></li>
+            <li><a href="tireSearch.jsp">Search</a></li> 
+            <li><a href="about.jsp">About</a></li>
+            <li><a href="faq.jsp">FAQ</a></li>
         </ul>
+    </nav>
+
         <h1>Welcome, <%=fn%>!</h1>
 
         <table>
@@ -44,7 +50,7 @@
                     <input type = "text" id = "username_field" value = <%=username%> /></td>
             <tr>
                 <td>Password:</td>
-                <td><input type = "text" id = "password_field" value = <%=pass%>/></td>
+                <td><input type = "text" id = "password_field" value = <%=pass%> /></td>
             </tr>
             <tr><td>First Name:</td>
                 <td><input type = "text" id = "fname_field" value = <%=fn%> /></td>

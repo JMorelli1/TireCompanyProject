@@ -1,7 +1,7 @@
 /***********************************************************************************
   @author Elijah T. Badger                                                         *
   Customer.java (Project)                                                          *
-  Editor: James Morelli Edit Date: 9/25/19                                         * 
+  Editor: James Morelli Edit Date: 11/5/19                                         * 
  ***********************************************************************************/
 package Business;
 
@@ -26,9 +26,7 @@ public class Customer {
     private String securityCode;
     private String sql;
     private final DBAccess db = new DBAccess();
-    public OrderList orderList = new OrderList();
-    
-    //public String listOfOrders;
+    public OrderList orderList;
 
  /************************************************************************************
  * Customer constructor, Initializes all properties to "" when 0 
@@ -47,7 +45,7 @@ public class Customer {
     }
     
 /************************************************************************************
- * Dentist constructor, Initializes properties to given values.
+ * Customer constructor, Initializes properties to given values.
  ***********************************************************************************/ 
     public Customer(String ID, String username, String password, String fname, String lname, String address, String phone, String creditCardInfo, String expireDate, String securityCode) {
         this.fname = fname;
@@ -163,7 +161,7 @@ public class Customer {
     }
  
 /************************************************************************************
- * selectDB, uses SELECT SQL to query database. Requires 1 String parameter. Queries
+ * selectCustomer, uses SELECT SQL to query database. Requires 1 String parameter. Queries
  * the Customer table for entries whose id key matches the
  * given parameter.
  * @param custID
@@ -228,7 +226,7 @@ public class Customer {
     }
 
 /************************************************************************************
- * insertDB, uses INSERT SQL to insert into database. Requires 11 String parameters.
+ * insertCustomer, uses INSERT SQL to insert into database. Requires 11 String parameters.
  * Inserts the given parameters into the Customer table of the 
  * database. 
  ***********************************************************************************/  
@@ -239,7 +237,7 @@ public class Customer {
     }
 
 /************************************************************************************
- * updateDB, uses UPDATE SQL to update database. Requires 0 parameters. Updates from the
+ * updateCustomer, uses UPDATE SQL to update database. Requires 0 parameters. Updates from the
  * Customer table in  based on the current values of class 
  * properties.
  ***********************************************************************************/ 
@@ -251,7 +249,7 @@ public class Customer {
     }
 
 /************************************************************************************
- * deleteDB, uses DELETE SQL to delete from database. Requires 0 parameters. Deletes
+ * deleteCustomer, uses DELETE SQL to delete from database. Requires 0 parameters. Deletes
  * an entry from the Customer Table based on current class
  * property values.
  ***********************************************************************************/ 
@@ -260,7 +258,11 @@ public class Customer {
         db.deleteDB(sql);
         
     }
-    
+/************************************************************************************
+ * countCustomers, generates a count of the current number of Customers in the Customer Table
+ * in order to give a unique ID to new Customers
+ * @return int
+ ***********************************************************************************/
     public int countCustomers(){
         int count = 0;
         sql = "SELECT * FROM Customer";
@@ -274,10 +276,14 @@ public class Customer {
         }
         return count;
     }
-    
+
+/************************************************************************************
+ * findOrders, creates an orderList of orders tied to the Customer ID
+ ***********************************************************************************/
     public void findOrders(){
         
         try{
+            orderList = new OrderList();
             sql = "Select * From Order Where CustomerID = " + getCID();
             ResultSet resultSet = db.SelectDB(sql);
             
@@ -297,20 +303,4 @@ public class Customer {
         }
         
     }
-    
-
-    public static void main(String[] args) {
-        //String test_va = "60029";
-        Customer test = new Customer();
-        //Customer test = new Customer("60041", "LDennis", "test", "Lauren", "Dennis", "123 Test rd", "770-111-1111", "4700111144445523","12/12", "232", "7" );
-        //test.selectCustomer(test_va);
-
-        test.selectCustomer("7011");
-        test.display();
-        //test.insertCustomer();
-        //test.setPassword("GreatPassword");
-        //test.updateCustomer();
-        //test.deleteDB();
-    }
-
 }

@@ -1,7 +1,7 @@
 /***********************************************************************************
   @author Elijah T. Badger                                                         *
   Order.java (Project)                                                             *
-  Editor: 9/25/19 Edit Date: 9/25/19                                                       * 
+  Editor: James Morelli Edit Date: 11/5/19                                                       * 
  ***********************************************************************************/
 package Business;
 
@@ -22,6 +22,7 @@ public class Order {
     private int newID;
     private final DBAccess db = new DBAccess();
     public TireList orderedItems = new TireList();
+    public OrderList ordersList = new OrderList();
 
     
  /************************************************************************************
@@ -97,10 +98,11 @@ public class Order {
         }
     }
 
-/************************************************************************************
- * insertDB, uses INSERT SQL to insert into database. Requires 4 String parameters.
- * Inserts the given parameters into the Order table of the 
- * database. 
+ /************************************************************************************
+ * insertNewOrderDB, Inserts data into the Order table of a new order being ordered by a customer 
+ * It creates the orderId by generating a count of current orders and adding to it
+ * @param customerID
+ * @param status
  ***********************************************************************************/ 
     public void insertNewOrderDB(String customerID, String status) {
         newID = countOrders() + 1;
@@ -110,12 +112,24 @@ public class Order {
             
     }
     
-    public void insertOrderedItems(TireList orderedItems, int quantity){
+ /************************************************************************************
+ * insertOrderedItems, Inserts data into the OrderedItems Table in the database based on a Tirelist sent to the method
+ * Also adds the quantity ordered
+ * @param orderedItems
+ * @param quantity
+ ***********************************************************************************/ 
+    public void insertOrderedItems(TireList orderedItems){
         for(int i=0; i<orderedItems.listSize(); i++){
-                    sql="Insert into OrderedItems (OrderID, TireID, Quantity) VALUES ('"+newID+"','"+orderedItems.getTire(i).getStockID()+"',"+quantity+")";
+                    sql="Insert into OrderedItems (OrderID, TireID, Quantity) VALUES ('"+newID+"','"+orderedItems.getTire(i).getStockID()+"',"+orderedItems.getTire(i).getQuantity()+")";
                     db.insertDB(sql);            
         }
     }
+    
+ /************************************************************************************
+ * findOrderedItems, Makes a list of tires found in the Tire table using the TireID found
+ * in the OrderedItems table and then returns the TireList
+ * @return TireList
+ ***********************************************************************************/ 
     public TireList findOrderedItems(){
         
         try{
@@ -145,6 +159,37 @@ public class Order {
         return orderedItems;
     }
     
+ /************************************************************************************
+ * findOrders, Collects a list of all orders found in the order table and returns the list
+ * for display
+ * @return OrderList
+ ***********************************************************************************/ 
+    
+    public OrderList findOrders(){
+        sql="SELECT * FROM Order";
+        Order order;
+        try{
+            ResultSet resultSet = db.SelectDB(sql);
+            
+            while(resultSet.next()){
+                order = new Order();
+                order.setOrderID(resultSet.getString("OrderID"));
+                order.setCustomerID(resultSet.getString("CustomerID"));
+                order.setStatus(resultSet.getString("Status"));
+                ordersList.addItem(order);
+            }
+        }
+        catch(SQLException e){
+            System.out.println("Crash finding all orders" + e);
+        }
+        return ordersList;
+    }
+    
+ /************************************************************************************
+ * insertDB, uses INSERT SQL to insert into database. Requires 4 String parameters.
+ * Inserts the given parameters into the Order table of the 
+ * database. 
+ ***********************************************************************************/ 
     public void insertDB() {
         sql = "Insert into Order (OrderID, CustomerID, Status) VALUES ('"+getCustomerID()+"','"+getCustomerID()+"', '"+getStatus()+"')";
         db.insertDB(sql);
@@ -174,6 +219,11 @@ public class Order {
         db.deleteDB(sql);
         
     }
+    
+ /************************************************************************************
+ * countOrders, counts all orders currently in the database to add a unique OrderId when created
+ * @return int
+ ***********************************************************************************/ 
     public int countOrders(){
         int count = 0;
         sql = "SELECT * FROM Order";
@@ -195,17 +245,5 @@ public class Order {
  ***********************************************************************************/ 
     public void display() {
         System.out.println("Displaying Order properties:\n Order ID number: " + getOrderID() + "\n Customer ID Number: " + getCustomerID() + "\n Order Status: " + getStatus());
-    }
-
-    public static void main(String[] args) {
-        //String test_va = "1";
-        Order test = new Order("222", "10", "Processing");
-        //test.selectDB(test_va);
-
-        test.insertDB();
-        //test.setQuantity("20");
-        //test.updateDB();
-        //test.deleteDB();
-        test.display();
     }
 }

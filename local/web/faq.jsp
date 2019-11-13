@@ -1,11 +1,5 @@
 <%-- 
     Document   : faq
-    Created on : Oct 14, 2019, 9:58:49 AM
-    Author     : miguel
---%>
-
-<%-- 
-    Document   : faq
     Edited on : Nov 4, 2019, 11:04:40 AM
     Author     : Jhalp
 --%>
@@ -15,14 +9,15 @@
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">   
-          <link rel="stylesheet" href="style.css">s
+          <link rel="stylesheet" href="style.css">
         <title>FAQ Page</title>
+        <%@page import="Business.*" %>
         <style>
 
   
   .accordion {
-  background-color: #eee;
-  color: #444;
+  background-color: #004E98;
+  color: #EBEBEB;
   cursor: pointer;
   padding: 18px;
   width: 100%;
@@ -34,7 +29,7 @@
 }
 
 .active, .accordion:hover {
-  background-color: #ccc; 
+  background-color: #FF6700; 
 }
 
 .panel {
@@ -45,18 +40,30 @@
 }
 </style>
     </head>
+    <% Customer customer = (Customer)session.getAttribute("customer");
+       Admin admin = (Admin)session.getAttribute("admin");
+       Shipper shipper = (Shipper)session.getAttribute("shipper");%>
     <body>
-          <nav>
+
+    <nav>
+
         <div class="logo">
-            <h4>T1tires</h4>
+            <a class="mm" href="index.jsp"><h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
+
             <li>
-                <a href="index.html">Home</a>
+                <a href="index.html">T1 Tires</a>
             </li>
-            <li>
-                <a href="login.jsp">Login</a>
-            </li> 
+            <%if(customer != null){%>
+            <li><a href="customer_homepage.jsp">Homepage</a></li>
+            <%}if(admin != null){%>
+            <li><a href="admin_homepage.jsp">Homepage</a></li>
+            <%}if(shipper != null){%>
+            <li><a href="shipper_homepage.jsp">Homepage</a></li>
+            <%}else{%>
+            <li><a href="login.jsp">Login</a></li> 
+            <%}%>
               <li>
                 <a href="tireSearch.jsp">Search</a>
             </li> 
@@ -114,26 +121,27 @@
 <button class="accordion">Creating an Account/Logging in</button>
 <div class="panel">
 <p>If you have an account, simply enter in your username and password and click "Login":</p>
-<img src="login.png" alt="login" style="width:500px;height:300px;">
+<img src="photos/login.png" alt="login" style="width:500px;height:300px;">
 <p>If you don't have an account, click on the "Create Account" button below, enter in all the details it asks you for, submit and you should be good to go :</p>
+<img src="photos/createaccount.png" alt="create" style="width:500px;height:300px;">
 </div>
 
 <button class="accordion">Searching and Ordering Tires</button>
 <div class="panel">
 <p>First use the filters on the left side to find what kind of tires your car needs, then press submit:</p>
-<img src="TireSearch1.png" alt="Tire 1" style="width:500px;height:300px;">
+<img src="photos/TireSearch1.png" alt="Tire 1" style="width:500px;height:300px;">
 <p>Once you find the tire you need, click on the text box next to it and then "add tire":</p>
-<img src="TireSearch2.png" alt="Tire 2" style="width:500px;height:300px;">
+<img src="photos/TireSearch2.png" alt="Tire 2" style="width:500px;height:300px;">
 <p>If you have everything you want in the checkout list, click on the "order" button so the site can process your order  ":</p>
-<img src="TireSearch3.png" alt="Tire 3" style="width:500px;height:300px;">
+<img src="photos/TireSearch3.png" alt="Tire 3" style="width:500px;height:300px;">
 </div>
 
 <button class="accordion">Edit Profile</button>
 <div class="panel">
   <p>First login into your account and you should be brought to your homepage.</p>
-  <img src="homepage1.png" alt="home1" style="width:500px;height:300px;">
+  <img src="photos/homepage1.png" alt="home1" style="width:500px;height:300px;">
   <p>Click on the "View/Edit Profile" button and it'll bring you to your customer profile page. Click on "edit" button and you'' be able to edit any details you'd like.</p>
-  <img src="profile.png" alt="home1" style="width:500px;height:300px;">
+  <img src="photos/profile.png" alt="home1" style="width:500px;height:300px;">
   <p>Once you made all the changes you want, click done and your account will now reflect the changes you made to it.</p>
   
 </div>
@@ -155,5 +163,24 @@ for (i = 0; i < acc.length; i++) {
 }
 </script>
 
+
+<%-- 
+    easiest way to bring the footer all the way down to the page -miguel
+--%>
+
+</br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br></br>
+
     </body>
+    
+         <div class="footer">
+  <p>© 2019 Team1 Tires, Inc</p> 
+  
+     <ul class="footer-links">
+              <li><a href="about.jsp">About</a></li>
+              <li><a href="#">Terms</a></li>
+              <li><a href="#">Pricing</a></li>
+              <li><a href="#/">Contact</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
 </html>

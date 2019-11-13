@@ -1,21 +1,16 @@
+/***********************************************************************************
+  @author Elijah T. Badger                                                         *
+  Shipper.java (Project)                                                          *
+  Editor: James Morelli Edit Date: 11/5/19                                         * 
+ ***********************************************************************************/
+
 package Business;
 
-
-import Business.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Elijah Badger
- */
 public class Shipper {
+    
     public String password;
     public String ShipperID;
     public String username;
@@ -23,9 +18,9 @@ public class Shipper {
     private final DBAccess db = new DBAccess();
     
     public Shipper() {
-        String password = "";
-        String username = "";
-        String ShipperID = "";
+        password = "";
+        username = "";
+        ShipperID = "";
     }
     
     public Shipper( String username, String ShipperID, String password) {
@@ -34,6 +29,9 @@ public class Shipper {
         this.ShipperID = ShipperID;
     }
     
+/************************************************************************************
+ * All get/set methods for Customer properties.
+ ***********************************************************************************/
     public String getUsername() {
         return this.username;
     }
@@ -57,7 +55,13 @@ public class Shipper {
     public void setSID(String new_shipperID) {
         this.ShipperID = new_shipperID;
     }
-    
+
+/************************************************************************************
+ * selectDB, uses SELECT SQL to query database. Requires 1 String parameter. Queries
+ * the Shipper table for entries whose username matches the
+ * given parameter.
+ * @param username
+ ***********************************************************************************/ 
     public void selectDB(String username) {
         try {
             sql = "Select * from Shipper where Username = '" + username + "'";
@@ -74,6 +78,9 @@ public class Shipper {
         }
     }
     
+/************************************************************************************
+ * insertDB, uses INSERT SQL to insert into Shipper table.
+ ***********************************************************************************/  
     public void insertDB() {
 
         sql = "Insert into Shipper (ShipperID, Username, Password) VALUES ('" + this.getSID() + "', '" + this.getUsername() + "', '" + this.getPassword() + "')";
@@ -82,6 +89,9 @@ public class Shipper {
 
     }
     
+/************************************************************************************
+ * updateDB, updates in the Shipper table with the properties of the shipper object
+ ***********************************************************************************/  
     public void updateDB() {
 
         sql = "UPDATE Shipper set " + "Username='" + getUsername() + "'," + " Password='" + getPassword() + "' WHERE ShipperID= '" + this.getSID()+ "'";
@@ -89,6 +99,9 @@ public class Shipper {
 
     }
     
+/************************************************************************************
+ * deleteDB, deletes a row in the Shipper at the shipper object ID 
+ ***********************************************************************************/  
     public void deleteDB() {
 
         sql = "Delete from Shipper where ShipperID = " + this.getSID();

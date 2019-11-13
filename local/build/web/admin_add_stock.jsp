@@ -15,17 +15,23 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+           <link rel="stylesheet" href="style.css">
         <title>Add Stock</title>
     </head>
     <body>
-        <h1>T1 Tires</h1>
-        <ul>
-            <a href="admin_homepage.jsp"><li>Your Home Page</li></a>
-            <a href="index.html"><li>Home Page</li></a>
-            <a href="about.jsp"><li>Help</li></a>
+        
+    <nav>
+        <div class="logo">
+        <a class="mm" href="index.jsp"<h4>T1tires</h4></a> 
+        </div>
+        <ul class="nav-links">
+            <li><a href="admin_homepage.jsp">Homepage</a></li> 
+            <li><a href="faq.jsp">Help</a></li>
         </ul>
+    </nav>
+      
         <h1>Welcome, <%=username%>!</h1>
-        <form action="http://localhost:8080/TiresRUs/addStockServlet" method="post">
+        <form action="addStockServlet" method="post">
             <table>
                 <tr><td>Type:</td><td><input type = "text" name = "type" value = ""/></td></tr>
                 <tr><td>Size:</td><td><input type = "text" name = "size" value = ""/></td></tr>
