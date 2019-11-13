@@ -118,9 +118,9 @@ public class Order {
  * @param orderedItems
  * @param quantity
  ***********************************************************************************/ 
-    public void insertOrderedItems(TireList orderedItems, int quantity){
+    public void insertOrderedItems(TireList orderedItems){
         for(int i=0; i<orderedItems.listSize(); i++){
-                    sql="Insert into OrderedItems (OrderID, TireID, Quantity) VALUES ('"+newID+"','"+orderedItems.getTire(i).getStockID()+"',"+quantity+")";
+                    sql="Insert into OrderedItems (OrderID, TireID, Quantity) VALUES ('"+newID+"','"+orderedItems.getTire(i).getStockID()+"',"+orderedItems.getTire(i).getQuantity()+")";
                     db.insertDB(sql);            
         }
     }

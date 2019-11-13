@@ -7,6 +7,8 @@ package Business;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 
 /************************************************************************************
@@ -18,7 +20,16 @@ public class TireList {
     public ArrayList<Tire> tireList = new ArrayList<>();
     private DBAccess dbAccess = new DBAccess();
     private final String sql = "Select * From Tire";
+    private double subTotal = 0;
+    private double shippingTotal = 0;
+    private double total = 0;
 
+    NumberFormat format = new DecimalFormat("#0.00");
+    
+    public String getSubTotal(){return format.format(subTotal);}
+    public String getShippingTotal(){return format.format(shippingTotal);}
+    public String getTotal(){return format.format(total);}
+    
 /************************************************************************************
  * AddItem adds item to ArayList. Requires 1 Tire object. Purpose: Add an Tire object
  * to the ArrayList and increase counter by 1.
@@ -105,5 +116,27 @@ public class TireList {
            System.out.println("Error generating list of tires: " + e);
        }
        return listOfTires;
+   }
+   
+   
+   public void calculateSubTotal(){
+       subTotal = 0;
+       for(int i =0; i < tireList.size(); i++){
+           subTotal += (Double.parseDouble(tireList.get(i).getPrice()) * tireList.get(i).getQuantity());
+       }
+   }
+   
+   public void calculateShipping(){
+       shippingTotal = subTotal * 0.07;
+   }
+   public void calculateTotal(){
+       total = subTotal + shippingTotal;
+   }
+   public int countQuantity(){
+       int count = 0;
+       for(int i = 0; i < tireList.size(); i++){
+           count += tireList.get(i).getQuantity();
+       }
+       return count;
    }
 }

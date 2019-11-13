@@ -49,7 +49,8 @@ public class LoginServlet extends HttpServlet {
             RequestDispatcher rdCustomer = request.getRequestDispatcher("/customer_homepage.jsp");
             RequestDispatcher rdAdmin = request.getRequestDispatcher("/admin_homepage.jsp");
             RequestDispatcher rdShipper = request.getRequestDispatcher("/shipper_homepage.jsp");
-            RequestDispatcher rdErrorPage = request.getRequestDispatcher("/error_page.jsp");
+            RequestDispatcher rdErrorPage = request.getRequestDispatcher("/login.jsp");
+            RequestDispatcher rdCrashPage = request.getRequestDispatcher("/error_page.jsp");
             
             String username = request.getParameter("username");
             String password = request.getParameter("pass");
@@ -83,12 +84,14 @@ public class LoginServlet extends HttpServlet {
                     }
                 }
                 if(loginedIn == false){
+                   String loginError = "Incorrect";
+                   session.setAttribute("loginError", loginError);
                    rdErrorPage.forward(request, response); 
                 }
             }
             catch(SQLException e){
                 System.out.println("Error logging in: " + e);
-                rdErrorPage.forward(request, response);
+                rdCrashPage.forward(request, response);
             }
         }
     }

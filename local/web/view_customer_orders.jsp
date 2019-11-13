@@ -18,15 +18,18 @@ orders = order.findOrders();
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Customer Orders</title>
+        <link rel="stylesheet" href="style.css" />
     </head>
     <body>
-        <h1>Tires R' Us</h1>
-        <ul>
-            <a href="shipper_homepage.jsp"><li>Your Home Page</li></a>
-            <a href="index.html"><li>Home Page</li></a>
-            <a href="about.jsp"><li>Help</li></a>
+    <nav>
+        <div class="logo">
+            <a class="mm" href="index.jsp"><h4>T1tires</h4></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="shipper_homepage.jsp">Homepage</a></li> 
+            <li><a href="faq.jsp">Help</a></li>
         </ul>
-
+    </nav>
         <table>
             <tr>
                 <th>Order ID:</th>

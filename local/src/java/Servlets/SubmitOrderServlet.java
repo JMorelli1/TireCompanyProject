@@ -40,18 +40,27 @@ public class SubmitOrderServlet extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             
             HttpSession session = request.getSession();
-            RequestDispatcher rdCompleted = request.getRequestDispatcher("orderprocessed.jsp");
+            RequestDispatcher rdCompleted = request.getRequestDispatcher("customer_homepage.jsp");
             RequestDispatcher rdFailed = request.getRequestDispatcher("orderfailed.jsp");
+            String orderStatus;
+            
             
             TireList checkoutList = (TireList)session.getAttribute("checkoutList");
-            
             Customer customer = (Customer)session.getAttribute("customer");
             Order newOrder = new Order();
             
+            try{
             newOrder.insertNewOrderDB(customer.getCID(), "Processing");
-            newOrder.insertOrderedItems(checkoutList, 5);
-            
+            newOrder.insertOrderedItems(checkoutList);
+            orderStatus = "completed";
+            checkoutList.tireList.clear();
+            session.setAttribute("checkoutList", checkoutList);
+            session.setAttribute("orderStatus", orderStatus);
             rdCompleted.forward(request, response);
+            }
+            catch(Exception e){
+                rdFailed.forward(request, response);
+            }
         }
     }
 

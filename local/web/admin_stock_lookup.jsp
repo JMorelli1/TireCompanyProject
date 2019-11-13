@@ -18,24 +18,21 @@
         <title>Stock Lookup</title>
     </head>
     <body>
-          <nav>
+    <nav>
         <div class="logo">
-       <a class="mm" href="index.html"<h4>T1tires</h4></a>
+            <a class="mm" href="index.jsp"><h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
-            <li>
-                <a href="index.html">Home</a>
-            </li> 
-              <li>
-                <a href="admin_homepage.jsp">Your Home page</a>
-            </li> 
-            <li>
-                <a href="faq.jsp">Help</a>
-            </li>
+            <li><a href="admin_homepage.jsp">Homepage</a></li> 
+            <li><a href="faq.jsp">Help</a></li>
         </ul>
     </nav>
+<<<<<<< HEAD
         
         <h1 class="h1asl">Welcome, <%=username%>! Enter stock ID number.</h1>
+=======
+    <h1>Welcome, <%=username%>! Enter stock ID number.</h1>
+>>>>>>> c915e519596ba1d78576ccef5aa5fbe68869b68e
         <form action="adminStockLookup" method="post">
 
              <div class="inputasl">

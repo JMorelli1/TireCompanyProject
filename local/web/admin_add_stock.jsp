@@ -20,20 +20,13 @@
     </head>
     <body>
         
-            <nav>
+    <nav>
         <div class="logo">
-        <a class="mm" href="index.html"<h4>T1tires</h4></a> 
+        <a class="mm" href="index.jsp"<h4>T1tires</h4></a> 
         </div>
         <ul class="nav-links">
-            <li>
-                <a href="index.html">Home</a>
-            </li> 
-              <li>
-                <a href="admin_homepage.jsp">Your Home page</a>
-            </li> 
-            <li>
-                <a href="faq.jsp">Help</a>
-            </li>
+            <li><a href="admin_homepage.jsp">Homepage</a></li> 
+            <li><a href="faq.jsp">Help</a></li>
         </ul>
     </nav>
       
