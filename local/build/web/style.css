@@ -642,6 +642,8 @@ input.input100 {
      text-align: left; /* center checkbox horizontally */
      height: 15px;
     line-height: 40px;
+     border-right: thick solid #ff0000;
+     
 }
 
 .section2 p{

@@ -57,8 +57,10 @@
     </nav>
     <main>
 
+       
 
 <div class="row" >
+    
     <p style="border-bottom: 2px solid #1e1e1e; padding-bottom:5px; padding-left: 1%;">Filters Active:</p>
   <div class="column left" >
                 <form  action="FilterTireSearchServlet" method="post">
@@ -90,9 +92,14 @@
                     <input type="checkbox" name="VehicleType" value="Nissan" /> Nissan </br> 
                     <input type="checkbox" name="VehicleType" value="Toyota" /> Toyota </br> 
                     <input type="submit" /> </br> 
+                    
                 </form>
+       
         </div>
+                    
+                 
             </div>
+   
   <div class="column right" >
        <form action="AddTiresServlet" method="post">
      <table class="calign" >
