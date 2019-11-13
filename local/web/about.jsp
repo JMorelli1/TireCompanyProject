@@ -19,14 +19,14 @@
         </div>
         <ul class="nav-links">
             <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
                 <a href="login.jsp">Login</a>
             </li> 
               <li>
                 <a href="tireSearch.jsp">Search</a>
             </li> 
-            <li>
-                <a href="about.jsp">About</a>
-            </li>
             <li>
                 <a href="faq.jsp">FAQ</a>
             </li>
