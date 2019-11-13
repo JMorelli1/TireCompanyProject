@@ -705,7 +705,9 @@ input.input100 {
    color: white;
    text-align: center;
    
-       display: flex;
+     height: 2.5rem; 
+   
+    display: flex;
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
