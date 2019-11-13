@@ -27,12 +27,12 @@
             <li><a href="faq.jsp">Help</a></li>
         </ul>
     </nav>
-<<<<<<< HEAD
+
         
         <h1 class="h1asl">Welcome, <%=username%>! Enter stock ID number.</h1>
-=======
-    <h1>Welcome, <%=username%>! Enter stock ID number.</h1>
->>>>>>> c915e519596ba1d78576ccef5aa5fbe68869b68e
+
+
+
         <form action="adminStockLookup" method="post">
 
              <div class="inputasl">

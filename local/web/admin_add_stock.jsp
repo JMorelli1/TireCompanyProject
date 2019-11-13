@@ -30,19 +30,22 @@
         </ul>
     </nav>
       
-        <h1>Welcome, <%=username%>!</h1>
+        <h1 class="h1asl">Welcome, <%=username%>!</h1>
         <form action="addStockServlet" method="post">
-            <table>
+            <table class="aast">
                 <tr><td>Type:</td><td><input type = "text" name = "type" value = ""/></td></tr>
                 <tr><td>Size:</td><td><input type = "text" name = "size" value = ""/></td></tr>
                 <tr><td>Brand:</td><td><input type = "text" name = "brand" value = ""/></td></tr>
                 <tr><td>Stock:</td><td><input type = "text" name = "stock" value = ""/></td></tr>
-                <tr><td>Price:</td><td><input type = "text" name = "price" value = ""/></td></tr>
-                <tr><td>Vehicle Type:</td><td><input type = "text" name = "vtype" value = ""/></td></tr>
+                <tr><td>Price:</td><td><input type = "text" name = "price" value = "" placeholder=""/></td></tr>
+                <tr><td>Vehicle Type:</td><td><input type = "text" name = "vtype" value = "" placeholder=""/></td></tr>
                 <tr><td>ID:</td><td><input type = "text" name = "id" value = ""/></td></tr>
 
             </table>
+            </br>
+            <div class="inputasl">
             <input type = "submit" name = "Add" value="Add"/>
+            </div>
         </form>
     </body>
 </html>

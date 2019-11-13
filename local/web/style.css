@@ -871,7 +871,10 @@ table.center input{
     text-decoration: none;
 }
 
+
+
 /* below is code for the admin stock lookup.jsp */
+/* .hlas1 is also used in admin add stccok fyi*/
 .h1asl{
         display: flex;
     justify-content: space-around;
@@ -883,10 +886,52 @@ table.center input{
 .inputasl{
     display: flex;
     justify-content: center;
-     font-size: bold;
+
 }
 .inputasl input{
     
     color: #FF6700;
-    font-size: bold;
+ 
+}
+
+/* below is code for the admin stock lookup.jsp */
+.aast {
+    
+   width: 400px;
+   margin-left:auto; 
+   margin-right:auto;
+   align-content: center;
+   font-weight: bold;
+    
+  
+
+   
+}
+
+.aast table, td {
+    
+    border-collapse: collapse;
+    
+}
+
+.aast td {
+    
+ padding: 10px;
+ 
+    
+}
+.aast input {
+    border: none;
+    background: transparent;
+
+    
+    
+}
+.aast td:nth-child(odd){
+    background-color: #FF6700;
+    
+}
+.aast td:nth-child(even){
+    background-color: #EBEBEB;
+    
 }
