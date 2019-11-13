@@ -43,12 +43,17 @@
             <li><a class="photonav" href="checkout.jsp"><img src="photos/cart.png"></a></li>   
         </ul>
     </nav>
-        <h1>Welcome, <%=username%>!</h1>
+            <h1 class="h1asl">Welcome, <%=username%>!</h1>
+            
+            <div class="chp">
         <a href="customer_profile.jsp"><button>View/Edit Profile</button></a>
 <!--        <a href="add_customer_order.jsp"><button>Place Order</button></a>-->
         <%--<a href="browse_tire_criteria.jsp"><button>Browse Tires</button></a> --%>
         <a href="tireSearch.jsp"><button>Browse Tires</button></a>
         <a href="view_orders.jsp"><button>View Orders</button></a>
+            </div>
+        
+        
         
         <% if(orderStatus != null && orderStatus.equals("completed")){  %>
         <p>Your order has been completed! Thank you for choosing T1Tires!</p>
