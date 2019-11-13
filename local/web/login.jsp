@@ -25,17 +25,25 @@
         session.setAttribute("loginError", loginError);
         %>
     <body>
-  <nav>
+
+<nav>
         <div class="logo">
             <a class="mm" href="index.jsp"<h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
-            <li><a href="login.jsp">Login</a></li> 
-            <li><a href="tireSearch.jsp">Search</a></li> 
-            <li><a href="about.jsp">About</a></li>
-            <li><a href="faq.jsp">FAQ</a></li>
+           
+            <li>
+                <a href="tireSearch.jsp">Search</a>
+            </li> 
+              <li>
+                <a href="about.jsp">About</a>
+            </li> 
+            <li>
+                <a href="faq.jsp">FAQ</a>
+            </li>
         </ul>
-    </nav>
+</nav>
+
         <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100">
@@ -60,6 +68,7 @@
                             <span class="focus-input100"></span>
                         </div>
 
+
                         <div class="flex-sb-m w-full p-b-30">
                             <div class="contact100-form-checkbox">
                                 </br>
@@ -70,6 +79,7 @@
                                 <a class="txt1" href="createAccount.jsp">Create Account</a>
                             </div>
                         </div>
+
 
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn">

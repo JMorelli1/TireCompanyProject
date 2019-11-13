@@ -23,6 +23,10 @@
             <a class="mm" href="index.html"><h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
+
+            <li>
+                <a href="index.html">T1 Tire</a>
+            </li>
             <%if(customer != null){%>
             <li><a href="customer_homepage.jsp">Homepage</a></li>
             <%}if(admin != null){%>
@@ -32,9 +36,13 @@
             <%}else{%>
             <li><a href="login.jsp">Login</a></li> 
             <%}%>
-            <li><a href="tireSearch.jsp">Search</a></li> 
-            <li><a href="about.jsp">About</a></li>
-            <li><a href="faq.jsp">FAQ</a></li>
+              <li>
+                <a href="tireSearch.jsp">Search</a>
+            </li> 
+            <li>
+                <a href="faq.jsp">FAQ</a>
+            </li>
+
         </ul>
     </nav>
         <div class="aus">
