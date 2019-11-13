@@ -12,7 +12,25 @@
         <title>T1Tires</title>
     </head>
     <body>
-
+<nav>
+        <div class="logo">
+            <h4>T1tires</h4>
+        </div>
+        <ul class="nav-links">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a href="tireSearch.jsp">Search</a>
+            </li> 
+              <li>
+                <a href="about.jsp">About</a>
+            </li> 
+            <li>
+                <a href="faq.jsp">FAQ</a>
+            </li>
+        </ul>
+</nav>
         <div class="limiter">
             <div class="container-login100">
                 <div class="wrap-login100">
@@ -35,20 +53,7 @@
                             <span class="focus-input100"></span>
                         </div>
 
-                        <div class="flex-sb-m w-full p-b-30">
-                            <div class="contact100-form-checkbox">
-                                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                                <label class="label-checkbox100" for="ckb1">
-                                    Remember me
-                                </label>
-                            </div>
-
-                            <div>
-                                <a href="#" class="txt1">
-                                    Forgot Password?
-                                </a>
-                            </div>
-                        </div>
+                        
 
                         <div class="container-login100-form-btn">
                             <button class="login100-form-btn">
