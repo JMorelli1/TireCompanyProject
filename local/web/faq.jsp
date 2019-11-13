@@ -52,9 +52,7 @@
         </div>
         <ul class="nav-links">
 
-            <li>
-                <a href="index.html">T1 Tires</a>
-            </li>
+            
             <%if(customer != null){%>
             <li><a href="customer_homepage.jsp">Homepage</a></li>
             <%}if(admin != null){%>
