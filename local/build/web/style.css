@@ -944,3 +944,20 @@ table.center input{
     word-spacing: 300px;
     
 }
+
+
+/* below is code for the customer profile.jsp */
+
+.cpt input{
+    border: none;
+    text-align: right;
+}
+
+.cpt {
+    
+     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    height: 200px;
+}

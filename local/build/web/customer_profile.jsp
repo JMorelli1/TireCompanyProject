@@ -39,42 +39,42 @@
         </ul>
     </nav>
 
-        <h1>Welcome, <%=fn%>!</h1>
-
+        <h1 class="h1asl">Welcome, <%=fn%>!</h1>
+        <div class="cpt">
         <table>
             <tr>
                 <td>Customer ID number:</td>
-                <td><input type = "text" id = "id_field" value = <%=cid%> /></td>
+                <td><input type = "text" id = "id_field" value = <%=cid%> readonly/></td>
             </tr>
             <tr><td>Username:</td><td>
-                    <input type = "text" id = "username_field" value = <%=username%> /></td>
+                    <input type = "text" id = "username_field" value = <%=username%> readonly/></td>
             <tr>
                 <td>Password:</td>
-                <td><input type = "text" id = "password_field" value = <%=pass%> /></td>
+                <td><input type = "text" id = "password_field" value = <%=pass%> readonly/></td>
             </tr>
             <tr><td>First Name:</td>
-                <td><input type = "text" id = "fname_field" value = <%=fn%> /></td>
+                <td><input type = "text" id = "fname_field" value = <%=fn%> readonly/></td>
             </tr>
             <tr><td>Last Name:</td>
-                <td><input type = "text" id = "lname_field" value = <%=ln%> /></td>
+                <td><input type = "text" id = "lname_field" value = <%=ln%> readonly/></td>
             </tr>
             <tr><td>Address:</td>
-                <td><input type = "text" id = "addr_field" value = <%=addr%> /></td>
+                <td><input type = "text" id = "addr_field" value = <%=addr%> readonly/></td>
             </tr>
             <tr><td>Phone Number:</td>
-                <td><input type = "text" id = "phone_field" value = <%=phone%> /></td>
+                <td><input type = "text" id = "phone_field" value = <%=phone%> readonly/></td>
             </tr>
             <tr><td>Card Number:</td>
-                <td><input type = "text" id = "cardnumber_field" value = <%=card_info%> /></td>
+                <td><input type = "text" id = "cardnumber_field" value = <%=card_info%> readonly/></td>
             </tr>
             <tr><td>Expiration Date:</td>
-                <td><input type = "text" id = "expire_field" value = <%=exp_date%> /></td>
+                <td><input type = "text" id = "expire_field" value = <%=exp_date%> readonly/></td>
             </tr>
             <tr><td>Security Code:</td>
-                <td><input type = "text" id = "security_field" value = <%=sec_code%> /></td>
+                <td><input type = "text" id = "security_field" value = <%=sec_code%> readonly/></td>
             </tr>
         </table>
-
+        </div>
         <a href="edit_customer_profile.jsp"><button>Edit</button></a>
     </body>
 </html>
