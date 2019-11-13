@@ -15,7 +15,7 @@
         <h1>T1 Tires</h1>
         <ul>
             <a href="customer_homepage.jsp"><li>Your Home Page</li></a>
-            <a href="index.html"><li>Home Page</li></a>
+            <a href="index.jsp"><li>Home Page</li></a>
             <a href="about.jsp"><li>Help</li></a>
         </ul>
         <form action="http://localhost:8080/TiresRUs/addOrderServlet" method="post">

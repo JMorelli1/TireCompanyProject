@@ -16,15 +16,20 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="style.css">
         <title><%=username%>'s Profile</title>
     </head>
     <body>
-        <h1>Tires R' Us</h1>
-        <ul>
-            <a href="admin_homepage.jsp"><li>Your Home Page</li></a>
-            <a href="index.html"><li>Home Page</li></a>
-            <a href="about.jsp"><li>Help</li></a>
+    <nav>
+        <div class="logo">
+            <a class="mm" href="index.jsp"><h4>T1tires</h4></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="admin_homepage.jsp">Homepage</a></li> 
+            <li><a href="faq.jsp">Help</a></li>
         </ul>
+    </nav>
+       
         <h1>Welcome, <%=username%>!</h1>
         <form action="http://localhost:8080/TiresRUs/adminProfileSeverlet" method = post>
             <table>

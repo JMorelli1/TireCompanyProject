@@ -5,6 +5,7 @@
  */
 package Servlets;
 
+import Business.Customer;
 import Business.TireList;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -39,10 +40,20 @@ public class AddTiresServlet extends HttpServlet {
             
             HttpSession session = request.getSession();
             RequestDispatcher rdCheckout = request.getRequestDispatcher("checkout.jsp");
+            RequestDispatcher rdError = request.getRequestDispatcher("login.jsp");
+            
+            String loginError = "AddTires";
             
             TireList filteredList;
             TireList checkoutList;
+            Customer customer = (Customer)session.getAttribute("customer");
             
+            //If Else: checks if there is a customer logged in and redirects user to login
+            if(customer == null){
+                session.setAttribute("loginError", loginError);
+                rdError.forward(request, response);
+            }
+            else{
             //If Else : checks if there is already session data on the filtered list
             if(session.getAttribute("filteredList") == null){
                 filteredList = (TireList)session.getAttribute("tireSearchList");
@@ -60,10 +71,13 @@ public class AddTiresServlet extends HttpServlet {
             }
             
             String [] selectedTires = request.getParameterValues("selectedTires");
+            String [] quantities = request.getParameterValues("quantity");
             
             for(int i = 0; i < filteredList.listSize(); i++){
                 for(String selectedTiresElement: selectedTires){
                     if(filteredList.getTire(i).getStockID().equals(selectedTiresElement)){
+                        int x = Integer.parseInt(quantities[i]);
+                        filteredList.getTire(i).setQuantity(x);
                         checkoutList.addItem(filteredList.getTire(i));
                     }
                 }
@@ -74,6 +88,7 @@ public class AddTiresServlet extends HttpServlet {
             }
             session.setAttribute("checkoutList", checkoutList);
             rdCheckout.forward(request, response);
+            }
         }
     }
 

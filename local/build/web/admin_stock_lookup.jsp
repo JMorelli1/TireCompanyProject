@@ -4,7 +4,7 @@
     Author     : ebadger
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>   <link rel="stylesheet" href="style.css">
 <!DOCTYPE html>
 <%@page import = "Business.*" %>
 
@@ -18,13 +18,16 @@
         <title>Stock Lookup</title>
     </head>
     <body>
-        <h1>Tires R' Us</h1>
-        <ul>
-            <a href="admin_homepage.jsp"><li>Your Home Page</li></a>
-            <a href="index.html"><li>Home Page</li></a>
-            <a href="about.jsp"><li>Help</li></a>
+    <nav>
+        <div class="logo">
+            <a class="mm" href="index.jsp"><h4>T1tires</h4></a>
+        </div>
+        <ul class="nav-links">
+            <li><a href="admin_homepage.jsp">Homepage</a></li> 
+            <li><a href="faq.jsp">Help</a></li>
         </ul>
-        <h1>Welcome, <%=username%>! Enter stock ID number.</h1>
+    </nav>
+    <h1>Welcome, <%=username%>! Enter stock ID number.</h1>
         <form action="adminStockLookup" method="post">
 
             <input type = "text" name = "stock" value = ""/>

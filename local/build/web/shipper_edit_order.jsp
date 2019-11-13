@@ -15,7 +15,6 @@ Order o = (Order) session.getAttribute("order_search");
 String oid = o.getOrderID();
 String cid = o.getCustomerID();
 String status = o.getStatus();
-String sid = o.getShipperID();
 %>
 
 <html>

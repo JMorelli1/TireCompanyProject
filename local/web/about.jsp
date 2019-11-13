@@ -11,29 +11,42 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css"/>
         <title>About T1tires</title>
+        <%@page import="Business.*" %>
     </head>
+    <% Customer customer = (Customer)session.getAttribute("customer");
+       Admin admin = (Admin)session.getAttribute("admin");
+       Shipper shipper = (Shipper)session.getAttribute("shipper");
+    %>
     <body>
-            <nav>
+    <nav>
         <div class="logo">
-            <h4>T1tires</h4>
+            <a class="mm" href="index.html"><h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
+
             <li>
-                <a href="login.jsp">Login</a>
-            </li> 
+                <a href="index.html">T1 Tire</a>
+            </li>
+            <%if(customer != null){%>
+            <li><a href="customer_homepage.jsp">Homepage</a></li>
+            <%}if(admin != null){%>
+            <li><a href="admin_homepage.jsp">Homepage</a></li>
+            <%}if(shipper != null){%>
+            <li><a href="shipper_homepage.jsp">Homepage</a></li>
+            <%}else{%>
+            <li><a href="login.jsp">Login</a></li> 
+            <%}%>
               <li>
                 <a href="tireSearch.jsp">Search</a>
             </li> 
             <li>
-                <a href="about.jsp">About</a>
-            </li>
-            <li>
                 <a href="faq.jsp">FAQ</a>
             </li>
+
         </ul>
     </nav>
         <div class="aus">
-        <img src="aus.png" width="600" height="600">
+        <img src="photos/aus.png" width="600" height="600">
              </div>
         
       <div class="aus">

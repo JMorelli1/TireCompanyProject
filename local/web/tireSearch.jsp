@@ -4,20 +4,24 @@
     Author     : morel
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css"/>
-        <%@page import="Business.TireList" %>
+        <%@page import="Business.*" %>
+        <%@page import="java.text.NumberFormat" %>
         <title>Tire Search Page</title>
     </head>
     <body>
         <%
+            Customer customer = (Customer)session.getAttribute("customer");
             TireList fullList;
             TireList filteredList;
             filteredList = (TireList)session.getAttribute("filteredList");
+            NumberFormat formater = new DecimalFormat("#0.00");
             if(filteredList == null){
                 filteredList = new TireList();
                 fullList = new TireList();
@@ -26,35 +30,32 @@
                 session.setAttribute("tireSearchList", fullList);
             }
             %>
-        
-          <nav>
+    <nav>
         <div class="logo">
-            <h4>T1tires</h4>
+            <a class="mm" href="index.jsp"><h4>T1tires</h4></a>
         </div>
         <ul class="nav-links">
-             <li>
-                <a href="index.html">Home</a>
-            </li> 
 
-            <li>
-                <a href="login.jsp">Login</a>
-            </li> 
-            <li>
-                <a href="about.jsp">About</a>
-            </li>
-            <li>
-                <a href="faq.jsp">FAQ</a>
-            </li>
+            <%
+                if(customer != null){
+            %>
+            <li><a href="customer_homepage.jsp">Homepage</a></li>
+            <%}else{%>
+            <li><a href="login.jsp">Login</a></li> 
+            <%}%>
+            <li><a href="tireSearch.jsp">Search</a></li> 
+            <li><a href="about.jsp">About</a></li>
+            <li><a href="faq.jsp">FAQ</a></li>
+            <li><a class="photonav" href="checkout.jsp"><img src="photos/cart.png"></a></li>     
+
         </ul>
-            
-
     </nav>
-        <main>
+    <main>
 
 
-<div class="row">
+<div class="row" >
+    <p style="border-bottom: 2px solid #1e1e1e; padding-bottom:5px; padding-left: 1%;">Filters Active:</p>
   <div class="column left" >
-    <p style="border-bottom: 2px solid #1e1e1e; padding-bottom:10px;">Filters</p>
                 <form  action="FilterTireSearchServlet" method="post">
                     <label  class="call" >Tire Brands</label>
                     <div class="lefta">
@@ -68,12 +69,12 @@
                     <input type="checkbox" name="TireBrands" value="Provider" /> Provider     </br>
                     <input type="checkbox" name="TireBrands" value="Road Hugger" /> Road Hugger   </br>
                     <br />
-                    <label>Price Ranges</label>
+                    <label class="call">Price Ranges</label>
                     <input type="checkbox" name="PriceRange" value="Range1" /> $10 - $100 </br> 
                     <input type="checkbox" name="PriceRange" value="Range2" /> $100 - $200 </br> 
                     <input type="checkbox" name="PriceRange" value="Range3" /> $200 - $300 </br>
                     <br />
-                    <label>Vehicle Type</label>
+                    <label class="call">Vehicle Type</label>
                     <input type="checkbox" name="VehicleType" value="Ford" /> Ford </br> 
                     <input type="checkbox" name="VehicleType" value="Honda" /> Honda </br> 
                     <input type="checkbox" name="VehicleType" value="Infiniti" /> Infiniti </br> 
@@ -88,13 +89,12 @@
         </div>
             </div>
   <div class="column right" >
-       <p style="border-bottom: 2px solid #1e1e1e; padding-bottom:10px;">.</p>
        <form action="AddTiresServlet" method="post">
      <table class="calign" >
                     <tr class="">
+                        <th></th>
                         <th>Purchase</th>
-               
-                        <th>Tire ID</th>
+                        <th>Quantity</th>
                         <th>Tire Type</th>
                         <th>Size of Tire</th>
                         <th>Brand</th>
@@ -106,15 +106,14 @@
                         for(int i=0; i<filteredList.listSize(); i++){
                     %>
                     <tr>
+                        <td><img src="photos/tire2.jpg" alt="tire1" width="200" height="200"></td>
                         <td><input type="checkbox" value="<%=filteredList.tireList.get(i).getStockID()%>" name="selectedTires"></td>
-                        <td>Quantity: <input type="number" name="quantity" min="1" max="100"></td>
-                        <td><img src="tire2.jpg" alt="tire1" width="200" height="200"></td>
-                        <td><%=filteredList.tireList.get(i).getStockID()%></td>
+                        <td><input type="number" name="quantity" min="1" max="100" value="1"></td>
                         <td><%=filteredList.tireList.get(i).getType()%></td>
                         <td><%=filteredList.tireList.get(i).getSize()%></td>
                         <td><%=filteredList.tireList.get(i).getBrand()%></td>
                         <td><%=filteredList.tireList.get(i).getStock()%></td>
-                        <td><%=filteredList.tireList.get(i).getPrice()%></td>
+                        <td><%=formater.format(Double.parseDouble(filteredList.tireList.get(i).getPrice()))%></td>
                         <td><%=filteredList.tireList.get(i).getVehicleType()%></td>
                     </tr>
                         <%

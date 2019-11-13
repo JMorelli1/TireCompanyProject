@@ -1,11 +1,7 @@
-
-  
 *{
     padding:0;
     margin: 0;
     box-sizing: border-box;
-    
-    
 }
 
 nav{
@@ -13,21 +9,21 @@ nav{
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
-    
-    
-}
+  
+ }
 
 .logo{
     text-transform: uppercase;
     letter-spacing: 5px;
-    font-size: 20px;
+    font-weight: bolder;
     
 }
 
 .nav-links{
     display: flex;
     justify-content: space-around;
-    width: 25%;  
+    width: 25%; 
+    margin-left: 700px
 }
 
 .nav-links li{
@@ -48,6 +44,17 @@ body, html {
 	font-family: Poppins-Regular, sans-serif;
 }
 
+
+.mm{
+    text-decoration: none;
+
+}
+.main {
+  padding: 16px;
+  margin-top: 30px;
+  height: 1500px; 
+}
+
 /* this handles all the nav links stuff*/
 a {
 	font-family: Poppins-Regular, sans-serif;
@@ -61,13 +68,19 @@ a {
         -moz-transition: all 0.4s;
 }
 
+.photonav img{
+    width: 20px;
+
+}   
+
+
 a:focus {
 	outline: none !important;
 }
 
 a:hover {
 	text-decoration: none;
-  color: #FF6700;
+    /*---if needed later i deleted this ---color: #FF6700;----*/ 
 }
 
 /*---------------------------------------------*/
@@ -92,7 +105,7 @@ ul, li {
 /*---------------------------------------------*/
 input {
 	outline: none;
-	border: none;
+        /*border: none;*/
 }
 
 input[type="number"] {
@@ -165,6 +178,7 @@ iframe {
   font-size: 13px;
   line-height: 1.4;
   color: #EBEBEB;
+  text-decoration: none;
 }
 
 /*[ login ]*/
@@ -261,7 +275,8 @@ iframe {
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 43px 88px 93px 190px;
-}
+  
+}  
 
 
 /*------------------------------------------------------------------
@@ -270,7 +285,8 @@ iframe {
 .wrap-input100 {
   width: 100%;
   position: relative;
-  border-bottom: 1.5px solid #EBEBEB;
+  
+  
 }
 
 .label-input100 {
@@ -288,7 +304,7 @@ iframe {
 }
 
 
-wrap-input100 validate-input m-b-26 ::placeholder { /* WebKit, Blink, Edge */
+wrap-input100 validate-input m-b-26 ::placeholder { 
     color:    #EBEBEB;
 }
 /*------font color --------*/
@@ -297,7 +313,7 @@ wrap-input100 validate-input m-b-26 ::placeholder { /* WebKit, Blink, Edge */
   font-size: 15px;
   color: #EBEBEB;
   line-height: 1.2;
-
+  border: none;   
   display: block;
   width: 100%;
   background: transparent;
@@ -348,9 +364,7 @@ input.input100 {
 /*==================================================================
 [ Restyle Checkbox ]*/
 
-.input-checkbox100 {
-  display: none;
-}
+
 
 .label-checkbox100 {
   font-family: Poppins-Regular, sans-serif;
@@ -392,12 +406,9 @@ input.input100 {
   transform: translateY(-50%);
 }
 
-.input-checkbox100:checked + .label-checkbox100::before {
-  color: #004E98;
-}
 
-/*------------------------------------------------------------------
-[ Button ]*/
+
+/* Button login form]*/
 .container-login100-form-btn {
   width: 100%;
   display: -webkit-box;
@@ -556,8 +567,9 @@ input.input100 {
 
         /*-DONE-*/
 .login-box{
+    margin-top: 200px;
     width: 320px;
-    height: 420px;
+    height: 875px;
     background: #FF6700;
     color: #EBEBEB;
     top: 50%;
@@ -647,7 +659,7 @@ input.input100 {
   width: 75%;
   
   position: absolute;
-  left: 400px;
+  left: 200px;
 
   border: 3px;
   padding: 10px;
@@ -761,3 +773,101 @@ input.input100 {
     font-size: 14px;
     font-family: Poppins-Regular, sans-serif;
 }
+
+.createA{
+    background-color:#EBEBEB ;
+}
+
+/* this is fro the h1 in admin_homepage.jsp */
+
+.h1-admin{
+    text-align: center;
+}
+
+.vas img{
+  
+    height: 110px;
+ 
+}
+
+.vas{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+        height: 100px;
+    
+    
+}
+
+.vasB{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    height: 100px;
+  
+}
+/* above is for the h1 in admin_homepage.jsp */
+
+/* below is for the h1 in admin_profile.jsp */
+
+.h1ap{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 8vh;
+    height: 100px;
+}
+
+table.center{
+
+    margin-left:auto; 
+    margin-right:auto;
+    align-content: center;
+    font-weight: bold;
+    
+}
+
+
+table.center input{
+    text-align: right;
+    border: none;
+}
+
+
+        /* Button login form]*/
+.adpbtn {
+  width: 50px;
+    display: block;
+    margin: 20px auto;
+    
+    
+}
+
+.adpbtn1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  min-width: 160px;
+  height: 50px;
+  background-color: #3A6EA5;
+  border-radius: 25px;
+
+  font-family: Poppins-Regular, sans-serif;
+  font-size: 16px;
+  color: #EBEBEB;
+  line-height: 1.2;
+
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  -moz-transition: all 0.4s;
+  transition: all 0.4s;
+    text-decoration: none;
+}
+
