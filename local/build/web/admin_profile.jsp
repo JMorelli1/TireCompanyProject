@@ -44,9 +44,7 @@
         
         
          <div class="adpbtn">
-             <a href="edit_admin_profile.jsp"<button class="adpbtn1">
-                                Edit Profile
-                 </button></a>
+             <a href="edit_admin_profile.jsp"<button class="adpbtn1"> Edit Profile</button></a>
         </div>
         
         </div>

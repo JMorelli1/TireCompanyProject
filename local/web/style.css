@@ -705,7 +705,7 @@ input.input100 {
    color: white;
    text-align: center;
    
-     height: 2.5rem; 
+   
    
     display: flex;
     justify-content: space-around;
@@ -771,8 +771,14 @@ input.input100 {
     align-items: center;
     min-height: 8vh;
     height: 100px;
-  
 }
+
+.vasB button{
+    outline: none !important;
+    border: none;
+    background: transparent;
+}
+
 /* above is for the h1 in admin_homepage.jsp */
 
 /* below is for the h1 in admin_profile.jsp */
@@ -866,11 +872,7 @@ table.center input{
    margin-left:auto; 
    margin-right:auto;
    align-content: center;
-   font-weight: bold;
-    
-  
-
-   
+   font-weight: bold;  
 }
 
 .aast table, td {
@@ -886,9 +888,9 @@ table.center input{
     
 }
 .aast input {
-    border: none;
+    border: 0;
     background: transparent;
-
+    border-bottom: 1px solid  #C0C0C0;
     
     
 }
