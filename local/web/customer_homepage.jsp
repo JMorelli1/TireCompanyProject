@@ -50,9 +50,9 @@
              <div class="vas">
              
              
-        <a href="admin_profile.jsp"><img  src="photos/edit.png" name="e" ></a>
-        <a href="admin_stock_lookup.jsp"><img  src="photos/search.png" name="s"></a>
-        <a href="admin_add_stock.jsp"><img  src="photos/view.png" name="a"></a>
+        <a href="customer_profile.jsp"><img  src="photos/edit.png" name="e" ></a>
+        <a href="tireSearch.jsp"><img  src="photos/search.png" name="s"></a>
+        <a href="view_orders.jsp"><img  src="photos/view.png" name="a"></a>
           </div>
             
             
