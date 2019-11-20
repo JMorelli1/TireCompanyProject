@@ -114,7 +114,7 @@
             <p>Q: Where can I find installers?</p>
             <p>A: You can have your tires and wheels installed at any T1 Tire store near you. If you do not have a store in your area, we have a list of other installers available at our customer service number: 1-800-555-7473.</p>
         </div>
-        <h2>Team1 Tires FAQ</h2>
+        <h2>Team1 Tires User Guide</h2>
 
 <button class="accordion">Creating an Account/Logging in</button>
 <div class="panel">
