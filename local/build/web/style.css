@@ -956,7 +956,6 @@ table.center input{
 }
 
 .vco table, td {
-   border: solid black;
     border-collapse: collapse;
     
 }
@@ -985,7 +984,6 @@ table.center input{
 }
 
 .vcob input {
-    border: solid #000000;
     width: 50px;
     background: #FF6700;
     margin-left: 110px;
