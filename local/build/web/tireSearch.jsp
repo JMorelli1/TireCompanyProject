@@ -106,6 +106,7 @@
                     <tr class="">
                         <th></th>
                         <th>Purchase</th>
+                          <th></th>
                         <th>Quantity</th>
                         <th>Tire Type</th>
                         <th>Size of Tire</th>
@@ -120,7 +121,11 @@
                     <tr>
                         <td><img src="photos/tire2.jpg" alt="tire1" width="200" height="200"></td>
                         
+                      
                         <td><input type="checkbox" value="<%=filteredList.tireList.get(i).getStockID()%>" name="selectedTires"></td>
+                        
+                        <td><input type="submit" value="Add Tires" />
+                        
                         <td><input type="number" name="quantity" min="1" max="100" value="1"></td>
                         <td><%=filteredList.tireList.get(i).getType()%></td>
                         <td><%=filteredList.tireList.get(i).getSize()%></td>
@@ -132,7 +137,7 @@
                         <%
                          }
                         %>
-                        <input type="submit" value="Add Tires" />
+                       
                 </table>
         </form>
   </div>

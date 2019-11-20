@@ -56,14 +56,14 @@
  
         <p>
             Team1 Tires first opened its doors in 1960, when Bruce T. Halle 
-            rented an old plumbing supply building on Stadium Boulevard in Ann
-            Arbor, Michigan. Bruce cleaned out the building, built countertops,
+            rented an old plumbing supply building on Stadium Boulevard in Atlanta
+            , Georgia. We cleaned out the building, built countertops,
             repainted the sign outside, and displayed his initial six-tire 
-            inventory. As the store’s only employee upon its opening, Bruce 
-            served as the tire technician, cleaning crew, salesman, and 
-            accountant. Because he didn’t have an air compressor, Bruce would
+            inventory. As the store’s only employee upon its opening, We 
+            all served as the tire technicians, cleaning crew, salesman, and 
+            accountant. Because he didn’t have an air compressor, We would
             even haul a portable air tank to and from a nearby gas station so 
-            that he could inflate the tires he sold. Over time, Bruce nurtured
+            that he could inflate the tires he sold. Over time, we nurtured
             that first Team1 Tire store through hard work and a governing 
             philosophy that now serves as Team1 Tire’s founding principles: 
             treat people with respect and fairness, care for those in need, 

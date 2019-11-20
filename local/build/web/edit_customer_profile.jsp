@@ -39,10 +39,10 @@
             <li><a href="faq.jsp">FAQ</a></li>
         </ul>
     </nav>
-        <h1>Welcome, Customer!</h1>
+        <h1 class="h1ap">Update your information below, <%=username%>!</h1>
         <form action="customerProfileServlet" method="post">
-            <div class="ecpt">
-                <div class="ecpt-form">
+          
+                <div class="aast">
             <table><tr><td>Enter new username:</td>
                     <td><input type = "text" name = "username_field" value = <%=username%> /></td>
                 </tr><tr><td>Enter new password:</td>
@@ -64,9 +64,12 @@
                 </tr>
             </table>
             </div>
-            </div>
+                
+        </br>
+                 <div class="inputasl">   
+                  
             <input type="submit" value="Done">
-
+                 </div>
         </form>        
 
     </body>
