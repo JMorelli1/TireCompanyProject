@@ -45,13 +45,25 @@
     </nav>
             <h1 class="h1asl">Welcome, <%=username%>!</h1>
             
-            <div class="chp">
+            
+            
+             <div class="vas">
+             
+             
+        <a href="customer_profile.jsp"><img  src="photos/edit.png" name="e" ></a>
+        <a href="tireSearch.jsp"><img  src="photos/search.png" name="s"></a>
+        <a href="view_orders.jsp"><img  src="photos/view.png" name="a"></a>
+          </div>
+            
+            
+            
+            <div class="vasB">
         <a href="customer_profile.jsp"><button>View/Edit Profile</button></a>
 <!--        <a href="add_customer_order.jsp"><button>Place Order</button></a>-->
         <%--<a href="browse_tire_criteria.jsp"><button>Browse Tires</button></a> --%>
         <a href="tireSearch.jsp"><button>Browse Tires</button></a>
         <a href="view_orders.jsp"><button>View Orders</button></a>
-            </div>
+            </div>  
         
         
         
