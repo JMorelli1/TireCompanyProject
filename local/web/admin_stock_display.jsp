@@ -40,19 +40,22 @@
             <li><a href="faq.jsp">Help</a></li>
         </ul>
     </nav>
-        <h1>Welcome, <%=username%>!</h1>
+        <h1 class="h1asl">Welcome, <%=username%>!</h1>
         <form action="stockModifyServlet">
-            <table>
+            <table class="aast">
                 
-                <tr><td>Type:</td><td><input type = "text" name = "Modifytype" value = <%=type%> /></td></tr>
-                <tr><td>Size:</td><td><input type = "text" name = "Modifysize" value = <%=size%> /></td></tr>
-                <tr><td>Brand:</td><td><input type = "text" name = "Modifybrand" value = <%=brand%> /></td></tr>
-                <tr><td>Stock:</td><td><input type = "text" name = "Modifystock" value = <%=stock%> /></td></tr>
-                <tr><td>Price:</td><td><input type = "text" name = "Modifyprice" value = <%=price%> /></td></tr>
-                <tr><td>Vehicle Type:</td><td><input type = "text" name = "Modifyvtype" value = <%=vtype%> /></td></tr>
+                <tr><td>Type:</td><td><input type = "text" name = "Modifytype" value = <%=type%> ></td></tr>
+                <tr><td>Size:</td><td><input type = "text" name = "Modifysize" value = <%=size%> ></td></tr>
+                <tr><td>Brand:</td><td><input type = "text" name = "Modifybrand" value = <%=brand%> ></td></tr>
+                <tr><td>Stock:</td><td><input type = "text" name = "Modifystock" value = <%=stock%> ></td></tr>
+                <tr><td>Price:</td><td><input type = "text" name = "Modifyprice" value = <%=price%> ></td></tr>
+                <tr><td>Vehicle Type:</td><td><input type = "text" name = "Modifyvtype" value = <%=vtype%> ></td></tr>
 
             </table>
+                
+              <div class="inputasl">    
                 <input type="submit" value="Modify" />
+              </div>
             </form>
     </body>
 </html>

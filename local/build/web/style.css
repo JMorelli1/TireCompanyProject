@@ -642,7 +642,7 @@ input.input100 {
      text-align: left; /* center checkbox horizontally */
      height: 15px;
     line-height: 40px;
-     border-right: thick solid #ff0000;
+   
      
 }
 
@@ -940,4 +940,33 @@ table.center input{
     width: 50px;
     display: block;
     margin: 20px auto;
+}
+
+/* below is code for the edit admin profile.jsp */
+
+/* below is code for the edit customer profile.jsp */
+
+.ecpt {
+    background: #FF6700;
+    position: relative;
+    overflow: hidden;
+    width: 400px;
+   
+    max-width: 100%;
+    max-height: 100%;
+    margin-top: 90px;
+}
+.ecpt-form table{
+  padding: 10px;
+  border-spacing: 22px;
+  color: white;
+  
+ 
+}
+.ecpt input{
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid #004E98;
+    color: white;
+    text-align: right;
 }

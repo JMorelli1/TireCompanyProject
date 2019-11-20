@@ -30,14 +30,17 @@
         </ul>
     </nav>
        
-        <h1>Welcome, <%=username%>!</h1>
+        <h1 class="h1ap">Welcome, <%=username%>!</h1>
+        <h3 class="h1ap"> Change Username and password</h3>
         <form action="http://localhost:8080/TiresRUs/adminProfileSeverlet" method = post>
-            <table>
+            <table class="aast">
             <tr><td>Username:</td><td><input type = "text" name = "username" value = ""/></td></tr>
             <tr><td>Password:</td><td><input type = "text" name = "password" value = ""/></td></tr>
             </table>
 
-            <input type = "submit" name = "enter" value="Submit Changes"/>
+             <div class="inputasl">
+            <input  type = "submit" name = "enter" value="Submit Changes"/>
+             </div>
         </form>
     </body>
 </html>

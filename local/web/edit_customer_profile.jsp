@@ -41,6 +41,8 @@
     </nav>
         <h1>Welcome, Customer!</h1>
         <form action="customerProfileServlet" method="post">
+            <div class="ecpt">
+                <div class="ecpt-form">
             <table><tr><td>Enter new username:</td>
                     <td><input type = "text" name = "username_field" value = <%=username%> /></td>
                 </tr><tr><td>Enter new password:</td>
@@ -61,6 +63,8 @@
                     <td><input type = "text" name = "security_field" value = <%=sec_code%> /></td>
                 </tr>
             </table>
+            </div>
+            </div>
             <input type="submit" value="Done">
 
         </form>        
