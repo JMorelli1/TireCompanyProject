@@ -29,7 +29,10 @@
             <li><a href="<%=logoutURL%>">Logout</a></li>
         </ul>
     </nav>
-        <h1>Welcome, <%=username%>!</h1>
+        
+        <h1 class="h1ap">Welcome, <%=username%>!</h1>
+        <div class="inputasl">
         <a href="view_customer_orders.jsp"><button>View Orders</button></a>
-    </body>
+        </div>
+        </body>
 </html>

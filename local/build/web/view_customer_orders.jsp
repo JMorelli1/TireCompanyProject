@@ -30,11 +30,12 @@ orders = order.findOrders();
             <li><a href="faq.jsp">Help</a></li>
         </ul>
     </nav>
-        <table>
+        <table class="vco">
             <tr>
                 <th>Order ID:</th>
                 <th>Customer ID:</th>
                 <th>Status:</th>
+                <th>Update order:</th>
             </tr>
             <%
                 for(int i = 0; i < orders.listSize(); i++){
@@ -43,12 +44,10 @@ orders = order.findOrders();
                 <td><%=orders.getOrder(i).getOrderID()%></td>
                 <td><%=orders.getOrder(i).getCustomerID()%></td>
                 <td><%=orders.getOrder(i).getStatus()%></td>
-            </tr>
-            <%}%>
-        </table>
-        <form action="UpdateStatus">
-            <label>Update Status of Order</label>
-            <label>Enter Order ID: </label>
+                <td>
+                    
+                    <form action="UpdateStatus">
+            <label>Confirm Order ID: </label>
             <input type="text" name="orderID"/>
             <label>Select New Status:</label>
             <select name = "newStatus" id = "list">
@@ -56,8 +55,23 @@ orders = order.findOrders();
                <option value = "In Transit">In Transit</option>
                <option value = "Complete">Complete</option>
              </select>
+            
+        
+                    <div class="vcob">
             <input type="submit" value="Update" />
+                    </div>
         </form>
+                    
+                </td>
+            </tr>
+            
+              
+
+           
+            <%}%>
+        </table>
+        
+ 
         <a href="shipper_homepage.jsp"><button>Return to Your Home Page</button></a>
     </body>
 </html>
