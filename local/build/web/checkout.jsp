@@ -11,12 +11,15 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css" />
+        <%@page import="java.text.NumberFormat" %>
+        <%@page import="java.text.DecimalFormat"%>
         <title>Checkout Page</title>
     </head>
     <%
             Customer customer = (Customer)session.getAttribute("customer");
             TireList checkoutList;
             checkoutList = (TireList)session.getAttribute("checkoutList");
+            NumberFormat formater = new DecimalFormat("#0.00");
             
             if(checkoutList == null){
                 checkoutList = new TireList();
@@ -64,7 +67,7 @@
                     <tr>
                         <td><img src="photos/tire2.jpg" alt="tire1" width="200" height="200"></td>
                         <td><%=checkoutList.tireList.get(i).getQuantity()%></td>
-                        <td><%=checkoutList.tireList.get(i).getPrice()%></td>
+                        <td><%=formater.format(Double.parseDouble(checkoutList.tireList.get(i).getPrice()))%></td>
                         <td><%=checkoutList.tireList.get(i).getType()%></td>
                         <td><%=checkoutList.tireList.get(i).getSize()%></td>
                         <td><%=checkoutList.tireList.get(i).getBrand()%></td>

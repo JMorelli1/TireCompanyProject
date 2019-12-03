@@ -44,23 +44,23 @@
           
                 <div class="aast">
             <table><tr><td>Enter new username:</td>
-                    <td><input type = "text" name = "username_field" value = <%=username%> /></td>
+                    <td><input type = "text" name = "username_field" value = "<%=username%>" /></td>
                 </tr><tr><td>Enter new password:</td>
-                    <td><input type = "text" name = "password_field" value =<%=pass%>  /></td>
+                    <td><input type = "text" name = "password_field" value = "<%=pass%>"  /></td>
                 </tr><tr><td>Enter new first name:</td>
-                    <td><input type = "text" name = "fname_field" value = <%=fn%> /></td>
+                    <td><input type = "text" name = "fname_field" value = "<%=fn%>" /></td>
                 </tr><tr><td>Enter new last name:</td>
-                    <td><input type = "text" name = "lname_field" value = <%=ln%> /></td>
+                    <td><input type = "text" name = "lname_field" value = "<%=ln%>" /></td>
                 </tr><tr><td>Enter new address:</td>
-                    <td><input type = "text" name = "addr_field" value = <%=addr%> /></td>
+                    <td><input type = "text" name = "addr_field" value = "<%=addr%>" /></td>
                 </tr><tr><td>Enter new phone number:</td>
-                    <td><input type = "text" name = "phone_field" value = <%=phone%> /></td>
+                    <td><input type = "text" name = "phone_field" value = "<%=phone%>" /></td>
                 </tr><tr><td>Enter new card number:</td>
-                    <td><input type = "text" name = "cardnumber_field" value = <%=card_info%> /></td>
+                    <td><input type = "text" name = "cardnumber_field" value = "<%=card_info%>" /></td>
                 </tr><tr><td>Enter new expiration date:</td>
-                    <td><input type = "text" name = "expire_field" value = <%=exp_date%> /></td>
+                    <td><input type = "text" name = "expire_field" value = "<%=exp_date%>" /></td>
                 </tr><tr><td>Enter new security code:</td>
-                    <td><input type = "text" name = "security_field" value = <%=sec_code%> /></td>
+                    <td><input type = "text" name = "security_field" value = "<%=sec_code%>" /></td>
                 </tr>
             </table>
             </div>

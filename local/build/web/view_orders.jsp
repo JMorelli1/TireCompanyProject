@@ -7,9 +7,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import = "Business.*" %>
 <%@page import = "java.sql.*" %>
+<%@page import="java.text.NumberFormat" %>
+<%@page import="java.text.DecimalFormat"%>
 <%Customer c = (Customer) session.getAttribute("customer");
     c.findOrders();
     String username = c.getUsername();
+    NumberFormat formater = new DecimalFormat();
 %>
 
 
@@ -74,7 +77,6 @@
                         <th>Tire Type</th>
                         <th>Size of Tire</th>
                         <th>Brand</th>
-                        <th>Stock Amount</th>
                         <th>Price</th>
                         <th>Vehicle Type</th>
                     </tr>
@@ -90,8 +92,7 @@
                         <td><%=t1.tireList.get(x).getType()%></td>
                         <td><%=t1.tireList.get(x).getSize()%></td>
                         <td><%=t1.tireList.get(x).getBrand()%></td>
-                        <td><%=t1.tireList.get(x).getStock()%></td>
-                        <td><%=t1.tireList.get(x).getPrice()%></td>
+                        <td><%=formater.format(Double.parseDouble(t1.tireList.get(x).getPrice()))%></td>
                         <td><%=t1.tireList.get(x).getVehicleType()%></td>
                     </tr>
                         <%

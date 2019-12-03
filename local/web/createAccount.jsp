@@ -29,7 +29,7 @@
              <div class="login-box">
     <img src="photos/avatar.png" class="avatar">
         <h1>Enter your information</h1>
-            <form>
+            <form action="CreateCustomerAcct">
                 <label>Username</label>
                 <input type="text" name="username_field" placeholder="">
                 <label>Password</label>

@@ -3,20 +3,15 @@
     Created on : Oct 2, 2019, 9:05:35 PM
     Author     : morel
 --%>
-
-<%@page import="java.text.DecimalFormat"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="style.css"/>
-
-        <%@page import="Business.TireList" %>
-        <%@page import="java.text.NumberFormat"%>
-
         <%@page import="Business.*" %>
         <%@page import="java.text.NumberFormat" %>
+        <%@page import="java.text.DecimalFormat"%>
 
         <title>Tire Search Page</title>
     </head>
@@ -61,7 +56,7 @@
 
 <div class="row" >
     
-    <p style="border-bottom: 2px solid #1e1e1e; padding-bottom:5px; padding-left: 1%;">Filters Active:</p>
+    <p style="border-bottom: 2px solid #1e1e1e; padding-bottom:5px; padding-left: 1%;"></p>
   <div class="column left" >
                 <form  action="FilterTireSearchServlet" method="post">
                     <label  class="call" >Tire Brands</label>
@@ -120,13 +115,16 @@
                     %>
                     <tr>
                         <td><img src="photos/tire2.jpg" alt="tire1" width="200" height="200"></td>
-                        
-                      
                         <td><input type="checkbox" value="<%=filteredList.tireList.get(i).getStockID()%>" name="selectedTires"></td>
-                        
-                        <td><input type="submit" value="Add Tires" />
-                        
-                        <td><input type="number" name="quantity" min="1" max="100" value="1"></td>
+                        <%
+                            if(!filteredList.tireList.get(i).getStock().equals("0")){
+                        %>
+                            <td><input type="submit" value="Add Tires" />
+                            <td><input type="number" name="quantity" min="1" max="<%=filteredList.tireList.get(i).getStock()%>" value="1"></td>
+                        <% }else{%>
+                            <td>Out of Stock!</td>
+                            <td><input type="number" name="quantity" min="0" max="0" value="0" readonly=""></td>
+                        <%}%>
                         <td><%=filteredList.tireList.get(i).getType()%></td>
                         <td><%=filteredList.tireList.get(i).getSize()%></td>
                         <td><%=filteredList.tireList.get(i).getBrand()%></td>
@@ -137,7 +135,6 @@
                         <%
                          }
                         %>
-                       
                 </table>
         </form>
   </div>

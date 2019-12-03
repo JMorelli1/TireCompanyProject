@@ -120,8 +120,11 @@ public class Order {
  ***********************************************************************************/ 
     public void insertOrderedItems(TireList orderedItems){
         for(int i=0; i<orderedItems.listSize(); i++){
-                    sql="Insert into OrderedItems (OrderID, TireID, Quantity) VALUES ('"+newID+"','"+orderedItems.getTire(i).getStockID()+"',"+orderedItems.getTire(i).getQuantity()+")";
-                    db.insertDB(sql);            
+            int temp = Integer.parseInt(orderedItems.getTire(i).getStock()) - orderedItems.getTire(i).getQuantity();
+            orderedItems.getTire(i).setStock(temp + "");
+            orderedItems.getTire(i).updateTire();
+            sql="Insert into OrderedItems (OrderID, TireID, Quantity) VALUES ('"+newID+"','"+orderedItems.getTire(i).getStockID()+"',"+orderedItems.getTire(i).getQuantity()+")";
+            db.insertDB(sql);            
         }
     }
     

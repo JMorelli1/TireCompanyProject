@@ -52,11 +52,15 @@ public class CreateCustomerAcct extends HttpServlet {
                 customer.setLN(request.getParameter("lname_field"));
                 customer.setPassword(request.getParameter("password_field"));
                 customer.setPhone(request.getParameter("phone_field"));
+                if(!request.getParameter("security_field").equals("")){
                 customer.setSecurityCode(request.getParameter("security_field"));
+                }
                 customer.setUsername(request.getParameter("username_field"));
                 
-                customer.insertCustomer();
+                customer.display();
                 
+                customer.insertCustomer();
+                customer.selectCustomer(customer.getCID());
                 session.setAttribute("customer", customer);
                 RequestDispatcher rd = context.getRequestDispatcher("/customer_homepage.jsp");
                 rd.forward(request, response);

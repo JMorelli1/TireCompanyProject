@@ -44,34 +44,34 @@
         <table>
             <tr>
                 <td>Customer ID number:</td>
-                <td><input type = "text" id = "id_field" value = <%=cid%> readonly/></td>
+                <td><input type = "text" id = "id_field" value = "<%=cid%>" readonly/></td>
             </tr>
             <tr><td>Username:</td><td>
-                    <input type = "text" id = "username_field" value = <%=username%> readonly/></td>
+                    <input type = "text" id = "username_field" value = "<%=username%>" readonly/></td>
             <tr>
                 <td>Password:</td>
-                <td><input type = "text" id = "password_field" value = <%=pass%> readonly/></td>
+                <td><input type = "text" id = "password_field" value = "<%=pass%>" readonly/></td>
             </tr>
             <tr><td>First Name:</td>
-                <td><input type = "text" id = "fname_field" value = <%=fn%> readonly/></td>
+                <td><input type = "text" id = "fname_field" value = "<%=fn%>" readonly/></td>
             </tr>
             <tr><td>Last Name:</td>
-                <td><input type = "text" id = "lname_field" value = <%=ln%> readonly/></td>
+                <td><input type = "text" id = "lname_field" value = "<%=ln%>" readonly/></td>
             </tr>
             <tr><td>Address:</td>
-                <td><input type = "text" id = "addr_field" value = <%=addr%> readonly/></td>
+                <td><input type = "text" id = "addr_field" value = "<%=c.getAddress()%>" readonly/></td>
             </tr>
             <tr><td>Phone Number:</td>
-                <td><input type = "text" id = "phone_field" value = <%=phone%> readonly/></td>
+                <td><input type = "text" id = "phone_field" value = "<%=phone%>" readonly/></td>
             </tr>
             <tr><td>Card Number:</td>
-                <td><input type = "text" id = "cardnumber_field" value = <%=card_info%> readonly/></td>
+                <td><input type = "text" id = "cardnumber_field" value = "<%=card_info%>" readonly/></td>
             </tr>
             <tr><td>Expiration Date:</td>
-                <td><input type = "text" id = "expire_field" value = <%=exp_date%> readonly/></td>
+                <td><input type = "text" id = "expire_field" value = "<%=exp_date%>" readonly/></td>
             </tr>
             <tr><td>Security Code:</td>
-                <td><input type = "text" id = "security_field" value = <%=sec_code%> readonly/></td>
+                <td><input type = "text" id = "security_field" value = "<%=sec_code%>" readonly/></td>
             </tr>
         </table>
         </div>

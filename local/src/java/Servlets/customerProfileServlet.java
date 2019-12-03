@@ -61,7 +61,7 @@ public class customerProfileServlet extends HttpServlet {
                 c.updateCustomer();
 
                 session.setAttribute("customer", c);
-                RequestDispatcher rd = context.getRequestDispatcher("/edit_customer_profile.jsp");
+                RequestDispatcher rd = context.getRequestDispatcher("/customer_profile.jsp");
                 rd.forward(request, response);
             } catch (Exception e) {
                 System.out.println("Crash in customer profile servlet." + e); //Test code. Remove from final product.

@@ -9,6 +9,7 @@ import Business.Customer;
 import Business.TireList;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -72,19 +73,16 @@ public class AddTiresServlet extends HttpServlet {
             
             String [] selectedTires = request.getParameterValues("selectedTires");
             String [] quantities = request.getParameterValues("quantity");
+            ArrayList<String> outOfStock = new ArrayList<>();
             
             for(int i = 0; i < filteredList.listSize(); i++){
                 for(String selectedTiresElement: selectedTires){
                     if(filteredList.getTire(i).getStockID().equals(selectedTiresElement)){
                         int x = Integer.parseInt(quantities[i]);
-                        filteredList.getTire(i).setQuantity(x);
-                        checkoutList.addItem(filteredList.getTire(i));
+                            filteredList.getTire(i).setQuantity(x);
+                            checkoutList.addItem(filteredList.getTire(i));
                     }
                 }
-            }
-            
-            for(int i = 0; i < checkoutList.listSize(); i++){
-                checkoutList.getTire(i).display();
             }
             session.setAttribute("checkoutList", checkoutList);
             rdCheckout.forward(request, response);

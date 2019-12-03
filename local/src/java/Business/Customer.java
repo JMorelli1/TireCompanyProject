@@ -34,14 +34,16 @@ public class Customer {
  ***********************************************************************************/   
     
     public Customer() {
-        username = "";
-        password = "";
-        ID = "";
-        address = "";
-        phone = "";
-        creditCardInfo = "";
-        expireDate = "";
-        securityCode = "";
+        fname = "Empty";
+        lname = "Empty";
+        username = "Empty";
+        password = "Empty";
+        ID = "Empty";
+        address = "Empty";
+        phone = "Empty";
+        creditCardInfo = "Empty";
+        expireDate = "Empty";
+        securityCode = "0";
     }
     
 /************************************************************************************
@@ -157,7 +159,9 @@ public class Customer {
  ***********************************************************************************/  
     public void display() {
         System.out.println("Displaying Customer properties:\n Name: " + getFN() + " " + getLN() + "\n Username: " + getUsername() + "\n Password: " + getPassword() + "\n ID:" + getID() + "\n Address: " + getAddress() + "\n Phone number: " + getPhone() + "\n Card number: " + getCreditCardInfo() + "\n Expiration: " + getExpireDate() + "\n Security Code: " + getSecurityCode());
+        if(orderList != null){
         orderList.display();
+        }
     }
  
 /************************************************************************************
@@ -232,7 +236,8 @@ public class Customer {
  ***********************************************************************************/  
     public void insertCustomer() {
         
-        sql = "Insert into Customer (CustomerID, Username, Password, FirstName, LastName, Address, PhoneNumber, CreditCardNumber, ExpirationDate, SecurityCode) VALUES ('" +getID()+ "', '" +getUsername()+ "', '" +getPassword()+ "', '"+getFN()+ "', '" +getLN()+ "', '" +getAddress()+ "', '" +getPhone()+ "', '" +getCreditCardInfo()+ "', '" +getExpireDate()+ "', '" +getSecurityCode()+"')";
+        sql = "Insert into Customer (CustomerID, Username, Password, FirstName, LastName, Address, PhoneNumber, CreditCardNumber, ExpirationDate, SecurityCode) VALUES (" +getID()+ ", '" +getUsername()+ "', '" +getPassword()+ "', '"+getFN()+ "', '" +getLN()+ "', '" +getAddress()+ "', '" +getPhone()+ "', '" +getCreditCardInfo()+ "', '" +getExpireDate()+ "'," +getSecurityCode()+")";
+        System.out.println(sql);
         db.insertDB(sql);
     }
 
